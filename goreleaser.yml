@@ -1,0 +1,35 @@
+# .goreleaser.yml
+project_name: vpnctl
+builds:
+  - id: vpnctl
+    main: ./cmd/vpnctl/main.go
+    binary: vpnctl
+    goos:
+      - linux
+      - windows
+      - darwin
+    goarch:
+      - amd64
+      - arm64
+    ldflags:
+      - -s -w -X main.Version={{.Version}}
+
+archives:
+  - id: archive
+    builds:
+      - vpnctl
+    format_overrides:
+      - goos: windows
+        format: zip
+    name_template: "{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
+    files:
+      - LICENSE
+      - README.md
+
+checksum:
+  name_template: "checksums.txt"
+
+# release:
+#   github:
+#     owner: YOUR_GITHUB_USERNAME
+#     name: YOUR_REPO_NAME

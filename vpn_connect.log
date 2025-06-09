@@ -1,0 +1,682 @@
+[2025-06-06 15:30:18] Cisco GUI launched
+[2025-06-06 15:32:15] VPN disconnected
+[2025-06-06 15:32:15] Cisco Secure Client killed
+[2025-06-06 15:36:51] VPN disconnected
+[2025-06-06 15:36:51] Cisco Secure Client killed
+[vpnctl] 2025/06/06 15:39:50 vpnctl.go:33: INFO [2025-06-06 15:39:50] Initiating VPN connection using profile: intra
+[vpnctl] 2025/06/06 15:39:50 vpnctl.go:33: INFO [2025-06-06 15:39:50] Reading credentials from /Users/ts-rohan.das/.vpn/.credentials
+[vpnctl] 2025/06/06 15:39:50 vpnctl.go:39: ERROR [2025-06-06 15:39:50] reading credentials file: open /Users/ts-rohan.das/.vpn/.credentials: no such file or directory
+[vpnctl] 2025/06/06 15:42:31 vpnctl.go:212: INFO [2025-06-06 15:42:31] Initiating VPN connection using profile: intra
+[vpnctl] 2025/06/06 15:42:31 vpnctl.go:212: INFO [2025-06-06 15:42:31] Reading credentials from /Users/ts-rohan.das/.vpn/.credentials
+[vpnctl] 2025/06/06 15:42:31 vpnctl.go:218: ERROR [2025-06-06 15:42:31] reading credentials file: open /Users/ts-rohan.das/.vpn/.credentials: no such file or directory
+[vpnctl] 2025/06/06 15:43:07 vpnctl.go:212: INFO [2025-06-06 15:43:07] Initiating VPN connection using profile: intra
+[vpnctl] 2025/06/06 15:43:07 vpnctl.go:212: INFO [2025-06-06 15:43:07] Reading credentials from /Users/ts-rohan.das/.vpn/.credentials
+[vpnctl] 2025/06/06 15:43:07 vpnctl.go:218: ERROR [2025-06-06 15:43:07] reading credentials file: open /Users/ts-rohan.das/.vpn/.credentials: no such file or directory
+[vpnctl] 2025/06/06 15:43:19 vpnctl.go:212: INFO [2025-06-06 15:43:19] Initiating VPN connection using profile: intra
+[vpnctl] 2025/06/06 15:43:19 vpnctl.go:212: INFO [2025-06-06 15:43:19] Reading credentials from /Users/ts-rohan.das/.vpn/.credential
+[vpnctl] 2025/06/06 15:43:19 vpnctl.go:218: ERROR [2025-06-06 15:43:19] reading credentials file: read /Users/ts-rohan.das/.vpn/.credential: is a directory
+[vpnctl] 2025/06/06 15:44:11 vpnctl.go:212: INFO [2025-06-06 15:44:11] Initiating VPN connection using profile: intra
+[vpnctl] 2025/06/06 15:44:11 vpnctl.go:212: INFO [2025-06-06 15:44:11] Reading credentials from /Users/ts-rohan.das/.vpn/.credential/credential_intra.txt
+[vpnctl] 2025/06/06 15:44:11 vpnctl.go:218: ERROR [2025-06-06 15:44:11] reading credentials file: open /Users/ts-rohan.das/.vpn/.credential/credential_intra.txt: no such file or directory
+[vpnctl] 2025/06/06 15:47:12 vpnctl.go:212: INFO [2025-06-06 15:47:12] Initiating VPN connection using profile: intra
+[vpnctl] 2025/06/06 15:47:12 vpnctl.go:212: INFO [2025-06-06 15:47:12] Reading credentials from /Users/ts-rohan.das/.vpn/.credential/.credential_intra.txt
+[vpnctl] 2025/06/06 15:47:12 vpnctl.go:212: INFO [2025-06-06 15:47:12] Checking current VPN connection status...
+[vpnctl] 2025/06/06 15:47:14 vpnctl.go:212: INFO [2025-06-06 15:47:14] Attempting to disconnect VPN...
+[vpnctl] 2025/06/06 15:47:16 vpnctl.go:212: INFO [2025-06-06 15:47:16] VPN disconnected successfully
+[vpnctl] 2025/06/06 15:47:16 vpnctl.go:218: ERROR [2025-06-06 15:47:16] killing Cisco Secure Client process: exit status 1
+[vpnctl] 2025/06/06 15:47:16 vpnctl.go:212: INFO [2025-06-06 15:47:16] Reading VPN profile script from /Users/ts-rohan.das/.vpn/.intra.txt
+[vpnctl] 2025/06/06 15:47:16 vpnctl.go:212: INFO [2025-06-06 15:47:16] Writing temporary script to /var/folders/dg/l89lqvhd6zlfnyvwxnjd35n40000gn/T/vpn_input.txt
+[vpnctl] 2025/06/06 15:47:16 vpnctl.go:212: INFO [2025-06-06 15:47:16] Running VPN command with provided script
+[vpnctl] 2025/06/06 15:50:33 vpnctl.go:33: INFO [2025-06-06 15:50:33] Initiating VPN connection using profile: intra
+[vpnctl] 2025/06/06 15:50:33 vpnctl.go:33: INFO [2025-06-06 15:50:33] Reading credentials from /Users/ts-rohan.das/.vpn/.credential/.credential_intra.txt
+[vpnctl] 2025/06/06 15:50:33 vpnctl.go:33: INFO [2025-06-06 15:50:33] Invalid credentials file format
+[vpnctl] 2025/06/06 15:50:48 vpnctl.go:33: INFO [2025-06-06 15:50:48] Initiating VPN connection using profile: intra
+[vpnctl] 2025/06/06 15:50:48 vpnctl.go:33: INFO [2025-06-06 15:50:48] Reading credentials from /Users/ts-rohan.das/.vpn/.credential/.credential_intra.txt
+[vpnctl] 2025/06/06 15:50:48 vpnctl.go:33: INFO [2025-06-06 15:50:48] Checking current VPN connection status...
+[vpnctl] 2025/06/06 15:50:50 vpnctl.go:33: INFO [2025-06-06 15:50:50] Attempting to disconnect VPN...
+[vpnctl] 2025/06/06 15:50:52 vpnctl.go:33: INFO [2025-06-06 15:50:52] VPN disconnected
+[vpnctl] 2025/06/06 15:50:52 vpnctl.go:33: INFO [2025-06-06 15:50:52] Cisco Secure Client process killed
+[vpnctl] 2025/06/06 15:50:52 vpnctl.go:33: INFO [2025-06-06 15:50:52] Reading VPN profile script from /Users/ts-rohan.das/.vpn/.intra.txt
+[vpnctl] 2025/06/06 15:50:52 vpnctl.go:33: INFO [2025-06-06 15:50:52] Writing temporary script to /var/folders/dg/l89lqvhd6zlfnyvwxnjd35n40000gn/T/vpn_input.txt
+[vpnctl] 2025/06/06 15:50:52 vpnctl.go:33: INFO [2025-06-06 15:50:52] Running VPN command with provided script
+[vpnctl] 2025/06/06 15:51:49 vpnctl.go:33: INFO [2025-06-06 15:51:49] Connected to VPN profile: intra
+[vpnctl] 2025/06/06 15:51:49 vpnctl.go:33: INFO [2025-06-06 15:51:49] Launching Cisco Secure Client GUI...
+[vpnctl] 2025/06/06 15:51:49 vpnctl.go:33: INFO [2025-06-06 15:51:49] Cisco GUI launched
+[vpnctl] 2025/06/06 15:54:28 vpnctl.go:33: INFO [2025-06-06 15:54:28] Initiating VPN connection using profile: intra
+[vpnctl] 2025/06/06 15:54:28 vpnctl.go:33: INFO [2025-06-06 15:54:28] Reading credentials from /Users/ts-rohan.das/.vpn/.credential/.credential_intra.txt
+[vpnctl] 2025/06/06 15:54:28 vpnctl.go:33: INFO [2025-06-06 15:54:28] Checking current VPN connection status...
+[vpnctl] 2025/06/06 15:54:30 vpnctl.go:33: INFO [2025-06-06 15:54:30] VPN already connected. Aborting connect operation.
+[vpnctl] 2025/06/06 15:54:51 vpnctl.go:33: INFO [2025-06-06 15:54:51] Initiating VPN connection using profile: dev
+[vpnctl] 2025/06/06 15:54:51 vpnctl.go:33: INFO [2025-06-06 15:54:51] Reading credentials from /Users/ts-rohan.das/.vpn/.credential/.credential_intra.txt
+[vpnctl] 2025/06/06 15:54:51 vpnctl.go:33: INFO [2025-06-06 15:54:51] Checking current VPN connection status...
+[vpnctl] 2025/06/06 15:54:53 vpnctl.go:33: INFO [2025-06-06 15:54:53] VPN already connected. Aborting connect operation.
+[vpnctl] 2025/06/06 15:56:00 vpnctl.go:33: INFO [2025-06-06 15:56:00] Attempting to disconnect VPN...
+[vpnctl] 2025/06/06 15:56:02 vpnctl.go:33: INFO [2025-06-06 15:56:02] VPN disconnected
+[vpnctl] 2025/06/06 15:56:02 vpnctl.go:33: INFO [2025-06-06 15:56:02] Cisco Secure Client process killed
+[vpnctl] 2025/06/06 15:56:07 vpnctl.go:33: INFO [2025-06-06 15:56:07] Initiating VPN connection using profile: intra
+[vpnctl] 2025/06/06 15:56:07 vpnctl.go:33: INFO [2025-06-06 15:56:07] Reading credentials from /Users/ts-rohan.das/.vpn/.credential/.credential_intra.txt
+[vpnctl] 2025/06/06 15:56:07 vpnctl.go:33: INFO [2025-06-06 15:56:07] Checking current VPN connection status...
+[vpnctl] 2025/06/06 15:56:09 vpnctl.go:33: INFO [2025-06-06 15:56:09] Attempting to disconnect VPN...
+[vpnctl] 2025/06/06 15:56:13 vpnctl.go:33: INFO [2025-06-06 15:56:13] Initiating VPN connection using profile: dev
+[vpnctl] 2025/06/06 15:56:13 vpnctl.go:33: INFO [2025-06-06 15:56:13] Reading credentials from /Users/ts-rohan.das/.vpn/.credential/.credential_intra.txt
+[vpnctl] 2025/06/06 15:56:13 vpnctl.go:33: INFO [2025-06-06 15:56:13] Checking current VPN connection status...
+[vpnctl] 2025/06/06 15:56:15 vpnctl.go:33: INFO [2025-06-06 15:56:15] Attempting to disconnect VPN...
+[vpnctl] 2025/06/06 15:56:17 vpnctl.go:33: INFO [2025-06-06 15:56:17] VPN disconnected
+[vpnctl] 2025/06/06 15:56:17 vpnctl.go:33: INFO [2025-06-06 15:56:17] Cisco Secure Client process killed
+[vpnctl] 2025/06/06 15:56:17 vpnctl.go:33: INFO [2025-06-06 15:56:17] Reading VPN profile script from /Users/ts-rohan.das/.vpn/.dev.txt
+[vpnctl] 2025/06/06 15:56:17 vpnctl.go:33: INFO [2025-06-06 15:56:17] Writing temporary script to /var/folders/dg/l89lqvhd6zlfnyvwxnjd35n40000gn/T/vpn_input.txt
+[vpnctl] 2025/06/06 15:56:17 vpnctl.go:33: INFO [2025-06-06 15:56:17] Running VPN command with provided script
+[vpnctl] 2025/06/06 16:06:32 vpnctl.go:33: INFO [2025-06-06 16:06:32] Initiating VPN connection using profile: dev
+[vpnctl] 2025/06/06 16:06:32 vpnctl.go:33: INFO [2025-06-06 16:06:32] Reading credentials from /Users/ts-rohan.das/.vpn/.credential/.credential_intra.txt
+[vpnctl] 2025/06/06 16:06:32 vpnctl.go:33: INFO [2025-06-06 16:06:32] Reading credentials for dev (hidden path)
+[vpnctl] 2025/06/06 16:06:32 vpnctl.go:39: ERROR [2025-06-06 16:06:32] reading credentials: open /Users/ts-rohan.das/.vpn/.credentials_dev: no such file or directory
+[vpnctl] 2025/06/06 16:07:01 vpnctl.go:33: INFO [2025-06-06 16:07:01] Initiating VPN connection using profile: dev
+[vpnctl] 2025/06/06 16:07:01 vpnctl.go:33: INFO [2025-06-06 16:07:01] Reading credentials from /Users/ts-rohan.das/.vpn/.credential/.credential_intra.txt
+[vpnctl] 2025/06/06 16:07:01 vpnctl.go:33: INFO [2025-06-06 16:07:01] Reading credentials for dev (hidden path)
+[vpnctl] 2025/06/06 16:07:01 vpnctl.go:39: ERROR [2025-06-06 16:07:01] reading credentials: open /Users/ts-rohan.das/.vpn/.credentials_dev: no such file or directory
+[vpnctl] 2025/06/06 16:08:58 vpnctl.go:33: INFO [2025-06-06 16:08:58] Initiating VPN connection using profile: dev
+[vpnctl] 2025/06/06 16:08:58 vpnctl.go:33: INFO [2025-06-06 16:08:58] Reading credentials from /Users/ts-rohan.das/.vpn/.credential/.credential_intra.txt
+[vpnctl] 2025/06/06 16:08:58 vpnctl.go:33: INFO [2025-06-06 16:08:58] Reading credentials for dev (hidden path)
+[vpnctl] 2025/06/06 16:08:58 vpnctl.go:39: ERROR [2025-06-06 16:08:58] reading credentials: open /Users/ts-rohan.das/.vpn/.credential_dev: no such file or directory
+[vpnctl] 2025/06/06 16:09:51 vpnctl.go:33: INFO [2025-06-06 16:09:51] Initiating VPN connection using profile: dev
+[vpnctl] 2025/06/06 16:09:51 vpnctl.go:33: INFO [2025-06-06 16:09:51] Reading credentials from /Users/ts-rohan.das/.vpn/.credential/.credential_intra.txt
+[vpnctl] 2025/06/06 16:09:51 vpnctl.go:33: INFO [2025-06-06 16:09:51] Reading credentials for dev (hidden path)
+[vpnctl] 2025/06/06 16:11:38 vpnctl.go:33: INFO [2025-06-06 16:11:38] Initiating VPN connection using profile: dev
+[vpnctl] 2025/06/06 16:11:38 vpnctl.go:33: INFO [2025-06-06 16:11:38] Reading credentials from /Users/ts-rohan.das/.vpn/.credential/.credential_intra.txt
+[vpnctl] 2025/06/06 16:11:38 vpnctl.go:33: INFO [2025-06-06 16:11:38] Reading credentials for dev (hidden path)
+[vpnctl] 2025/06/06 16:11:38 vpnctl.go:33: INFO [2025-06-06 16:11:38] Checking current VPN connection status...
+[vpnctl] 2025/06/06 16:11:40 vpnctl.go:33: INFO [2025-06-06 16:11:40] Attempting to disconnect VPN...
+[vpnctl] 2025/06/06 16:11:42 vpnctl.go:33: INFO [2025-06-06 16:11:42] VPN disconnected
+[vpnctl] 2025/06/06 16:11:42 vpnctl.go:33: INFO [2025-06-06 16:11:42] Cisco Secure Client process killed
+[vpnctl] 2025/06/06 16:11:42 vpnctl.go:33: INFO [2025-06-06 16:11:42] Reading VPN profile script from /Users/ts-rohan.das/.vpn/.dev.txt
+[vpnctl] 2025/06/06 16:11:42 vpnctl.go:33: INFO [2025-06-06 16:11:42] Writing temporary script to /var/folders/dg/l89lqvhd6zlfnyvwxnjd35n40000gn/T/vpn_input.txt
+[vpnctl] 2025/06/06 16:11:42 vpnctl.go:33: INFO [2025-06-06 16:11:42] Running VPN command with provided script
+[vpnctl] 2025/06/06 16:13:17 vpnctl.go:33: INFO [2025-06-06 16:13:17] Connected to VPN profile: dev
+[vpnctl] 2025/06/06 16:13:17 vpnctl.go:33: INFO [2025-06-06 16:13:17] Launching Cisco Secure Client GUI...
+[vpnctl] 2025/06/06 16:13:17 vpnctl.go:33: INFO [2025-06-06 16:13:17] Cisco GUI launched
+[vpnctl] 2025/06/06 16:16:01 vpnctl.go:34: INFO [2025-06-06 16:16:01] Initiating VPN connection using profile: dev
+[vpnctl] 2025/06/06 16:16:01 vpnctl.go:34: INFO [2025-06-06 16:16:01] Reading credentials from /Users/ts-rohan.das/.vpn/.credential/.credential_intra.txt
+[vpnctl] 2025/06/06 16:16:01 vpnctl.go:34: INFO [2025-06-06 16:16:01] Reading credentials for dev (hidden path)
+[vpnctl] 2025/06/06 16:16:01 vpnctl.go:34: INFO [2025-06-06 16:16:01] Checking current VPN connection status...
+[vpnctl] 2025/06/06 16:16:03 vpnctl.go:34: INFO [2025-06-06 16:16:03] VPN already connected. Aborting connect operation.
+[vpnctl] 2025/06/06 16:16:10 vpnctl.go:34: INFO [2025-06-06 16:16:10] Initiating VPN connection using profile: disconnect
+[vpnctl] 2025/06/06 16:16:10 vpnctl.go:34: INFO [2025-06-06 16:16:10] Unknown VPN profile
+[vpnctl] 2025/06/06 16:16:18 vpnctl.go:34: INFO [2025-06-06 16:16:18] Attempting to disconnect VPN...
+[vpnctl] 2025/06/06 16:16:20 vpnctl.go:34: INFO [2025-06-06 16:16:20] VPN disconnected
+[vpnctl] 2025/06/06 16:16:20 vpnctl.go:34: INFO [2025-06-06 16:16:20] Cisco Secure Client process killed
+[vpnctl] 2025/06/06 16:16:22 vpnctl.go:34: INFO [2025-06-06 16:16:22] Initiating VPN connection using profile: dev
+[vpnctl] 2025/06/06 16:16:22 vpnctl.go:34: INFO [2025-06-06 16:16:22] Reading credentials from /Users/ts-rohan.das/.vpn/.credential/.credential_intra.txt
+[vpnctl] 2025/06/06 16:16:22 vpnctl.go:34: INFO [2025-06-06 16:16:22] Reading credentials for dev (hidden path)
+[vpnctl] 2025/06/06 16:16:22 vpnctl.go:34: INFO [2025-06-06 16:16:22] Checking current VPN connection status...
+[vpnctl] 2025/06/06 16:16:24 vpnctl.go:34: INFO [2025-06-06 16:16:24] Attempting to disconnect VPN...
+[vpnctl] 2025/06/06 16:16:26 vpnctl.go:34: INFO [2025-06-06 16:16:26] VPN disconnected
+[vpnctl] 2025/06/06 16:16:26 vpnctl.go:34: INFO [2025-06-06 16:16:26] Cisco Secure Client process killed
+[vpnctl] 2025/06/06 16:16:26 vpnctl.go:34: INFO [2025-06-06 16:16:26] Reading VPN profile script from /Users/ts-rohan.das/.vpn/.dev.txt
+[vpnctl] 2025/06/06 16:16:26 vpnctl.go:34: INFO [2025-06-06 16:16:26] Writing temporary script to /var/folders/dg/l89lqvhd6zlfnyvwxnjd35n40000gn/T/vpn_input.txt
+[vpnctl] 2025/06/06 16:16:26 vpnctl.go:34: INFO [2025-06-06 16:16:26] Running VPN command with provided script
+[vpnctl] 2025/06/06 16:30:54 vpnctl.go:33: INFO [2025-06-06 16:30:54] Initiating VPN connection using profile: dev
+[vpnctl] 2025/06/06 16:30:54 vpnctl.go:33: INFO [2025-06-06 16:30:54] Reading credentials from /Users/ts-rohan.das/.vpn/.credential/.credential_intra.txt
+[vpnctl] 2025/06/06 16:30:54 vpnctl.go:33: INFO [2025-06-06 16:30:54] Reading credentials for dev (hidden path)
+[vpnctl] 2025/06/06 16:30:54 vpnctl.go:33: INFO [2025-06-06 16:30:54] Checking current VPN connection status...
+[vpnctl] 2025/06/06 16:30:57 vpnctl.go:33: INFO [2025-06-06 16:30:57] VPN already connected. Aborting connect operation.
+[vpnctl] 2025/06/06 16:33:34 vpnctl.go:33: INFO [2025-06-06 16:33:34] Initiating VPN connection using profile: dev
+[vpnctl] 2025/06/06 16:33:34 vpnctl.go:33: INFO [2025-06-06 16:33:34] Reading credentials from /Users/ts-rohan.das/.vpn/.credential/.credential_intra.txt
+[vpnctl] 2025/06/06 16:33:34 vpnctl.go:33: INFO [2025-06-06 16:33:34] Reading credentials for dev (hidden path)
+[vpnctl] 2025/06/06 16:33:34 vpnctl.go:33: INFO [2025-06-06 16:33:34] Checking current VPN connection status...
+[vpnctl] 2025/06/06 16:33:36 vpnctl.go:33: INFO [2025-06-06 16:33:36] VPN already connected. Aborting connect operation.
+[vpnctl] 2025/06/06 16:34:29 vpnctl.go:33: INFO [2025-06-06 16:34:29] Attempting to disconnect VPN...
+[vpnctl] 2025/06/06 16:34:31 vpnctl.go:33: INFO [2025-06-06 16:34:31] VPN disconnected
+[vpnctl] 2025/06/06 16:34:31 vpnctl.go:33: INFO [2025-06-06 16:34:31] Cisco Secure Client process killed
+[vpnctl] 2025/06/06 16:34:33 vpnctl.go:33: INFO [2025-06-06 16:34:33] Initiating VPN connection using profile: dev
+[vpnctl] 2025/06/06 16:34:33 vpnctl.go:33: INFO [2025-06-06 16:34:33] Reading credentials from /Users/ts-rohan.das/.vpn/.credential/.credential_intra.txt
+[vpnctl] 2025/06/06 16:34:33 vpnctl.go:33: INFO [2025-06-06 16:34:33] Reading credentials for dev (hidden path)
+[vpnctl] 2025/06/06 16:34:33 vpnctl.go:33: INFO [2025-06-06 16:34:33] Checking current VPN connection status...
+[vpnctl] 2025/06/06 16:34:35 vpnctl.go:33: INFO [2025-06-06 16:34:35] Attempting to disconnect VPN...
+[vpnctl] 2025/06/06 16:34:37 vpnctl.go:33: INFO [2025-06-06 16:34:37] VPN disconnected
+[vpnctl] 2025/06/06 16:34:37 vpnctl.go:33: INFO [2025-06-06 16:34:37] Cisco Secure Client process killed
+[vpnctl] 2025/06/06 16:34:37 vpnctl.go:33: INFO [2025-06-06 16:34:37] Reading VPN profile script from /Users/ts-rohan.das/.vpn/.dev.txt
+[vpnctl] 2025/06/06 16:34:37 vpnctl.go:33: INFO [2025-06-06 16:34:37] Writing temporary script to /var/folders/dg/l89lqvhd6zlfnyvwxnjd35n40000gn/T/vpn_input.txt
+[vpnctl] 2025/06/06 16:34:37 vpnctl.go:33: INFO [2025-06-06 16:34:37] Running VPN command with provided script
+[vpnctl] 2025/06/06 16:35:48 vpnctl.go:33: INFO [2025-06-06 16:35:48] Attempting to disconnect VPN...
+[vpnctl] 2025/06/06 16:35:50 vpnctl.go:33: INFO [2025-06-06 16:35:50] VPN disconnected
+[vpnctl] 2025/06/06 16:35:50 vpnctl.go:33: INFO [2025-06-06 16:35:50] Cisco Secure Client process killed
+[vpnctl] 2025/06/06 16:36:19 vpnctl.go:33: INFO [2025-06-06 16:36:19] Initiating VPN connection using profile: dev
+[vpnctl] 2025/06/06 16:36:19 vpnctl.go:33: INFO [2025-06-06 16:36:19] Reading credentials from /Users/ts-rohan.das/.vpn/.credential/.credential_intra.txt
+[vpnctl] 2025/06/06 16:36:19 vpnctl.go:33: INFO [2025-06-06 16:36:19] Reading credentials for dev (hidden path)
+[vpnctl] 2025/06/06 16:36:19 vpnctl.go:33: INFO [2025-06-06 16:36:19] Checking current VPN connection status...
+[vpnctl] 2025/06/06 16:36:21 vpnctl.go:33: INFO [2025-06-06 16:36:21] Attempting to disconnect VPN...
+[vpnctl] 2025/06/06 16:36:23 vpnctl.go:33: INFO [2025-06-06 16:36:23] VPN disconnected
+[vpnctl] 2025/06/06 16:36:23 vpnctl.go:33: INFO [2025-06-06 16:36:23] Cisco Secure Client process killed
+[vpnctl] 2025/06/06 16:36:23 vpnctl.go:33: INFO [2025-06-06 16:36:23] Reading VPN profile script from /Users/ts-rohan.das/.vpn/.dev.txt
+[vpnctl] 2025/06/06 16:36:23 vpnctl.go:33: INFO [2025-06-06 16:36:23] Writing temporary script to /var/folders/dg/l89lqvhd6zlfnyvwxnjd35n40000gn/T/vpn_input.txt
+[vpnctl] 2025/06/06 16:36:23 vpnctl.go:33: INFO [2025-06-06 16:36:23] Running VPN command with provided script
+[vpnctl] 2025/06/06 16:37:40 vpnctl.go:42: ERROR [2025-06-06 16:37:40] connecting to VPN: exit status 255
+[vpnctl] 2025/06/06 16:38:37 vpnctl.go:33: INFO [2025-06-06 16:38:37] Initiating VPN connection using profile: dev
+[vpnctl] 2025/06/06 16:38:37 vpnctl.go:33: INFO [2025-06-06 16:38:37] Reading credentials from /Users/ts-rohan.das/.vpn/.credential/.credential_intra.txt
+[vpnctl] 2025/06/06 16:38:37 vpnctl.go:33: INFO [2025-06-06 16:38:37] Reading credentials for dev (hidden path)
+[vpnctl] 2025/06/06 16:38:37 vpnctl.go:33: INFO [2025-06-06 16:38:37] Checking current VPN connection status...
+[vpnctl] 2025/06/06 16:38:46 vpnctl.go:32: INFO [2025-06-06 16:38:46] Initiating VPN connection using profile: dev
+[vpnctl] 2025/06/06 16:38:46 vpnctl.go:32: INFO [2025-06-06 16:38:46] Reading credentials from /Users/ts-rohan.das/.vpn/.credential/.credential_intra.txt
+[vpnctl] 2025/06/06 16:38:46 vpnctl.go:32: INFO [2025-06-06 16:38:46] Reading credentials for dev (hidden path)
+[vpnctl] 2025/06/06 16:38:46 vpnctl.go:32: INFO [2025-06-06 16:38:46] Checking current VPN connection status...
+[vpnctl] 2025/06/06 16:38:48 vpnctl.go:32: INFO [2025-06-06 16:38:48] Attempting to disconnect VPN...
+[vpnctl] 2025/06/06 16:38:50 vpnctl.go:32: INFO [2025-06-06 16:38:50] VPN disconnected
+[vpnctl] 2025/06/06 16:38:50 vpnctl.go:32: INFO [2025-06-06 16:38:50] Cisco Secure Client process killed
+[vpnctl] 2025/06/06 16:38:50 vpnctl.go:32: INFO [2025-06-06 16:38:50] Reading VPN profile script from /Users/ts-rohan.das/.vpn/.dev.txt
+[vpnctl] 2025/06/06 16:38:50 vpnctl.go:32: INFO [2025-06-06 16:38:50] Writing temporary script to /var/folders/dg/l89lqvhd6zlfnyvwxnjd35n40000gn/T/vpn_input.txt
+[vpnctl] 2025/06/06 16:38:50 vpnctl.go:32: INFO [2025-06-06 16:38:50] Running VPN command with provided script
+[vpnctl] 2025/06/06 16:39:16 vpnctl.go:32: INFO [2025-06-06 16:39:16] Initiating VPN connection using profile: dev
+[vpnctl] 2025/06/06 16:39:16 vpnctl.go:32: INFO [2025-06-06 16:39:16] Reading credentials from /Users/ts-rohan.das/.vpn/.credential/.credential_intra.txt
+[vpnctl] 2025/06/06 16:39:16 vpnctl.go:32: INFO [2025-06-06 16:39:16] Reading credentials for dev (hidden path)
+[vpnctl] 2025/06/06 16:39:16 vpnctl.go:32: INFO [2025-06-06 16:39:16] Checking current VPN connection status...
+[vpnctl] 2025/06/06 16:39:18 vpnctl.go:32: INFO [2025-06-06 16:39:18] Attempting to disconnect VPN...
+[vpnctl] 2025/06/06 16:39:20 vpnctl.go:32: INFO [2025-06-06 16:39:20] VPN disconnected
+[vpnctl] 2025/06/06 16:39:20 vpnctl.go:32: INFO [2025-06-06 16:39:20] Cisco Secure Client process killed
+[vpnctl] 2025/06/06 16:39:20 vpnctl.go:32: INFO [2025-06-06 16:39:20] Reading VPN profile script from /Users/ts-rohan.das/.vpn/.dev.txt
+[vpnctl] 2025/06/06 16:39:20 vpnctl.go:32: INFO [2025-06-06 16:39:20] Writing temporary script to /var/folders/dg/l89lqvhd6zlfnyvwxnjd35n40000gn/T/vpn_input.txt
+[vpnctl] 2025/06/06 16:39:20 vpnctl.go:32: INFO [2025-06-06 16:39:20] Running VPN command with provided script
+[vpnctl] 2025/06/06 16:39:45 vpnctl.go:32: INFO [2025-06-06 16:39:45] Initiating VPN connection using profile: dev
+[vpnctl] 2025/06/06 16:39:45 vpnctl.go:32: INFO [2025-06-06 16:39:45] Reading credentials from /Users/ts-rohan.das/.vpn/.credential/.credential_intra.txt
+[vpnctl] 2025/06/06 16:39:45 vpnctl.go:32: INFO [2025-06-06 16:39:45] Reading credentials for dev (hidden path)
+[vpnctl] 2025/06/06 16:39:45 vpnctl.go:32: INFO [2025-06-06 16:39:45] Checking current VPN connection status...
+[vpnctl] 2025/06/06 16:39:47 vpnctl.go:32: INFO [2025-06-06 16:39:47] Attempting to disconnect VPN...
+[vpnctl] 2025/06/06 16:39:49 vpnctl.go:32: INFO [2025-06-06 16:39:49] VPN disconnected
+[vpnctl] 2025/06/06 16:39:49 vpnctl.go:32: INFO [2025-06-06 16:39:49] Cisco Secure Client process killed
+[vpnctl] 2025/06/06 16:39:49 vpnctl.go:32: INFO [2025-06-06 16:39:49] Reading VPN profile script from /Users/ts-rohan.das/.vpn/.dev.txt
+[vpnctl] 2025/06/06 16:39:49 vpnctl.go:32: INFO [2025-06-06 16:39:49] Running VPN command with provided script
+[vpnctl] 2025/06/06 16:43:47 vpnctl.go:32: INFO [2025-06-06 16:43:47] Initiating VPN connection using profile: dev
+[vpnctl] 2025/06/06 16:43:47 vpnctl.go:32: INFO [2025-06-06 16:43:47] Reading credentials from /Users/ts-rohan.das/.vpn/.credential/.credential_intra.txt
+[vpnctl] 2025/06/06 16:43:47 vpnctl.go:32: INFO [2025-06-06 16:43:47] Reading credentials for dev (hidden path)
+[vpnctl] 2025/06/06 16:43:47 vpnctl.go:32: INFO [2025-06-06 16:43:47] Checking current VPN connection status...
+[vpnctl] 2025/06/06 16:44:11 vpnctl.go:32: INFO [2025-06-06 16:44:11] Initiating VPN connection using profile: dev
+[vpnctl] 2025/06/06 16:44:11 vpnctl.go:32: INFO [2025-06-06 16:44:11] Reading credentials from (hidden path)
+[vpnctl] 2025/06/06 16:44:11 vpnctl.go:32: INFO [2025-06-06 16:44:11] Reading credentials for dev (hidden path)
+[vpnctl] 2025/06/06 16:44:11 vpnctl.go:32: INFO [2025-06-06 16:44:11] Checking current VPN connection status...
+[vpnctl] 2025/06/06 16:44:13 vpnctl.go:32: INFO [2025-06-06 16:44:13] Attempting to disconnect VPN...
+[vpnctl] 2025/06/06 16:44:15 vpnctl.go:32: INFO [2025-06-06 16:44:15] VPN disconnected
+[vpnctl] 2025/06/06 16:44:15 vpnctl.go:32: INFO [2025-06-06 16:44:15] Cisco Secure Client process killed
+[vpnctl] 2025/06/06 16:44:15 vpnctl.go:32: INFO [2025-06-06 16:44:15] Reading VPN profile script from (hidden path)
+[vpnctl] 2025/06/06 16:44:15 vpnctl.go:32: INFO [2025-06-06 16:44:15] Running VPN command with provided script
+[vpnctl] 2025/06/06 16:45:47 vpnctl.go:38: ERROR [2025-06-06 16:45:47] connecting to VPN: exit status 255
+[vpnctl] 2025/06/06 16:47:15 vpnctl.go:32: INFO [2025-06-06 16:47:15] Initiating VPN connection using profile: dev
+[vpnctl] 2025/06/06 16:47:15 vpnctl.go:32: INFO [2025-06-06 16:47:15] Reading credentials from (hidden path)
+[vpnctl] 2025/06/06 16:47:15 vpnctl.go:32: INFO [2025-06-06 16:47:15] Reading credentials for dev (hidden path)
+[vpnctl] 2025/06/06 16:47:15 vpnctl.go:32: INFO [2025-06-06 16:47:15] Checking current VPN connection status...
+[vpnctl] 2025/06/06 16:47:17 vpnctl.go:32: INFO [2025-06-06 16:47:17] Attempting to disconnect VPN...
+[vpnctl] 2025/06/06 16:47:19 vpnctl.go:32: INFO [2025-06-06 16:47:19] VPN disconnected
+[vpnctl] 2025/06/06 16:47:19 vpnctl.go:32: INFO [2025-06-06 16:47:19] Cisco Secure Client process killed
+[vpnctl] 2025/06/06 16:47:19 vpnctl.go:32: INFO [2025-06-06 16:47:19] Reading VPN profile script from (hidden path)
+[vpnctl] 2025/06/06 16:47:19 vpnctl.go:32: INFO [2025-06-06 16:47:19] Running VPN command with provided script
+[vpnctl] 2025/06/06 16:48:57 vpnctl.go:38: ERROR [2025-06-06 16:48:57] connecting to VPN: exit status 255
+[vpnctl] 2025/06/06 16:50:09 vpnctl.go:35: INFO [2025-06-06 16:50:09] vpnctl.go:80 Initiating VPN connection using profile: dev
+[vpnctl] 2025/06/06 16:50:09 vpnctl.go:35: INFO [2025-06-06 16:50:09] vpnctl.go:89 Reading credentials from (hidden path)
+[vpnctl] 2025/06/06 16:50:09 vpnctl.go:35: INFO [2025-06-06 16:50:09] vpnctl.go:186 Reading credentials for dev (hidden path)
+[vpnctl] 2025/06/06 16:50:09 vpnctl.go:35: INFO [2025-06-06 16:50:09] vpnctl.go:97 Checking current VPN connection status...
+[vpnctl] 2025/06/06 16:50:11 vpnctl.go:35: INFO [2025-06-06 16:50:11] vpnctl.go:60 Attempting to disconnect VPN...
+[vpnctl] 2025/06/06 16:50:13 vpnctl.go:35: INFO [2025-06-06 16:50:13] vpnctl.go:62 VPN disconnected
+[vpnctl] 2025/06/06 16:50:13 vpnctl.go:35: INFO [2025-06-06 16:50:13] vpnctl.go:64 Cisco Secure Client process killed
+[vpnctl] 2025/06/06 16:50:13 vpnctl.go:35: INFO [2025-06-06 16:50:13] vpnctl.go:107 Reading VPN profile script from (hidden path)
+[vpnctl] 2025/06/06 16:50:13 vpnctl.go:35: INFO [2025-06-06 16:50:13] vpnctl.go:128 Running VPN command with provided script
+[vpnctl] 2025/06/06 16:51:38 vpnctl.go:35: INFO [2025-06-06 16:51:38] vpnctl.go:139 Connected to VPN profile: dev
+[vpnctl] 2025/06/06 16:51:38 vpnctl.go:35: INFO [2025-06-06 16:51:38] vpnctl.go:74 Launching Cisco Secure Client GUI...
+[vpnctl] 2025/06/06 16:51:38 vpnctl.go:35: INFO [2025-06-06 16:51:38] vpnctl.go:76 Cisco GUI launched
+[vpnctl] 2025/06/06 16:52:35 vpnctl.go:35: INFO [2025-06-06 16:52:35] vpnctl.go:74 Launching Cisco Secure Client GUI...
+[vpnctl] 2025/06/06 16:52:35 vpnctl.go:35: INFO [2025-06-06 16:52:35] vpnctl.go:76 Cisco GUI launched
+[vpnctl] 2025/06/06 17:16:00 logger.go:32: INFO [2025-06-06 17:16:00] vpnctl.go:52 Checking VPN status...
+[vpnctl] 2025/06/06 17:16:01 logger.go:40: ERROR [2025-06-06 17:16:01] vpnctl.go:56 retrieving VPN status: signal: killed
+[vpnctl] 2025/06/06 17:16:18 logger.go:32: INFO [2025-06-06 17:16:18] vpnctl.go:52 Checking VPN status...
+[vpnctl] 2025/06/06 17:17:32 logger.go:32: INFO [2025-06-06 17:17:32] vpnctl.go:52 Checking VPN status...
+[vpnctl] 2025/06/06 17:18:15 logger.go:32: INFO [2025-06-06 17:18:15] vpnctl.go:64 Attempting to disconnect VPN...
+[vpnctl] 2025/06/06 17:20:29 logger.go:32: INFO [2025-06-06 17:20:29] vpnctl.go:84 Initiating VPN connection using profile: intra
+[vpnctl] 2025/06/06 17:20:29 logger.go:32: INFO [2025-06-06 17:20:29] vpnctl.go:93 Reading credentials from (hidden path)
+[vpnctl] 2025/06/06 17:20:29 logger.go:32: INFO [2025-06-06 17:20:29] vpnctl.go:190 Reading credentials for intra (hidden path)
+[vpnctl] 2025/06/06 17:20:29 logger.go:32: INFO [2025-06-06 17:20:29] vpnctl.go:101 Checking current VPN connection status...
+[vpnctl] 2025/06/06 17:26:38 logger.go:32: INFO [2025-06-06 17:26:38] vpnctl.go:49 Checking VPN status...
+[vpnctl] 2025/06/06 17:31:06 logger.go:32: INFO [2025-06-06 17:31:06] vpnctl.go:24 Checking VPN status...
+[vpnctl] 2025/06/09 09:16:37 vpnctl.go:35: INFO [2025-06-09 09:16:37] vpnctl.go:80 Initiating VPN connection using profile: intra
+[vpnctl] 2025/06/09 09:16:37 vpnctl.go:35: INFO [2025-06-09 09:16:37] vpnctl.go:89 Reading credentials from (hidden path)
+[vpnctl] 2025/06/09 09:16:37 vpnctl.go:35: INFO [2025-06-09 09:16:37] vpnctl.go:186 Reading credentials for intra (hidden path)
+[vpnctl] 2025/06/09 09:16:37 vpnctl.go:35: INFO [2025-06-09 09:16:37] vpnctl.go:97 Checking current VPN connection status...
+[vpnctl] 2025/06/09 09:16:37 vpnctl.go:35: INFO [2025-06-09 09:16:37] vpnctl.go:60 Attempting to disconnect VPN...
+[vpnctl] 2025/06/09 09:16:37 vpnctl.go:35: INFO [2025-06-09 09:16:37] vpnctl.go:62 VPN disconnected
+[vpnctl] 2025/06/09 09:16:37 vpnctl.go:35: INFO [2025-06-09 09:16:37] vpnctl.go:64 Cisco Secure Client process killed
+[vpnctl] 2025/06/09 09:16:37 vpnctl.go:35: INFO [2025-06-09 09:16:37] vpnctl.go:107 Reading VPN profile script from (hidden path)
+[vpnctl] 2025/06/09 09:16:37 vpnctl.go:35: INFO [2025-06-09 09:16:37] vpnctl.go:128 Running VPN command with provided script
+[vpnctl] 2025/06/09 09:16:37 vpnctl.go:43: ERROR [2025-06-09 09:16:37] vpnctl.go:135 connecting to VPN: signal: killed
+[vpnctl] 2025/06/09 10:12:17 logger.go:32: INFO [2025-06-09 10:12:17] vpnctl.go:23 Checking VPN status...
+[vpnctl] 2025/06/09 10:12:17 logger.go:32: INFO [2025-06-09 10:12:17] vpnctl.go:26 Checking VPN status...1
+[vpnctl] 2025/06/09 10:15:00 logger.go:32: INFO [2025-06-09 10:15:00] vpnctl.go:23 Checking VPN status...
+[vpnctl] 2025/06/09 10:15:00 logger.go:32: INFO [2025-06-09 10:15:00] vpnctl.go:26 Checking VPN status...1
+[vpnctl] 2025/06/09 10:15:33 logger.go:32: INFO [2025-06-09 10:15:33] vpnctl.go:63 Launching Cisco Secure Client GUI...
+[vpnctl] 2025/06/09 10:15:33 logger.go:32: INFO [2025-06-09 10:15:33] vpnctl.go:65 Cisco GUI launched
+[vpnctl] 2025/06/09 10:16:42 logger.go:32: INFO [2025-06-09 10:16:42] vpnctl.go:63 Launching Cisco Secure Client GUI...
+[vpnctl] 2025/06/09 10:16:43 logger.go:32: INFO [2025-06-09 10:16:43] vpnctl.go:65 Cisco GUI launched
+[vpnctl] 2025/06/09 10:16:54 logger.go:32: INFO [2025-06-09 10:16:54] vpnctl.go:23 Checking VPN status...
+[vpnctl] 2025/06/09 10:16:54 logger.go:32: INFO [2025-06-09 10:16:54] vpnctl.go:26 Checking VPN status...1
+[vpnctl] 2025/06/09 10:17:31 logger.go:32: INFO [2025-06-09 10:17:31] vpnctl.go:57 Killing Cisco Secure Client GUI...
+[vpnctl] 2025/06/09 10:17:31 logger.go:32: INFO [2025-06-09 10:17:31] vpnctl.go:59 Cisco GUI killed
+[vpnctl] 2025/06/09 10:17:36 logger.go:32: INFO [2025-06-09 10:17:36] vpnctl.go:63 Launching Cisco Secure Client GUI...
+[vpnctl] 2025/06/09 10:17:36 logger.go:32: INFO [2025-06-09 10:17:36] vpnctl.go:65 Cisco GUI launched
+[vpnctl] 2025/06/09 10:18:31 logger.go:32: INFO [2025-06-09 10:18:31] vpnctl.go:69 Initiating VPN connection using profile: intra
+[vpnctl] 2025/06/09 10:18:31 logger.go:32: INFO [2025-06-09 10:18:31] vpnctl.go:175 Reading credentials for intra (hidden path)
+[vpnctl] 2025/06/09 10:18:31 logger.go:40: ERROR [2025-06-09 10:18:31] vpnctl.go:79 reading credentials: open /Users/ts-rohan.das/.vpn/.credentials_intra: no such file or directory
+[vpnctl] 2025/06/09 10:19:16 logger.go:32: INFO [2025-06-09 10:19:16] vpnctl.go:69 Initiating VPN connection using profile: intra
+[vpnctl] 2025/06/09 10:19:16 logger.go:32: INFO [2025-06-09 10:19:16] vpnctl.go:175 Reading credentials for intra (hidden path)
+[vpnctl] 2025/06/09 10:19:16 logger.go:40: ERROR [2025-06-09 10:19:16] vpnctl.go:79 reading credentials: open /Users/ts-rohan.das/.vpn/.credential_intra: no such file or directory
+[vpnctl] 2025/06/09 10:20:48 logger.go:32: INFO [2025-06-09 10:20:48] vpnctl.go:69 Initiating VPN connection using profile: intra
+[vpnctl] 2025/06/09 10:20:48 logger.go:32: INFO [2025-06-09 10:20:48] vpnctl.go:175 Reading credentials for intra (hidden path)
+[vpnctl] 2025/06/09 10:20:48 logger.go:32: INFO [2025-06-09 10:20:48] vpnctl.go:83 Checking current VPN connection status...
+[vpnctl] 2025/06/09 10:25:57 logger.go:32: INFO [2025-06-09 10:25:57] vpnctl.go:51 Checking VPN status...
+[vpnctl] 2025/06/09 10:28:27 logger.go:32: INFO [2025-06-09 10:28:27] vpnctl.go:51 Checking VPN status...
+[vpnctl] 2025/06/09 10:31:08 logger.go:32: INFO [2025-06-09 10:31:08] vpnctl.go:50 Checking VPN status...
+[vpnctl] 2025/06/09 10:31:08 logger.go:32: INFO [2025-06-09 10:31:08] vpnctl.go:55 Preparing command execution...
+[vpnctl] 2025/06/09 10:31:08 logger.go:32: INFO [2025-06-09 10:31:08] vpnctl.go:58 Running command...
+[vpnctl] 2025/06/09 10:32:44 logger.go:32: INFO [2025-06-09 10:32:44] vpnctl.go:50 Checking VPN status...
+[vpnctl] 2025/06/09 10:32:44 logger.go:32: INFO [2025-06-09 10:32:44] vpnctl.go:55 Preparing command execution...
+[vpnctl] 2025/06/09 10:32:44 logger.go:32: INFO [2025-06-09 10:32:44] vpnctl.go:58 Running command...
+[vpnctl] 2025/06/09 10:35:32 logger.go:32: INFO [2025-06-09 10:35:32] vpnctl.go:50 Checking VPN status...
+[vpnctl] 2025/06/09 10:35:32 logger.go:32: INFO [2025-06-09 10:35:32] vpnctl.go:55 Preparing command execution...
+[vpnctl] 2025/06/09 10:35:32 logger.go:32: INFO [2025-06-09 10:35:32] vpnctl.go:58 Running command...
+[vpnctl] 2025/06/09 10:36:32 logger.go:32: INFO [2025-06-09 10:36:32] vpnctl.go:50 Checking VPN status...
+[vpnctl] 2025/06/09 10:37:22 logger.go:32: INFO [2025-06-09 10:37:22] vpnctl.go:50 Checking VPN status...
+[vpnctl] 2025/06/09 10:37:37 logger.go:32: INFO [2025-06-09 10:37:37] vpnctl.go:50 Checking VPN status...
+[vpnctl] 2025/06/09 10:38:20 logger.go:32: INFO [2025-06-09 10:38:20] vpnctl.go:50 Checking VPN status...
+[vpnctl] 2025/06/09 10:38:29 logger.go:32: INFO [2025-06-09 10:38:29] vpnctl.go:50 Checking VPN status...
+[vpnctl] 2025/06/09 10:47:13 logger.go:32: INFO [2025-06-09 10:47:13] vpnctl.go:50 Checking VPN status...
+[vpnctl] 2025/06/09 10:47:15 logger.go:32: INFO [2025-06-09 10:47:15] vpnctl.go:82 VPN status retrieved successfully
+[vpnctl] 2025/06/09 10:56:24 logger.go:32: INFO [2025-06-09 10:56:24] vpnctl.go:24 Checking VPN status...
+[vpnctl] 2025/06/09 10:56:24 logger.go:32: INFO [2025-06-09 10:56:24] vpnctl.go:27 Checking VPN status...1
+[vpnctl] 2025/06/09 10:56:26 logger.go:32: INFO [2025-06-09 10:56:26] vpnctl.go:42 Checking VPN status... last
+[vpnctl] 2025/06/09 10:56:26 logger.go:32: INFO [2025-06-09 10:56:26] vpnctl.go:45 VPN status retrieved successfully
+[vpnctl] 2025/06/09 10:57:01 logger.go:32: INFO [2025-06-09 10:57:01] vpnctl.go:81 Initiating VPN connection using profile: intra
+[vpnctl] 2025/06/09 10:57:01 logger.go:32: INFO [2025-06-09 10:57:01] vpnctl.go:187 Reading credentials for intra (hidden path)
+[vpnctl] 2025/06/09 10:57:01 logger.go:32: INFO [2025-06-09 10:57:01] vpnctl.go:95 Checking current VPN connection status...
+[vpnctl] 2025/06/09 10:57:03 logger.go:32: INFO [2025-06-09 10:57:03] vpnctl.go:61 Attempting to disconnect VPN...
+[vpnctl] 2025/06/09 10:57:05 logger.go:32: INFO [2025-06-09 10:57:05] vpnctl.go:63 VPN disconnected
+[vpnctl] 2025/06/09 10:57:05 logger.go:32: INFO [2025-06-09 10:57:05] vpnctl.go:65 Cisco Secure Client process killed
+[vpnctl] 2025/06/09 10:57:05 logger.go:32: INFO [2025-06-09 10:57:05] vpnctl.go:108 Reading VPN profile script from /Users/ts-rohan.das/.vpn/.intra.txt
+[vpnctl] 2025/06/09 10:57:05 logger.go:32: INFO [2025-06-09 10:57:05] vpnctl.go:129 Running VPN command with provided script
+[vpnctl] 2025/06/09 10:58:01 logger.go:32: INFO [2025-06-09 10:58:01] vpnctl.go:140 Connected to VPN profile: intra
+[vpnctl] 2025/06/09 10:58:01 logger.go:32: INFO [2025-06-09 10:58:01] vpnctl.go:75 Launching Cisco Secure Client GUI...
+[vpnctl] 2025/06/09 10:58:02 logger.go:32: INFO [2025-06-09 10:58:02] vpnctl.go:77 Cisco GUI launched
+[vpnctl] 2025/06/09 11:02:01 logger.go:32: INFO [2025-06-09 11:02:01] vpnctl.go:69 Killing Cisco Secure Client GUI...
+[vpnctl] 2025/06/09 11:02:01 logger.go:32: INFO [2025-06-09 11:02:01] vpnctl.go:71 Cisco GUI killed
+[vpnctl] 2025/06/09 11:02:05 logger.go:32: INFO [2025-06-09 11:02:05] vpnctl.go:61 Attempting to disconnect VPN...
+[vpnctl] 2025/06/09 11:02:07 logger.go:32: INFO [2025-06-09 11:02:07] vpnctl.go:63 VPN disconnected
+[vpnctl] 2025/06/09 11:02:07 logger.go:32: INFO [2025-06-09 11:02:07] vpnctl.go:65 Cisco Secure Client process killed
+[vpnctl] 2025/06/09 11:02:12 logger.go:32: INFO [2025-06-09 11:02:12] vpnctl.go:24 Checking VPN status...
+[vpnctl] 2025/06/09 11:02:12 logger.go:32: INFO [2025-06-09 11:02:12] vpnctl.go:27 Checking VPN status...1
+[vpnctl] 2025/06/09 11:02:15 logger.go:32: INFO [2025-06-09 11:02:15] vpnctl.go:42 Checking VPN status... last
+[vpnctl] 2025/06/09 11:02:15 logger.go:32: INFO [2025-06-09 11:02:15] vpnctl.go:45 VPN status retrieved successfully
+[vpnctl] 2025/06/09 11:02:27 logger.go:32: INFO [2025-06-09 11:02:27] vpnctl.go:81 Initiating VPN connection using profile: intra
+[vpnctl] 2025/06/09 11:02:27 logger.go:32: INFO [2025-06-09 11:02:27] vpnctl.go:187 Reading credentials for intra (hidden path)
+[vpnctl] 2025/06/09 11:02:27 logger.go:32: INFO [2025-06-09 11:02:27] vpnctl.go:95 Checking current VPN connection status...
+[vpnctl] 2025/06/09 11:02:29 logger.go:32: INFO [2025-06-09 11:02:29] vpnctl.go:61 Attempting to disconnect VPN...
+[vpnctl] 2025/06/09 11:02:40 logger.go:32: INFO [2025-06-09 11:02:40] vpnctl.go:80 Initiating VPN connection using profile: intra
+[vpnctl] 2025/06/09 11:02:40 logger.go:32: INFO [2025-06-09 11:02:40] vpnctl.go:186 Reading credentials for intra (hidden path)
+[vpnctl] 2025/06/09 11:02:40 logger.go:32: INFO [2025-06-09 11:02:40] vpnctl.go:94 Checking current VPN connection status...
+[vpnctl] 2025/06/09 11:02:42 logger.go:32: INFO [2025-06-09 11:02:42] vpnctl.go:60 Attempting to disconnect VPN...
+[vpnctl] 2025/06/09 11:02:45 logger.go:32: INFO [2025-06-09 11:02:45] vpnctl.go:62 VPN disconnected
+[vpnctl] 2025/06/09 11:02:45 logger.go:32: INFO [2025-06-09 11:02:45] vpnctl.go:64 Cisco Secure Client process killed
+[vpnctl] 2025/06/09 11:02:45 logger.go:32: INFO [2025-06-09 11:02:45] vpnctl.go:107 Reading VPN profile script from /Users/ts-rohan.das/.vpn/.credential/.credential_intra
+[vpnctl] 2025/06/09 11:02:45 logger.go:32: INFO [2025-06-09 11:02:45] vpnctl.go:128 Running VPN command with provided script
+[vpnctl] 2025/06/09 11:06:52 logger.go:32: INFO [2025-06-09 11:06:52] vpnctl.go:80 Initiating VPN connection using profile: intra
+[vpnctl] 2025/06/09 11:06:52 logger.go:32: INFO [2025-06-09 11:06:52] vpnctl.go:186 Reading credentials for intra (hidden path)
+[vpnctl] 2025/06/09 11:06:52 logger.go:32: INFO [2025-06-09 11:06:52] vpnctl.go:94 Checking current VPN connection status...
+[vpnctl] 2025/06/09 11:06:54 logger.go:32: INFO [2025-06-09 11:06:54] vpnctl.go:60 Attempting to disconnect VPN...
+[vpnctl] 2025/06/09 11:06:56 logger.go:32: INFO [2025-06-09 11:06:56] vpnctl.go:62 VPN disconnected
+[vpnctl] 2025/06/09 11:06:56 logger.go:32: INFO [2025-06-09 11:06:56] vpnctl.go:64 Cisco Secure Client process killed
+[vpnctl] 2025/06/09 11:06:56 logger.go:32: INFO [2025-06-09 11:06:56] vpnctl.go:107 Reading VPN profile script from /Users/ts-rohan.das/.vpn/.credential/.credential_intra
+[vpnctl] 2025/06/09 11:06:56 logger.go:32: INFO [2025-06-09 11:06:56] vpnctl.go:128 Running VPN command with provided script
+[vpnctl] 2025/06/09 11:31:14 logger.go:32: INFO [2025-06-09 11:31:14] vpnctl.go:244 Checking VPN status...
+[vpnctl] 2025/06/09 11:31:16 logger.go:32: INFO [2025-06-09 11:31:16] vpnctl.go:263 VPN status retrieved successfully
+[vpnctl] 2025/06/09 11:31:18 logger.go:32: INFO [2025-06-09 11:31:18] vpnctl.go:244 Checking VPN status...
+[vpnctl] 2025/06/09 11:31:20 logger.go:32: INFO [2025-06-09 11:31:20] vpnctl.go:244 Checking VPN status...
+[vpnctl] 2025/06/09 11:31:22 logger.go:32: INFO [2025-06-09 11:31:22] vpnctl.go:263 VPN status retrieved successfully
+[vpnctl] 2025/06/09 11:31:24 logger.go:32: INFO [2025-06-09 11:31:24] vpnctl.go:244 Checking VPN status...
+[vpnctl] 2025/06/09 11:31:26 logger.go:32: INFO [2025-06-09 11:31:26] vpnctl.go:244 Checking VPN status...
+[vpnctl] 2025/06/09 11:31:28 logger.go:32: INFO [2025-06-09 11:31:28] vpnctl.go:263 VPN status retrieved successfully
+[vpnctl] 2025/06/09 11:31:30 logger.go:32: INFO [2025-06-09 11:31:30] vpnctl.go:244 Checking VPN status...
+[vpnctl] 2025/06/09 11:31:34 logger.go:32: INFO [2025-06-09 11:31:34] vpnctl.go:244 Checking VPN status...
+[vpnctl] 2025/06/09 11:31:36 logger.go:32: INFO [2025-06-09 11:31:36] vpnctl.go:263 VPN status retrieved successfully
+[vpnctl] 2025/06/09 11:31:56 logger.go:32: INFO [2025-06-09 11:31:56] vpnctl.go:244 Checking VPN status...
+[vpnctl] 2025/06/09 11:31:58 logger.go:32: INFO [2025-06-09 11:31:58] vpnctl.go:263 VPN status retrieved successfully
+[vpnctl] 2025/06/09 11:35:05 logger.go:32: INFO [2025-06-09 11:35:05] vpnctl.go:246 Checking VPN status...
+[vpnctl] 2025/06/09 11:35:07 logger.go:32: INFO [2025-06-09 11:35:07] vpnctl.go:265 VPN status retrieved successfully
+[vpnctl] 2025/06/09 11:38:51 logger.go:32: INFO [2025-06-09 11:38:51] vpnctl.go:294 Initiating VPN connection using profile: intra
+[vpnctl] 2025/06/09 11:38:51 logger.go:32: INFO [2025-06-09 11:38:51] vpnctl.go:377 Killing process vpn with PID 518
+[vpnctl] 2025/06/09 11:38:51 logger.go:32: INFO [2025-06-09 11:38:51] vpnctl.go:377 Killing process vpn with PID 7968
+[vpnctl] 2025/06/09 11:38:51 logger.go:32: INFO [2025-06-09 11:38:51] vpnctl.go:377 Killing process vpn with PID 17692
+[vpnctl] 2025/06/09 11:38:51 logger.go:32: INFO [2025-06-09 11:38:51] vpnctl.go:377 Killing process vpn with PID 17786
+[vpnctl] 2025/06/09 11:38:51 logger.go:32: INFO [2025-06-09 11:38:51] vpnctl.go:377 Killing process vpn with PID 17846
+[vpnctl] 2025/06/09 11:38:52 logger.go:40: ERROR [2025-06-09 11:38:52] vpnctl.go:367 getting PIDs for Cisco Secure Client: exit status 1
+[vpnctl] 2025/06/09 11:38:52 logger.go:32: INFO [2025-06-09 11:38:52] vpnctl.go:422 Reading credentials for intra (hidden path)
+[vpnctl] 2025/06/09 11:38:52 logger.go:32: INFO [2025-06-09 11:38:52] vpnctl.go:311 Checking current VPN connection status...
+[vpnctl] 2025/06/09 11:38:54 logger.go:32: INFO [2025-06-09 11:38:54] vpnctl.go:270 Attempting to disconnect VPN...
+[vpnctl] 2025/06/09 11:38:56 logger.go:32: INFO [2025-06-09 11:38:56] vpnctl.go:377 Killing process vpn with PID 518
+[vpnctl] 2025/06/09 11:38:56 logger.go:32: INFO [2025-06-09 11:38:56] vpnctl.go:377 Killing process vpn with PID 17692
+[vpnctl] 2025/06/09 11:38:56 logger.go:32: INFO [2025-06-09 11:38:56] vpnctl.go:377 Killing process vpn with PID 17786
+[vpnctl] 2025/06/09 11:38:56 logger.go:32: INFO [2025-06-09 11:38:56] vpnctl.go:377 Killing process vpn with PID 17846
+[vpnctl] 2025/06/09 11:38:56 logger.go:40: ERROR [2025-06-09 11:38:56] vpnctl.go:367 getting PIDs for Cisco Secure Client: exit status 1
+[vpnctl] 2025/06/09 11:38:56 logger.go:32: INFO [2025-06-09 11:38:56] vpnctl.go:275 VPN disconnected and related processes killed
+[vpnctl] 2025/06/09 11:38:56 logger.go:32: INFO [2025-06-09 11:38:56] vpnctl.go:324 Reading VPN profile script from '(hidden path)'
+[vpnctl] 2025/06/09 11:38:56 logger.go:32: INFO [2025-06-09 11:38:56] vpnctl.go:345 Running VPN command with provided script
+[vpnctl] 2025/06/09 12:01:33 logger.go:32: INFO [2025-06-09 12:01:33] vpnctl.go:294 Initiating VPN connection using profile: intra
+[vpnctl] 2025/06/09 12:01:33 logger.go:32: INFO [2025-06-09 12:01:33] vpnctl.go:377 Killing process vpn with PID 518
+[vpnctl] 2025/06/09 12:01:33 logger.go:32: INFO [2025-06-09 12:01:33] vpnctl.go:377 Killing process vpn with PID 17692
+[vpnctl] 2025/06/09 12:01:33 logger.go:32: INFO [2025-06-09 12:01:33] vpnctl.go:377 Killing process vpn with PID 17786
+[vpnctl] 2025/06/09 12:01:33 logger.go:32: INFO [2025-06-09 12:01:33] vpnctl.go:377 Killing process vpn with PID 17846
+[vpnctl] 2025/06/09 12:01:33 logger.go:32: INFO [2025-06-09 12:01:33] vpnctl.go:377 Killing process Cisco Secure Client with PID 25385
+[vpnctl] 2025/06/09 12:01:33 logger.go:32: INFO [2025-06-09 12:01:33] vpnctl.go:422 Reading credentials for intra (hidden path)
+[vpnctl] 2025/06/09 12:01:33 logger.go:32: INFO [2025-06-09 12:01:33] vpnctl.go:311 Checking current VPN connection status...
+[vpnctl] 2025/06/09 12:01:35 logger.go:32: INFO [2025-06-09 12:01:35] vpnctl.go:318 VPN already connected. Aborting connect operation.
+[vpnctl] 2025/06/09 12:43:05 logger.go:32: INFO [2025-06-09 12:43:05] vpnctl.go:246 Checking VPN status...
+[vpnctl] 2025/06/09 12:43:07 logger.go:32: INFO [2025-06-09 12:43:07] vpnctl.go:265 VPN status retrieved successfully
+[vpnctl] 2025/06/09 12:43:13 logger.go:32: INFO [2025-06-09 12:43:13] vpnctl.go:294 Initiating VPN connection using profile: intra
+[vpnctl] 2025/06/09 12:43:13 logger.go:32: INFO [2025-06-09 12:43:13] vpnctl.go:377 Killing process vpn with PID 539
+[vpnctl] 2025/06/09 12:43:13 logger.go:32: INFO [2025-06-09 12:43:13] vpnctl.go:377 Killing process Cisco Secure Client with PID 1110
+[vpnctl] 2025/06/09 12:43:13 logger.go:32: INFO [2025-06-09 12:43:13] vpnctl.go:377 Killing process Cisco Secure Client with PID 3438
+[vpnctl] 2025/06/09 12:43:13 logger.go:32: INFO [2025-06-09 12:43:13] vpnctl.go:422 Reading credentials for intra (hidden path)
+[vpnctl] 2025/06/09 12:43:13 logger.go:32: INFO [2025-06-09 12:43:13] vpnctl.go:311 Checking current VPN connection status...
+[vpnctl] 2025/06/09 12:43:15 logger.go:32: INFO [2025-06-09 12:43:15] vpnctl.go:270 Attempting to disconnect VPN...
+[vpnctl] 2025/06/09 12:43:18 logger.go:32: INFO [2025-06-09 12:43:18] vpnctl.go:377 Killing process vpn with PID 539
+[vpnctl] 2025/06/09 12:43:18 logger.go:40: ERROR [2025-06-09 12:43:18] vpnctl.go:367 getting PIDs for Cisco Secure Client: exit status 1
+[vpnctl] 2025/06/09 12:43:18 logger.go:32: INFO [2025-06-09 12:43:18] vpnctl.go:275 VPN disconnected and related processes killed
+[vpnctl] 2025/06/09 12:43:18 logger.go:32: INFO [2025-06-09 12:43:18] vpnctl.go:324 Reading VPN profile script from '(hidden path)'
+[vpnctl] 2025/06/09 12:43:18 logger.go:32: INFO [2025-06-09 12:43:18] vpnctl.go:345 Running VPN command with provided script
+[vpnctl] 2025/06/09 12:43:18 logger.go:40: ERROR [2025-06-09 12:43:18] vpnctl.go:352 connecting to VPN: signal: killed
+[vpnctl] 2025/06/09 12:46:49 logger.go:32: INFO [2025-06-09 12:46:49] vpnctl.go:294 Initiating VPN connection using profile: intra
+[vpnctl] 2025/06/09 12:46:49 logger.go:32: INFO [2025-06-09 12:46:49] vpnctl.go:378 Killing process vpn with PID 539
+[vpnctl] 2025/06/09 12:46:49 logger.go:40: ERROR [2025-06-09 12:46:49] vpnctl.go:368 getting PIDs for Cisco Secure Client: exit status 1
+[vpnctl] 2025/06/09 12:46:49 logger.go:32: INFO [2025-06-09 12:46:49] vpnctl.go:423 Reading credentials for intra (hidden path)
+[vpnctl] 2025/06/09 12:46:49 logger.go:32: INFO [2025-06-09 12:46:49] vpnctl.go:311 Checking current VPN connection status...
+[vpnctl] 2025/06/09 12:46:51 logger.go:32: INFO [2025-06-09 12:46:51] vpnctl.go:270 Attempting to disconnect VPN...
+[vpnctl] 2025/06/09 12:46:53 logger.go:32: INFO [2025-06-09 12:46:53] vpnctl.go:378 Killing process vpn with PID 539
+[vpnctl] 2025/06/09 12:46:53 logger.go:40: ERROR [2025-06-09 12:46:53] vpnctl.go:368 getting PIDs for Cisco Secure Client: exit status 1
+[vpnctl] 2025/06/09 12:46:53 logger.go:32: INFO [2025-06-09 12:46:53] vpnctl.go:275 VPN disconnected and related processes killed
+[vpnctl] 2025/06/09 12:46:53 logger.go:32: INFO [2025-06-09 12:46:53] vpnctl.go:324 Reading VPN profile script from '(hidden path)'
+[vpnctl] 2025/06/09 12:46:53 logger.go:32: INFO [2025-06-09 12:46:53] vpnctl.go:345 Running VPN command with provided script
+[vpnctl] 2025/06/09 12:48:05 logger.go:32: INFO [2025-06-09 12:48:05] vpnctl.go:246 Checking VPN status...
+[vpnctl] 2025/06/09 12:48:07 logger.go:32: INFO [2025-06-09 12:48:07] vpnctl.go:265 VPN status retrieved successfully
+[vpnctl] 2025/06/09 12:48:34 logger.go:32: INFO [2025-06-09 12:48:34] vpnctl.go:294 Initiating VPN connection using profile: intra
+[vpnctl] 2025/06/09 12:48:34 logger.go:32: INFO [2025-06-09 12:48:34] vpnctl.go:378 Killing process vpn with PID 539
+[vpnctl] 2025/06/09 12:48:34 logger.go:32: INFO [2025-06-09 12:48:34] vpnctl.go:378 Killing process vpn with PID 11678
+[vpnctl] 2025/06/09 12:48:34 logger.go:32: INFO [2025-06-09 12:48:34] vpnctl.go:378 Killing process Cisco Secure Client with PID 11846
+[vpnctl] 2025/06/09 12:48:34 logger.go:32: INFO [2025-06-09 12:48:34] vpnctl.go:423 Reading credentials for intra (hidden path)
+[vpnctl] 2025/06/09 12:48:34 logger.go:32: INFO [2025-06-09 12:48:34] vpnctl.go:311 Checking current VPN connection status...
+[vpnctl] 2025/06/09 12:48:36 logger.go:32: INFO [2025-06-09 12:48:36] vpnctl.go:270 Attempting to disconnect VPN...
+[vpnctl] 2025/06/09 12:48:38 logger.go:32: INFO [2025-06-09 12:48:38] vpnctl.go:378 Killing process vpn with PID 539
+[vpnctl] 2025/06/09 12:48:38 logger.go:40: ERROR [2025-06-09 12:48:38] vpnctl.go:368 getting PIDs for Cisco Secure Client: exit status 1
+[vpnctl] 2025/06/09 12:48:38 logger.go:32: INFO [2025-06-09 12:48:38] vpnctl.go:275 VPN disconnected and related processes killed
+[vpnctl] 2025/06/09 12:48:38 logger.go:32: INFO [2025-06-09 12:48:38] vpnctl.go:324 Reading VPN profile script from '(hidden path)'
+[vpnctl] 2025/06/09 12:48:38 logger.go:32: INFO [2025-06-09 12:48:38] vpnctl.go:345 Running VPN command with provided script
+[vpnctl] 2025/06/09 12:56:41 logger.go:32: INFO [2025-06-09 12:56:41] vpnctl.go:294 Initiating VPN connection using profile: intra
+[vpnctl] 2025/06/09 12:56:41 logger.go:32: INFO [2025-06-09 12:56:41] vpnctl.go:362 Killing process vpn with PID 539
+[vpnctl] 2025/06/09 12:56:41 logger.go:48: WARN [2025-06-09 12:56:41] vpnctl.go:352 getting PIDs for Cisco Secure Client: exit status 1
+[vpnctl] 2025/06/09 12:56:41 logger.go:32: INFO [2025-06-09 12:56:41] vpnctl.go:407 Reading credentials for intra (hidden path)
+[vpnctl] 2025/06/09 12:56:41 logger.go:32: INFO [2025-06-09 12:56:41] vpnctl.go:310 Checking current VPN connection status...
+[vpnctl] 2025/06/09 12:56:43 logger.go:32: INFO [2025-06-09 12:56:43] vpnctl.go:270 Attempting to disconnect VPN...
+[vpnctl] 2025/06/09 12:56:46 logger.go:32: INFO [2025-06-09 12:56:46] vpnctl.go:362 Killing process vpn with PID 539
+[vpnctl] 2025/06/09 12:56:46 logger.go:48: WARN [2025-06-09 12:56:46] vpnctl.go:352 getting PIDs for Cisco Secure Client: exit status 1
+[vpnctl] 2025/06/09 12:56:46 logger.go:32: INFO [2025-06-09 12:56:46] vpnctl.go:275 VPN disconnected and related processes killed
+[vpnctl] 2025/06/09 12:56:46 logger.go:32: INFO [2025-06-09 12:56:46] vpnctl.go:323 Reading VPN profile script from '(hidden path)'
+[vpnctl] 2025/06/09 12:57:13 logger.go:32: INFO [2025-06-09 12:57:13] vpnctl.go:294 Initiating VPN connection using profile: intra
+[vpnctl] 2025/06/09 12:57:13 logger.go:32: INFO [2025-06-09 12:57:13] vpnctl.go:407 Reading credentials for intra (hidden path)
+[vpnctl] 2025/06/09 12:57:13 logger.go:32: INFO [2025-06-09 12:57:13] vpnctl.go:310 Checking current VPN connection status...
+[vpnctl] 2025/06/09 12:57:15 logger.go:32: INFO [2025-06-09 12:57:15] vpnctl.go:270 Attempting to disconnect VPN...
+[vpnctl] 2025/06/09 12:57:18 logger.go:32: INFO [2025-06-09 12:57:18] vpnctl.go:362 Killing process vpn with PID 539
+[vpnctl] 2025/06/09 12:57:18 logger.go:48: WARN [2025-06-09 12:57:18] vpnctl.go:352 getting PIDs for Cisco Secure Client: exit status 1
+[vpnctl] 2025/06/09 12:57:18 logger.go:32: INFO [2025-06-09 12:57:18] vpnctl.go:275 VPN disconnected and related processes killed
+[vpnctl] 2025/06/09 12:57:18 logger.go:32: INFO [2025-06-09 12:57:18] vpnctl.go:323 Reading VPN profile script from '(hidden path)'
+[vpnctl] 2025/06/09 12:58:04 logger.go:32: INFO [2025-06-09 12:58:04] vpnctl.go:294 Initiating VPN connection using profile: intra
+[vpnctl] 2025/06/09 12:58:04 logger.go:32: INFO [2025-06-09 12:58:04] vpnctl.go:407 Reading credentials for intra (hidden path)
+[vpnctl] 2025/06/09 12:58:04 logger.go:32: INFO [2025-06-09 12:58:04] vpnctl.go:310 Checking current VPN connection status...
+[vpnctl] 2025/06/09 12:58:06 logger.go:32: INFO [2025-06-09 12:58:06] vpnctl.go:270 Attempting to disconnect VPN...
+[vpnctl] 2025/06/09 12:58:08 logger.go:32: INFO [2025-06-09 12:58:08] vpnctl.go:275 VPN disconnected and related processes killed
+[vpnctl] 2025/06/09 12:58:08 logger.go:32: INFO [2025-06-09 12:58:08] vpnctl.go:323 Reading VPN profile script from '(hidden path)'
+[vpnctl] 2025/06/09 12:58:37 logger.go:32: INFO [2025-06-09 12:58:37] vpnctl.go:294 Initiating VPN connection using profile: intra
+[vpnctl] 2025/06/09 12:58:37 logger.go:32: INFO [2025-06-09 12:58:37] vpnctl.go:407 Reading credentials for intra (hidden path)
+[vpnctl] 2025/06/09 12:58:37 logger.go:32: INFO [2025-06-09 12:58:37] vpnctl.go:310 Checking current VPN connection status...
+[vpnctl] 2025/06/09 12:58:39 logger.go:32: INFO [2025-06-09 12:58:39] vpnctl.go:270 Attempting to disconnect VPN...
+[vpnctl] 2025/06/09 12:58:41 logger.go:32: INFO [2025-06-09 12:58:41] vpnctl.go:275 VPN disconnected and related processes killed
+[vpnctl] 2025/06/09 12:58:41 logger.go:32: INFO [2025-06-09 12:58:41] vpnctl.go:323 Reading VPN profile script from '(hidden path)'
+[vpnctl] 2025/06/09 13:00:36 logger.go:32: INFO [2025-06-09 13:00:36] vpnctl.go:294 Initiating VPN connection using profile: intra
+[vpnctl] 2025/06/09 13:00:36 logger.go:32: INFO [2025-06-09 13:00:36] vpnctl.go:407 Reading credentials for intra (hidden path)
+[vpnctl] 2025/06/09 13:00:36 logger.go:32: INFO [2025-06-09 13:00:36] vpnctl.go:310 Checking current VPN connection status...
+[vpnctl] 2025/06/09 13:00:38 logger.go:32: INFO [2025-06-09 13:00:38] vpnctl.go:270 Attempting to disconnect VPN...
+[vpnctl] 2025/06/09 13:00:40 logger.go:32: INFO [2025-06-09 13:00:40] vpnctl.go:275 VPN disconnected and related processes killed
+[vpnctl] 2025/06/09 13:00:40 logger.go:32: INFO [2025-06-09 13:00:40] vpnctl.go:323 Reading VPN profile script from (hidden path)
+[vpnctl] 2025/06/09 17:10:07 logger.go:32: INFO [2025-06-09 17:10:07] vpnctl.go:150 Initiating VPN connection using profile: intra
+[vpnctl] 2025/06/09 17:10:07 logger.go:32: INFO [2025-06-09 17:10:07] vpnctl.go:265 Reading credentials for intra (hidden path)
+[vpnctl] 2025/06/09 17:10:07 logger.go:32: INFO [2025-06-09 17:10:07] vpnctl.go:164 Checking current VPN connection status...
+[vpnctl] 2025/06/09 17:10:09 logger.go:32: INFO [2025-06-09 17:10:09] vpnctl.go:171 VPN already connected. Aborting connect operation.
+[vpnctl] 2025/06/09 17:11:21 logger.go:32: INFO [2025-06-09 17:11:21] vpnctl.go:25 Checking VPN status...
+[vpnctl] 2025/06/09 17:11:23 logger.go:32: INFO [2025-06-09 17:11:23] vpnctl.go:43 VPN is already connected. Aborting status check.
+[vpnctl] 2025/06/09 17:30:14 logger.go:32: INFO [2025-06-09 17:30:14] vpnctl.go:153 Initiating VPN connection using profile: intra
+[vpnctl] 2025/06/09 17:30:14 logger.go:32: INFO [2025-06-09 17:30:14] vpnctl.go:268 Reading credentials for intra (hidden path)
+[vpnctl] 2025/06/09 17:30:14 logger.go:32: INFO [2025-06-09 17:30:14] vpnctl.go:167 Checking current VPN connection status...
+[vpnctl] 2025/06/09 17:30:16 logger.go:32: INFO [2025-06-09 17:30:16] vpnctl.go:174 VPN already connected. Aborting connect operation.
+[vpnctl] 2025/06/09 17:30:24 logger.go:32: INFO [2025-06-09 17:30:24] vpnctl.go:63 Attempting to disconnect VPN...
+[vpnctl] 2025/06/09 17:30:27 logger.go:32: INFO [2025-06-09 17:30:27] vpnctl.go:65 VPN disconnected
+[vpnctl] 2025/06/09 17:30:27 logger.go:32: INFO [2025-06-09 17:30:27] vpnctl.go:67 Cisco Secure Client process killed
+[vpnctl] 2025/06/09 17:30:28 logger.go:32: INFO [2025-06-09 17:30:28] vpnctl.go:81 Killing VPN process with PID 539
+[vpnctl] 2025/06/09 17:30:28 logger.go:40: ERROR [2025-06-09 17:30:28] vpnctl.go:84 killing VPN process 539: operation not permitted
+[vpnctl] 2025/06/09 17:30:28 logger.go:32: INFO [2025-06-09 17:30:28] vpnctl.go:87 VPN processes killed
+[vpnctl] 2025/06/09 17:30:28 logger.go:32: INFO [2025-06-09 17:30:28] vpnctl.go:88 VPN disconnected and related processes killed
+[vpnctl] 2025/06/09 17:31:23 logger.go:32: INFO [2025-06-09 17:31:23] vpnctl.go:153 Initiating VPN connection using profile: intra
+[vpnctl] 2025/06/09 17:31:23 logger.go:32: INFO [2025-06-09 17:31:23] vpnctl.go:268 Reading credentials for intra (hidden path)
+[vpnctl] 2025/06/09 17:31:23 logger.go:32: INFO [2025-06-09 17:31:23] vpnctl.go:167 Checking current VPN connection status...
+[vpnctl] 2025/06/09 17:31:26 logger.go:32: INFO [2025-06-09 17:31:26] vpnctl.go:63 Attempting to disconnect VPN...
+[vpnctl] 2025/06/09 17:31:28 logger.go:32: INFO [2025-06-09 17:31:28] vpnctl.go:65 VPN disconnected
+[vpnctl] 2025/06/09 17:31:28 logger.go:32: INFO [2025-06-09 17:31:28] vpnctl.go:67 Cisco Secure Client process killed
+[vpnctl] 2025/06/09 17:31:28 logger.go:32: INFO [2025-06-09 17:31:28] vpnctl.go:81 Killing VPN process with PID 539
+[vpnctl] 2025/06/09 17:31:28 logger.go:40: ERROR [2025-06-09 17:31:28] vpnctl.go:84 killing VPN process 539: operation not permitted
+[vpnctl] 2025/06/09 17:31:28 logger.go:32: INFO [2025-06-09 17:31:28] vpnctl.go:87 VPN processes killed
+[vpnctl] 2025/06/09 17:31:28 logger.go:32: INFO [2025-06-09 17:31:28] vpnctl.go:88 VPN disconnected and related processes killed
+[vpnctl] 2025/06/09 17:31:28 logger.go:32: INFO [2025-06-09 17:31:28] vpnctl.go:180 Reading VPN profile script from '(hidden path)'
+[vpnctl] 2025/06/09 17:31:28 logger.go:32: INFO [2025-06-09 17:31:28] vpnctl.go:201 Running VPN command with provided script
+[vpnctl] 2025/06/09 17:34:50 logger.go:32: INFO [2025-06-09 17:34:50] vpnctl.go:180 Initiating VPN connection using profile: intra
+[vpnctl] 2025/06/09 17:34:50 logger.go:32: INFO [2025-06-09 17:34:50] vpnctl.go:313 Reading credentials for intra (hidden path)
+[vpnctl] 2025/06/09 17:34:50 logger.go:32: INFO [2025-06-09 17:34:50] vpnctl.go:194 Checking current VPN connection status...
+[vpnctl] 2025/06/09 17:34:52 logger.go:32: INFO [2025-06-09 17:34:52] vpnctl.go:97 Attempting to disconnect VPN...
+[vpnctl] 2025/06/09 17:34:54 logger.go:32: INFO [2025-06-09 17:34:54] vpnctl.go:99 VPN disconnected
+[vpnctl] 2025/06/09 17:34:55 logger.go:32: INFO [2025-06-09 17:34:55] vpnctl.go:101 Cisco Secure Client process killed
+[vpnctl] 2025/06/09 17:34:55 logger.go:32: INFO [2025-06-09 17:34:55] vpnctl.go:207 Reading VPN profile script from '(hidden path)'
+[vpnctl] 2025/06/09 17:34:55 logger.go:32: INFO [2025-06-09 17:34:55] vpnctl.go:228 Running VPN command with provided script
+[vpnctl] 2025/06/09 17:39:16 logger.go:32: INFO [2025-06-09 17:39:16] vpnctl.go:180 Initiating VPN connection using profile: intra
+[vpnctl] 2025/06/09 17:39:16 logger.go:32: INFO [2025-06-09 17:39:16] vpnctl.go:317 Reading credentials for intra (hidden path)
+[vpnctl] 2025/06/09 17:39:16 logger.go:32: INFO [2025-06-09 17:39:16] vpnctl.go:194 Checking current VPN connection status...
+[vpnctl] 2025/06/09 17:39:18 logger.go:32: INFO [2025-06-09 17:39:18] vpnctl.go:97 Attempting to disconnect VPN...
+[vpnctl] 2025/06/09 17:39:20 logger.go:32: INFO [2025-06-09 17:39:20] vpnctl.go:99 VPN disconnected
+[vpnctl] 2025/06/09 17:39:20 logger.go:32: INFO [2025-06-09 17:39:20] vpnctl.go:101 Cisco Secure Client process killed
+[vpnctl] 2025/06/09 17:39:20 logger.go:32: INFO [2025-06-09 17:39:20] vpnctl.go:207 Reading VPN profile script from (hidden path)
+[vpnctl] 2025/06/09 17:39:20 logger.go:32: INFO [2025-06-09 17:39:20] vpnctl.go:228 Running VPN command with provided script
+[vpnctl] 2025/06/09 17:44:35 logger.go:32: INFO [2025-06-09 17:44:35] vpnctl.go:180 Initiating VPN connection using profile: intra
+[vpnctl] 2025/06/09 17:44:35 logger.go:32: INFO [2025-06-09 17:44:35] vpnctl.go:317 Reading credentials for intra (hidden path)
+[vpnctl] 2025/06/09 17:44:35 logger.go:32: INFO [2025-06-09 17:44:35] vpnctl.go:194 Checking current VPN connection status...
+[vpnctl] 2025/06/09 17:44:37 logger.go:32: INFO [2025-06-09 17:44:37] vpnctl.go:97 Attempting to disconnect VPN...
+[vpnctl] 2025/06/09 17:44:39 logger.go:32: INFO [2025-06-09 17:44:39] vpnctl.go:99 VPN disconnected
+[vpnctl] 2025/06/09 17:44:39 logger.go:32: INFO [2025-06-09 17:44:39] vpnctl.go:101 Cisco Secure Client process killed
+[vpnctl] 2025/06/09 17:44:39 logger.go:32: INFO [2025-06-09 17:44:39] vpnctl.go:207 Reading VPN profile script from (hidden path) /Users/ts-rohan.das/.vpn/.credential/.credential_intra
+[vpnctl] 2025/06/09 17:44:39 logger.go:32: INFO [2025-06-09 17:44:39] vpnctl.go:228 Running VPN command with provided script
+[vpnctl] 2025/06/09 17:47:26 logger.go:32: INFO [2025-06-09 17:47:26] vpnctl.go:180 Initiating VPN connection using profile: intra
+[vpnctl] 2025/06/09 17:47:26 logger.go:32: INFO [2025-06-09 17:47:26] vpnctl.go:317 Reading credentials for intra (hidden path)
+[vpnctl] 2025/06/09 17:47:26 logger.go:32: INFO [2025-06-09 17:47:26] vpnctl.go:194 Checking current VPN connection status...
+[vpnctl] 2025/06/09 17:47:28 logger.go:32: INFO [2025-06-09 17:47:28] vpnctl.go:97 Attempting to disconnect VPN...
+[vpnctl] 2025/06/09 17:47:30 logger.go:32: INFO [2025-06-09 17:47:30] vpnctl.go:99 VPN disconnected
+[vpnctl] 2025/06/09 17:47:30 logger.go:32: INFO [2025-06-09 17:47:30] vpnctl.go:101 Cisco Secure Client process killed
+[vpnctl] 2025/06/09 17:47:30 logger.go:32: INFO [2025-06-09 17:47:30] vpnctl.go:207 Reading VPN profile script from (hidden path) /Users/ts-rohan.das/.vpn/.credential/.credential_intra
+[vpnctl] 2025/06/09 17:47:30 logger.go:32: INFO [2025-06-09 17:47:30] vpnctl.go:228 Running VPN command with provided script
+[vpnctl] 2025/06/09 17:48:24 logger.go:32: INFO [2025-06-09 17:48:24] vpnctl.go:252 Connected to VPN profile: intra
+[vpnctl] 2025/06/09 17:48:24 logger.go:32: INFO [2025-06-09 17:48:24] vpnctl.go:165 Launching Cisco Secure Client GUI...
+[vpnctl] 2025/06/09 17:48:24 logger.go:32: INFO [2025-06-09 17:48:24] vpnctl.go:170 Cisco GUI launched
+[vpnctl] 2025/06/09 17:48:35 logger.go:32: INFO [2025-06-09 17:48:35] vpnctl.go:68 Attempting to disconnect VPN...
+[vpnctl] 2025/06/09 17:48:36 logger.go:32: INFO [2025-06-09 17:48:36] vpnctl.go:70 VPN disconnected
+[vpnctl] 2025/06/09 17:48:36 logger.go:32: INFO [2025-06-09 17:48:36] vpnctl.go:72 Cisco Secure Client process killed
+[vpnctl] 2025/06/09 17:48:36 logger.go:32: INFO [2025-06-09 17:48:36] vpnctl.go:86 Killing VPN process with PID 539
+[vpnctl] 2025/06/09 17:48:36 logger.go:40: ERROR [2025-06-09 17:48:36] vpnctl.go:89 killing VPN process 539: operation not permitted
+[vpnctl] 2025/06/09 17:48:36 logger.go:32: INFO [2025-06-09 17:48:36] vpnctl.go:92 VPN disconnected and related processes killed
+[vpnctl] 2025/06/09 17:48:54 logger.go:32: INFO [2025-06-09 17:48:54] vpnctl.go:180 Initiating VPN connection using profile: dev
+[vpnctl] 2025/06/09 17:48:54 logger.go:32: INFO [2025-06-09 17:48:54] vpnctl.go:317 Reading credentials for dev (hidden path)
+[vpnctl] 2025/06/09 17:48:54 logger.go:32: INFO [2025-06-09 17:48:54] vpnctl.go:194 Checking current VPN connection status...
+[vpnctl] 2025/06/09 17:48:56 logger.go:32: INFO [2025-06-09 17:48:56] vpnctl.go:97 Attempting to disconnect VPN...
+[vpnctl] 2025/06/09 17:48:58 logger.go:32: INFO [2025-06-09 17:48:58] vpnctl.go:99 VPN disconnected
+[vpnctl] 2025/06/09 17:48:58 logger.go:32: INFO [2025-06-09 17:48:58] vpnctl.go:101 Cisco Secure Client process killed
+[vpnctl] 2025/06/09 17:48:58 logger.go:32: INFO [2025-06-09 17:48:58] vpnctl.go:207 Reading VPN profile script from (hidden path) /Users/ts-rohan.das/.vpn/.credential/.credential_dev
+[vpnctl] 2025/06/09 17:48:58 logger.go:32: INFO [2025-06-09 17:48:58] vpnctl.go:228 Running VPN command with provided script
+[vpnctl] 2025/06/09 17:50:13 logger.go:32: INFO [2025-06-09 17:50:13] vpnctl.go:180 Initiating VPN connection using profile: dev
+[vpnctl] 2025/06/09 17:50:13 logger.go:32: INFO [2025-06-09 17:50:13] vpnctl.go:317 Reading credentials for dev (hidden path)
+[vpnctl] 2025/06/09 17:50:13 logger.go:32: INFO [2025-06-09 17:50:13] vpnctl.go:194 Checking current VPN connection status...
+[vpnctl] 2025/06/09 17:50:15 logger.go:32: INFO [2025-06-09 17:50:15] vpnctl.go:97 Attempting to disconnect VPN...
+[vpnctl] 2025/06/09 17:50:17 logger.go:32: INFO [2025-06-09 17:50:17] vpnctl.go:99 VPN disconnected
+[vpnctl] 2025/06/09 17:50:18 logger.go:32: INFO [2025-06-09 17:50:18] vpnctl.go:101 Cisco Secure Client process killed
+[vpnctl] 2025/06/09 17:50:18 logger.go:32: INFO [2025-06-09 17:50:18] vpnctl.go:207 Reading VPN profile script from (hidden path) /Users/ts-rohan.das/.vpn/.credential/.credential_dev
+[vpnctl] 2025/06/09 17:50:18 logger.go:32: INFO [2025-06-09 17:50:18] vpnctl.go:228 Running VPN command with provided script
+[vpnctl] 2025/06/09 17:52:31 logger.go:32: INFO [2025-06-09 17:52:31] vpnctl.go:180 Initiating VPN connection using profile: dev
+[vpnctl] 2025/06/09 17:52:31 logger.go:32: INFO [2025-06-09 17:52:31] vpnctl.go:317 Reading credentials for dev (hidden path)
+[vpnctl] 2025/06/09 17:52:31 logger.go:32: INFO [2025-06-09 17:52:31] vpnctl.go:194 Checking current VPN connection status...
+[vpnctl] 2025/06/09 17:52:33 logger.go:32: INFO [2025-06-09 17:52:33] vpnctl.go:97 Attempting to disconnect VPN...
+[vpnctl] 2025/06/09 17:52:35 logger.go:32: INFO [2025-06-09 17:52:35] vpnctl.go:99 VPN disconnected
+[vpnctl] 2025/06/09 17:52:35 logger.go:32: INFO [2025-06-09 17:52:35] vpnctl.go:101 Cisco Secure Client process killed
+[vpnctl] 2025/06/09 17:52:35 logger.go:32: INFO [2025-06-09 17:52:35] vpnctl.go:207 Reading VPN profile script from (hidden path) /Users/ts-rohan.das/.vpn/.credential/.credential_dev
+[vpnctl] 2025/06/09 17:52:35 logger.go:32: INFO [2025-06-09 17:52:35] vpnctl.go:228 Running VPN command with provided script
+[vpnctl] 2025/06/09 17:54:00 logger.go:40: ERROR [2025-06-09 17:54:00] vpnctl.go:239 connecting to VPN: exit status 255
+[vpnctl] 2025/06/09 17:55:34 logger.go:32: INFO [2025-06-09 17:55:34] vpnctl.go:180 Initiating VPN connection using profile: dev
+[vpnctl] 2025/06/09 17:55:34 logger.go:32: INFO [2025-06-09 17:55:34] vpnctl.go:329 Reading credentials for dev (hidden path)
+[vpnctl] 2025/06/09 17:55:34 logger.go:32: INFO [2025-06-09 17:55:34] vpnctl.go:194 Checking current VPN connection status...
+[vpnctl] 2025/06/09 17:55:36 logger.go:32: INFO [2025-06-09 17:55:36] vpnctl.go:97 Attempting to disconnect VPN...
+[vpnctl] 2025/06/09 17:55:38 logger.go:32: INFO [2025-06-09 17:55:38] vpnctl.go:99 VPN disconnected
+[vpnctl] 2025/06/09 17:55:38 logger.go:32: INFO [2025-06-09 17:55:38] vpnctl.go:101 Cisco Secure Client process killed
+[vpnctl] 2025/06/09 17:55:38 logger.go:32: INFO [2025-06-09 17:55:38] vpnctl.go:207 Reading VPN profile script from (hidden path) /Users/ts-rohan.das/.vpn/.credential/.credential_dev
+[vpnctl] 2025/06/09 17:55:38 logger.go:32: INFO [2025-06-09 17:55:38] vpnctl.go:228 Running VPN command with provided script
+[vpnctl] 2025/06/09 17:57:03 logger.go:40: ERROR [2025-06-09 17:57:03] vpnctl.go:239 connecting to VPN: exit status 255
+[vpnctl] 2025/06/09 18:00:29 logger.go:32: INFO [2025-06-09 18:00:29] vpnctl.go:180 Initiating VPN connection using profile: dev
+[vpnctl] 2025/06/09 18:00:29 logger.go:32: INFO [2025-06-09 18:00:29] vpnctl.go:321 Reading credentials for dev (hidden path)
+[vpnctl] 2025/06/09 18:00:29 logger.go:32: INFO [2025-06-09 18:00:29] vpnctl.go:194 Checking current VPN connection status...
+[vpnctl] 2025/06/09 18:00:31 logger.go:32: INFO [2025-06-09 18:00:31] vpnctl.go:97 Attempting to disconnect VPN...
+[vpnctl] 2025/06/09 18:00:33 logger.go:32: INFO [2025-06-09 18:00:33] vpnctl.go:99 VPN disconnected
+[vpnctl] 2025/06/09 18:00:33 logger.go:32: INFO [2025-06-09 18:00:33] vpnctl.go:101 Cisco Secure Client process killed
+[vpnctl] 2025/06/09 18:00:33 logger.go:32: INFO [2025-06-09 18:00:33] vpnctl.go:207 Reading VPN profile script from (hidden path) /Users/ts-rohan.das/.vpn/.credential/.credential_dev
+[vpnctl] 2025/06/09 18:00:33 logger.go:32: INFO [2025-06-09 18:00:33] vpnctl.go:228 Running VPN command with provided script
+[vpnctl] 2025/06/09 18:00:46 logger.go:32: INFO [2025-06-09 18:00:46] vpnctl.go:180 Initiating VPN connection using profile: dev
+[vpnctl] 2025/06/09 18:00:46 logger.go:32: INFO [2025-06-09 18:00:46] vpnctl.go:321 Reading credentials for dev (hidden path)
+[vpnctl] 2025/06/09 18:00:46 logger.go:32: INFO [2025-06-09 18:00:46] vpnctl.go:194 Checking current VPN connection status...
+[vpnctl] 2025/06/09 18:01:52 logger.go:32: INFO [2025-06-09 18:01:52] vpnctl.go:180 Initiating VPN connection using profile: dev
+[vpnctl] 2025/06/09 18:01:52 logger.go:32: INFO [2025-06-09 18:01:52] vpnctl.go:321 Reading credentials for dev (hidden path)
+[vpnctl] 2025/06/09 18:01:52 logger.go:32: INFO [2025-06-09 18:01:52] vpnctl.go:194 Checking current VPN connection status...
+[vpnctl] 2025/06/09 18:01:54 logger.go:32: INFO [2025-06-09 18:01:54] vpnctl.go:97 Attempting to disconnect VPN...
+[vpnctl] 2025/06/09 18:01:56 logger.go:32: INFO [2025-06-09 18:01:56] vpnctl.go:99 VPN disconnected
+[vpnctl] 2025/06/09 18:01:56 logger.go:32: INFO [2025-06-09 18:01:56] vpnctl.go:101 Cisco Secure Client process killed
+[vpnctl] 2025/06/09 18:01:56 logger.go:32: INFO [2025-06-09 18:01:56] vpnctl.go:207 Reading VPN profile script from (hidden path) /Users/ts-rohan.das/.vpn/.credential/.credential_dev
+[vpnctl] 2025/06/09 18:01:56 logger.go:32: INFO [2025-06-09 18:01:56] vpnctl.go:228 Running VPN command with provided script
+[vpnctl] 2025/06/09 18:18:05 logger.go:32: INFO [2025-06-09 18:18:05] vpnctl.go:256 Connected to VPN profile: dev
+[vpnctl] 2025/06/09 18:18:05 logger.go:32: INFO [2025-06-09 18:18:05] vpnctl.go:165 Launching Cisco Secure Client GUI...
+[vpnctl] 2025/06/09 18:18:05 logger.go:32: INFO [2025-06-09 18:18:05] vpnctl.go:170 Cisco GUI launched
+[vpnctl] 2025/06/09 18:35:22 logger.go:32: INFO [2025-06-09 18:35:22] vpnctl.go:180 Initiating VPN connection using profile: intra
+[vpnctl] 2025/06/09 18:35:22 logger.go:32: INFO [2025-06-09 18:35:22] vpnctl.go:321 Reading credentials for intra (hidden path)
+[vpnctl] 2025/06/09 18:35:22 logger.go:32: INFO [2025-06-09 18:35:22] vpnctl.go:194 Checking current VPN connection status...
+[vpnctl] 2025/06/09 18:35:24 logger.go:32: INFO [2025-06-09 18:35:24] vpnctl.go:97 Attempting to disconnect VPN...
+[vpnctl] 2025/06/09 18:35:26 logger.go:32: INFO [2025-06-09 18:35:26] vpnctl.go:99 VPN disconnected
+[vpnctl] 2025/06/09 18:35:26 logger.go:32: INFO [2025-06-09 18:35:26] vpnctl.go:101 Cisco Secure Client process killed
+[vpnctl] 2025/06/09 18:35:26 logger.go:32: INFO [2025-06-09 18:35:26] vpnctl.go:207 Reading VPN profile script from (hidden path) /Users/ts-rohan.das/.vpn/.credential/.credential_intra
+[vpnctl] 2025/06/09 18:35:26 logger.go:32: INFO [2025-06-09 18:35:26] vpnctl.go:228 Running VPN command with provided script
+[vpnctl] 2025/06/09 18:38:53 logger.go:32: INFO [2025-06-09 18:38:53] vpnctl.go:256 Connected to VPN profile: intra
+[vpnctl] 2025/06/09 18:38:53 logger.go:32: INFO [2025-06-09 18:38:53] vpnctl.go:165 Launching Cisco Secure Client GUI...
+[vpnctl] 2025/06/09 18:38:53 logger.go:32: INFO [2025-06-09 18:38:53] vpnctl.go:170 Cisco GUI launched
+[vpnctl] 2025/06/09 18:39:57 logger.go:32: INFO [2025-06-09 18:39:57] vpnctl.go:180 Initiating VPN connection using profile: intra
+[vpnctl] 2025/06/09 18:39:57 logger.go:32: INFO [2025-06-09 18:39:57] vpnctl.go:326 Reading credentials for intra (hidden path)
+[vpnctl] 2025/06/09 18:39:57 logger.go:32: INFO [2025-06-09 18:39:57] vpnctl.go:194 Checking current VPN connection status...
+[vpnctl] 2025/06/09 18:39:59 logger.go:32: INFO [2025-06-09 18:39:59] vpnctl.go:97 Attempting to disconnect VPN...
+[vpnctl] 2025/06/09 18:40:01 logger.go:32: INFO [2025-06-09 18:40:01] vpnctl.go:99 VPN disconnected
+[vpnctl] 2025/06/09 18:40:01 logger.go:32: INFO [2025-06-09 18:40:01] vpnctl.go:101 Cisco Secure Client process killed
+[vpnctl] 2025/06/09 18:40:01 logger.go:32: INFO [2025-06-09 18:40:01] vpnctl.go:207 Reading VPN profile script from (hidden path) /Users/ts-rohan.das/.vpn/.credential/.credential_intra
+[vpnctl] 2025/06/09 18:40:01 logger.go:32: INFO [2025-06-09 18:40:01] vpnctl.go:228 Running VPN command with provided script
+[vpnctl] 2025/06/09 18:41:03 logger.go:32: INFO [2025-06-09 18:41:03] vpnctl.go:261 Connected to VPN profile: intra
+[vpnctl] 2025/06/09 18:41:03 logger.go:32: INFO [2025-06-09 18:41:03] vpnctl.go:165 Launching Cisco Secure Client GUI...
+[vpnctl] 2025/06/09 18:41:03 logger.go:32: INFO [2025-06-09 18:41:03] vpnctl.go:170 Cisco GUI launched
+[vpnctl] 2025/06/09 19:10:49 logger.go:32: INFO [2025-06-09 19:10:49] vpnctl.go:182 Initiating VPN connection using profile: intra
+[vpnctl] 2025/06/09 19:10:49 logger.go:32: INFO [2025-06-09 19:10:49] vpnctl.go:393 Reading credentials for intra (hidden path)
+[vpnctl] 2025/06/09 19:10:49 logger.go:32: INFO [2025-06-09 19:10:49] vpnctl.go:196 Checking current VPN connection status...
+[vpnctl] 2025/06/09 19:10:51 logger.go:32: INFO [2025-06-09 19:10:51] vpnctl.go:203 VPN already connected. Aborting connect operation.
+[vpnctl] 2025/06/09 19:11:02 logger.go:32: INFO [2025-06-09 19:11:02] vpnctl.go:70 Attempting to disconnect VPN...
+[vpnctl] 2025/06/09 19:11:06 logger.go:32: INFO [2025-06-09 19:11:06] vpnctl.go:72 VPN disconnected
+[vpnctl] 2025/06/09 19:11:06 logger.go:32: INFO [2025-06-09 19:11:06] vpnctl.go:74 Cisco Secure Client process killed
+[vpnctl] 2025/06/09 19:11:06 logger.go:32: INFO [2025-06-09 19:11:06] vpnctl.go:88 Killing VPN process with PID 539
+[vpnctl] 2025/06/09 19:11:06 logger.go:40: ERROR [2025-06-09 19:11:06] vpnctl.go:91 killing VPN process 539: operation not permitted
+[vpnctl] 2025/06/09 19:11:06 logger.go:32: INFO [2025-06-09 19:11:06] vpnctl.go:88 Killing VPN process with PID 49480
+[vpnctl] 2025/06/09 19:11:06 logger.go:32: INFO [2025-06-09 19:11:06] vpnctl.go:94 VPN disconnected and related processes killed
+[vpnctl] 2025/06/09 19:11:14 logger.go:32: INFO [2025-06-09 19:11:14] vpnctl.go:182 Initiating VPN connection using profile: dev
+[vpnctl] 2025/06/09 19:11:14 logger.go:32: INFO [2025-06-09 19:11:14] vpnctl.go:393 Reading credentials for dev (hidden path)
+[vpnctl] 2025/06/09 19:11:14 logger.go:32: INFO [2025-06-09 19:11:14] vpnctl.go:196 Checking current VPN connection status...
+[vpnctl] 2025/06/09 19:11:16 logger.go:32: INFO [2025-06-09 19:11:16] vpnctl.go:99 Attempting to disconnect VPN...
+[vpnctl] 2025/06/09 19:11:18 logger.go:32: INFO [2025-06-09 19:11:18] vpnctl.go:101 VPN disconnected
+[vpnctl] 2025/06/09 19:11:18 logger.go:32: INFO [2025-06-09 19:11:18] vpnctl.go:103 Cisco Secure Client process killed
+[vpnctl] 2025/06/09 19:11:18 logger.go:32: INFO [2025-06-09 19:11:18] vpnctl.go:209 Reading VPN profile script from (hidden path) /Users/ts-rohan.das/.vpn/.credential/.credential_dev
+[vpnctl] 2025/06/09 19:11:18 logger.go:32: INFO [2025-06-09 19:11:18] vpnctl.go:230 Running VPN command with provided script
+[vpnctl] 2025/06/09 19:11:18 logger.go:32: INFO [2025-06-09 19:11:18] vpnctl.go:266 Running VPN command with provided script
+[vpnctl] 2025/06/09 19:11:18 logger.go:32: INFO [2025-06-09 19:11:18] vpnctl.go:310 [VPN stdout] Cisco Secure Client (version 5.0.02075) .
+[vpnctl] 2025/06/09 19:11:18 logger.go:32: INFO [2025-06-09 19:11:18] vpnctl.go:310 [VPN stdout] 
+[vpnctl] 2025/06/09 19:11:18 logger.go:32: INFO [2025-06-09 19:11:18] vpnctl.go:310 [VPN stdout] Copyright (c) 2004 - 2023 Cisco Systems, Inc.  All Rights Reserved.
+[vpnctl] 2025/06/09 19:11:18 logger.go:32: INFO [2025-06-09 19:11:18] vpnctl.go:310 [VPN stdout] 
+[vpnctl] 2025/06/09 19:11:18 logger.go:32: INFO [2025-06-09 19:11:18] vpnctl.go:310 [VPN stdout] 
+[vpnctl] 2025/06/09 19:11:18 logger.go:32: INFO [2025-06-09 19:11:18] vpnctl.go:310 [VPN stdout]   >> state: Unknown
+[vpnctl] 2025/06/09 19:11:18 logger.go:32: INFO [2025-06-09 19:11:18] vpnctl.go:310 [VPN stdout]   >> state: Disconnected
+[vpnctl] 2025/06/09 19:11:18 logger.go:32: INFO [2025-06-09 19:11:18] vpnctl.go:310 [VPN stdout]   >> state: Disconnected
+[vpnctl] 2025/06/09 19:11:18 logger.go:32: INFO [2025-06-09 19:11:18] vpnctl.go:310 [VPN stdout]   >> notice: Ready to connect.
+[vpnctl] 2025/06/09 19:11:18 logger.go:32: INFO [2025-06-09 19:11:18] vpnctl.go:310 [VPN stdout] VPN>   >> registered with local VPN subsystem.
+[vpnctl] 2025/06/09 19:11:18 logger.go:32: INFO [2025-06-09 19:11:18] vpnctl.go:310 [VPN stdout] VPN>   >> contacting host (DEV-VPN-REMOTE) for login information...
+[vpnctl] 2025/06/09 19:11:18 logger.go:32: INFO [2025-06-09 19:11:18] vpnctl.go:310 [VPN stdout]   >> notice: Contacting DEV-VPN-REMOTE.
+[vpnctl] 2025/06/09 19:11:18 logger.go:32: INFO [2025-06-09 19:11:18] vpnctl.go:310 [VPN stdout]   >> notice: Posture Assessment: Required for access
+[vpnctl] 2025/06/09 19:11:18 logger.go:32: INFO [2025-06-09 19:11:18] vpnctl.go:310 [VPN stdout]   >> notice: Posture Assessment: Checking for updates...
+[vpnctl] 2025/06/09 19:11:18 logger.go:32: INFO [2025-06-09 19:11:18] vpnctl.go:310 [VPN stdout]   >> notice: Posture Assessment: Initiating...
+[vpnctl] 2025/06/09 19:11:19 logger.go:32: INFO [2025-06-09 19:11:19] vpnctl.go:310 [VPN stdout]   >> notice: Posture Assessment: Active
+[vpnctl] 2025/06/09 19:11:19 logger.go:32: INFO [2025-06-09 19:11:19] vpnctl.go:310 [VPN stdout]   >> notice: Posture Assessment: Initiating...
+[vpnctl] 2025/06/09 19:11:19 logger.go:32: INFO [2025-06-09 19:11:19] vpnctl.go:310 [VPN stdout] 
+[vpnctl] 2025/06/09 19:11:19 logger.go:32: INFO [2025-06-09 19:11:19] vpnctl.go:310 [VPN stdout]   >> Please enter your username and password.
+[vpnctl] 2025/06/09 19:11:19 logger.go:32: INFO [2025-06-09 19:11:19] vpnctl.go:310 [VPN stdout] 
+[vpnctl] 2025/06/09 19:11:19 logger.go:32: INFO [2025-06-09 19:11:19] vpnctl.go:310 [VPN stdout] Username: [ts-rohan.das] ts-rohan.das
+[vpnctl] 2025/06/09 19:11:19 logger.go:32: INFO [2025-06-09 19:11:19] vpnctl.go:310 [VPN stdout]   >> notice: Hostscan is performing prelogin
+[vpnctl] 2025/06/09 19:11:19 logger.go:32: INFO [2025-06-09 19:11:19] vpnctl.go:310 [VPN stdout]   >> notice: Hostscan is performing system scan
+[vpnctl] 2025/06/09 19:11:19 logger.go:32: INFO [2025-06-09 19:11:19] vpnctl.go:310 [VPN stdout]   >> notice: Hostscan is performing software scan
+[vpnctl] 2025/06/09 19:12:08 logger.go:32: INFO [2025-06-09 19:12:08] vpnctl.go:310 [VPN stdout]   >> notice: Hostscan scanning complete
+[vpnctl] 2025/06/09 19:12:42 logger.go:32: INFO [2025-06-09 19:12:42] vpnctl.go:310 [VPN stdout] 
+[vpnctl] 2025/06/09 19:12:42 logger.go:32: INFO [2025-06-09 19:12:42] vpnctl.go:310 [VPN stdout]   >> Login failed.
+[vpnctl] 2025/06/09 19:12:42 logger.go:32: INFO [2025-06-09 19:12:42] vpnctl.go:310 [VPN stdout] 
+[vpnctl] 2025/06/09 19:12:42 logger.go:32: INFO [2025-06-09 19:12:42] vpnctl.go:310 [VPN stdout] 
+[vpnctl] 2025/06/09 19:12:45 logger.go:32: INFO [2025-06-09 19:12:45] vpnctl.go:328 Connected to VPN profile: dev
+[vpnctl] 2025/06/09 19:12:45 logger.go:32: INFO [2025-06-09 19:12:45] vpnctl.go:167 Launching Cisco Secure Client GUI...
+[vpnctl] 2025/06/09 19:12:45 logger.go:32: INFO [2025-06-09 19:12:45] vpnctl.go:172 Cisco GUI launched
+[vpnctl] 2025/06/09 19:14:08 logger.go:32: INFO [2025-06-09 19:14:08] vpnctl.go:182 Initiating VPN connection using profile: dev
+[vpnctl] 2025/06/09 19:14:08 logger.go:32: INFO [2025-06-09 19:14:08] vpnctl.go:393 Reading credentials for dev (hidden path)
+[vpnctl] 2025/06/09 19:14:08 logger.go:32: INFO [2025-06-09 19:14:08] vpnctl.go:196 Checking current VPN connection status...
+[vpnctl] 2025/06/09 19:14:10 logger.go:32: INFO [2025-06-09 19:14:10] vpnctl.go:99 Attempting to disconnect VPN...
+[vpnctl] 2025/06/09 19:14:12 logger.go:32: INFO [2025-06-09 19:14:12] vpnctl.go:101 VPN disconnected
+[vpnctl] 2025/06/09 19:14:12 logger.go:32: INFO [2025-06-09 19:14:12] vpnctl.go:103 Cisco Secure Client process killed
+[vpnctl] 2025/06/09 19:14:12 logger.go:32: INFO [2025-06-09 19:14:12] vpnctl.go:209 Reading VPN profile script from (hidden path) /Users/ts-rohan.das/.vpn/.credential/.credential_dev
+[vpnctl] 2025/06/09 19:14:12 logger.go:32: INFO [2025-06-09 19:14:12] vpnctl.go:230 Running VPN command with provided script
+[vpnctl] 2025/06/09 19:14:12 logger.go:32: INFO [2025-06-09 19:14:12] vpnctl.go:266 Running VPN command with provided script
+[vpnctl] 2025/06/09 19:15:40 logger.go:32: INFO [2025-06-09 19:15:40] vpnctl.go:328 Connected to VPN profile: dev
+[vpnctl] 2025/06/09 19:15:40 logger.go:32: INFO [2025-06-09 19:15:40] vpnctl.go:167 Launching Cisco Secure Client GUI...
+[vpnctl] 2025/06/09 19:15:40 logger.go:32: INFO [2025-06-09 19:15:40] vpnctl.go:172 Cisco GUI launched
+[vpnctl] 2025/06/09 19:15:49 logger.go:32: INFO [2025-06-09 19:15:49] vpnctl.go:182 Initiating VPN connection using profile: dev
+[vpnctl] 2025/06/09 19:15:49 logger.go:32: INFO [2025-06-09 19:15:49] vpnctl.go:393 Reading credentials for dev (hidden path)
+[vpnctl] 2025/06/09 19:15:49 logger.go:32: INFO [2025-06-09 19:15:49] vpnctl.go:196 Checking current VPN connection status...
+[vpnctl] 2025/06/09 19:15:51 logger.go:32: INFO [2025-06-09 19:15:51] vpnctl.go:99 Attempting to disconnect VPN...
+[vpnctl] 2025/06/09 19:15:53 logger.go:32: INFO [2025-06-09 19:15:53] vpnctl.go:101 VPN disconnected
+[vpnctl] 2025/06/09 19:15:53 logger.go:32: INFO [2025-06-09 19:15:53] vpnctl.go:103 Cisco Secure Client process killed
+[vpnctl] 2025/06/09 19:15:53 logger.go:32: INFO [2025-06-09 19:15:53] vpnctl.go:209 Reading VPN profile script from (hidden path) /Users/ts-rohan.das/.vpn/.credential/.credential_dev
+[vpnctl] 2025/06/09 19:15:53 logger.go:32: INFO [2025-06-09 19:15:53] vpnctl.go:230 Running VPN command with provided script
+[vpnctl] 2025/06/09 19:15:53 logger.go:32: INFO [2025-06-09 19:15:53] vpnctl.go:266 Running VPN command with provided script
+[vpnctl] 2025/06/09 19:17:22 logger.go:32: INFO [2025-06-09 19:17:22] vpnctl.go:328 Connected to VPN profile: dev
+[vpnctl] 2025/06/09 19:17:22 logger.go:32: INFO [2025-06-09 19:17:22] vpnctl.go:167 Launching Cisco Secure Client GUI...
+[vpnctl] 2025/06/09 19:17:22 logger.go:32: INFO [2025-06-09 19:17:22] vpnctl.go:172 Cisco GUI launched
+[vpnctl] 2025/06/09 19:48:14 logger.go:32: INFO [2025-06-09 19:48:14] vpnctl.go:182 Initiating VPN connection using profile: dev
+[vpnctl] 2025/06/09 19:48:14 logger.go:32: INFO [2025-06-09 19:48:14] vpnctl.go:391 Reading credentials for dev (hidden path)
+[vpnctl] 2025/06/09 19:48:14 logger.go:32: INFO [2025-06-09 19:48:14] vpnctl.go:196 Checking current VPN connection status...
+[vpnctl] 2025/06/09 19:48:16 logger.go:32: INFO [2025-06-09 19:48:16] vpnctl.go:99 Attempting to disconnect VPN...
+[vpnctl] 2025/06/09 19:48:19 logger.go:32: INFO [2025-06-09 19:48:19] vpnctl.go:101 VPN disconnected
+[vpnctl] 2025/06/09 19:48:19 logger.go:32: INFO [2025-06-09 19:48:19] vpnctl.go:103 Cisco Secure Client process killed
+[vpnctl] 2025/06/09 19:48:19 logger.go:32: INFO [2025-06-09 19:48:19] vpnctl.go:209 Reading VPN profile script from (hidden path) /Users/ts-rohan.das/.vpn/.credential/.credential_dev
+[vpnctl] 2025/06/09 19:48:19 logger.go:32: INFO [2025-06-09 19:48:19] vpnctl.go:265 Running VPN command with provided script
+[vpnctl] 2025/06/09 19:49:38 logger.go:32: INFO [2025-06-09 19:49:38] vpnctl.go:167 Launching Cisco Secure Client GUI...
+[vpnctl] 2025/06/09 19:49:38 logger.go:32: INFO [2025-06-09 19:49:38] vpnctl.go:172 Cisco GUI launched
