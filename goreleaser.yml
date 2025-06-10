@@ -1,8 +1,8 @@
-# .goreleaser.yml
 project_name: vpnctl
+
 builds:
   - id: vpnctl
-    main: ./cmd/vpnctl/main.go
+    main: ./main.go
     binary: vpnctl
     goos:
       - linux
@@ -12,12 +12,14 @@ builds:
       - amd64
       - arm64
     ldflags:
-      - -s -w -X main.Version={{.Version}}
+      - -s -w
+      - -X main.Version={{.Version}}
 
 archives:
-  - id: archive
+  - id: release-archive
     builds:
       - vpnctl
+    format: tar.gz
     format_overrides:
       - goos: windows
         format: zip
@@ -29,7 +31,17 @@ archives:
 checksum:
   name_template: "checksums.txt"
 
-# release:
-#   github:
-#     owner: YOUR_GITHUB_USERNAME
-#     name: YOUR_REPO_NAME
+release:
+  github:
+    owner: goo-apps
+    name: vpnctl
+    # draft: false
+    # prerelease: false
+
+changelog:
+  sort: asc
+  filters:
+    exclude:
+      - "^docs:"
+      - "^test:"
+# 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

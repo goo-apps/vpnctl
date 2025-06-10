@@ -1,68 +1,18 @@
+// vpnctl - Cross-platform VPN CLI
+// Copyright (c) 2025 Rohan
+// Licensed under the MIT License. See LICENSE file for details.
+
 package main
 
-// Author: Rohan.das
 import (
 	"fmt"
 	"os"
 
-	"vpnctl/internal/credentialstore"
-	"vpnctl/internal/vpnctl"
-	"vpnctl/logger"
+	internal "github.com/goo-apps/vpnctl/internal/vpnctl"
+	"github.com/goo-apps/vpnctl/logger"
 
 	"github.com/common-nighthawk/go-figure"
-	"github.com/gtank/cryptopasta"
 )
-
-func main() {
-	// Initialize logger
-	logger.InitLogger()
-
-	if len(os.Args) < 2 {
-		info()
-		return
-	}
-
-	cmd := os.Args[1]
-
-	switch cmd {
-	case "connect":
-		if len(os.Args) < 3 {
-			fmt.Println("Please specify profile: intra or dev")
-			return
-		}
-		internal.Connect(os.Args[2])
-	case "disconnect":
-		internal.DisconnectWithKillPid()
-	case "status":
-		internal.Status()
-	case "kill":
-		internal.KillGUI()
-	case "gui":
-		internal.LaunchGUI()
-	case "help":
-		showHelp()
-	case "info":
-		info()
-	default:
-		fmt.Printf("Unknown command: %s\n", cmd)
-		// internal.ShowHelp()
-	}
-
-	key := cryptopasta.NewEncryptionKey() // You can load from env/config
-
-	err := credentialstore.StoreCredential("ts-rohan.das", "yourPassword123", key[:])
-	if err != nil {
-		fmt.Println("Error storing credential:", err)
-	}
-
-	pass, err := credentialstore.GetCredential("ts-rohan.das", key[:])
-	if err != nil {
-		fmt.Println("Error getting credential:", err)
-	} else {
-		fmt.Println("Retrieved password:", pass)
-	}
-
-}
 
 func info() {
 	banner := figure.NewColorFigure("VPNCTL", "", "green", true)
@@ -89,4 +39,41 @@ vpnctl kill             Kill Cisco Secure Client GUI only
 vpnctl gui              Launch Cisco GUI
 vpnctl help             Show this help message
 	`)
+}
+
+func main() {
+	// Initialize logger
+	logger.InitLogger()
+
+	if len(os.Args) < 2 {
+		info()
+		return
+	}
+
+	// user command input
+	cmd := os.Args[1]
+	switch cmd {
+	case "connect":
+		if len(os.Args) < 3 {
+			fmt.Println("Please specify profile: intra or dev")
+			return
+		}
+		internal.Connect(os.Args[2])
+	case "disconnect":
+		internal.DisconnectWithKillPid()
+	case "status":
+		internal.Status()
+	case "kill":
+		internal.KillGUI()
+	case "gui":
+		internal.LaunchGUI()
+	case "help":
+		showHelp()
+	case "info":
+		info()
+	default:
+		fmt.Printf("Unknown command: %s\n", cmd)
+		// internal.ShowHelp()
+	}
+
 }

@@ -13,14 +13,15 @@ import (
 	"strings"
 	"time"
 
-	"vpnctl/logger"
+	"github.com/goo-apps/vpnctl/internal/middleware"
+	"github.com/goo-apps/vpnctl/logger"
 
 	"github.com/common-nighthawk/go-figure"
 )
 
 var (
-	vpnCmd  = "/opt/cisco/secureclient/bin/vpn"
-	guiApp  = "/Applications/Cisco/Cisco Secure Client.app/"
+	vpnCmd = "/opt/cisco/secureclient/bin/vpn"
+	guiApp = "/Applications/Cisco/Cisco Secure Client.app/"
 )
 
 // Status checks the current VPN connection status using the Cisco Secure Client command line tool.
@@ -31,7 +32,7 @@ var (
 // This function is useful for checking if the VPN is currently connected or disconnected.
 func Status() {
 	logger.LogInfo("Checking VPN status...")
-	ctx, cancel := context.WithTimeout(context.Background(), 5 * time.Second)
+	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 	defer cancel()
 
 	cmd := exec.CommandContext(ctx, vpnCmd, "status", "-s")
@@ -65,14 +66,14 @@ func Status() {
 
 // Disconnect terminates the current VPN connection and kills the Cisco Secure Client GUI.
 // It runs the `vpn disconnect` command to disconnect the VPN.
-// After disconnecting, it attempts to kill the Cisco Secure Client GUI process using `pkill`.	
+// After disconnecting, it attempts to kill the Cisco Secure Client GUI process using `pkill`.
 func DisconnectWithKillPid() {
 	logger.LogInfo("Attempting to disconnect VPN...")
 	exec.Command(vpnCmd, "disconnect").Run()
 	logger.LogInfo("VPN disconnected")
 	exec.Command("pkill", "-x", "Cisco Secure Client").Run()
 	logger.LogInfo("Cisco Secure Client process killed")
-	
+
 	// Optionally, you can also kill the VPN process
 	pids, err := getPIDs("vpn")
 	if err != nil {
@@ -101,7 +102,7 @@ func Disconnect() {
 	logger.LogInfo("VPN disconnected")
 	exec.Command("pkill", "-x", "Cisco Secure Client").Run()
 	logger.LogInfo("Cisco Secure Client process killed")
-	
+
 }
 
 // KillGUI kills the Cisco Secure Client GUI and optionally the VPN process
@@ -137,7 +138,7 @@ func KillGUI() {
 // It runs the `pgrep -f` command to find all processes matching the name.
 // It returns a slice of integers representing the process IDs.
 // If an error occurs during execution, it returns an error.
-// This function is useful for finding and managing processes by name.	
+// This function is useful for finding and managing processes by name.
 func getPIDs(name string) ([]int, error) {
 	out, err := exec.Command("pgrep", "-f", name).Output()
 	if err != nil {
@@ -167,7 +168,7 @@ func LaunchGUI() {
 	logger.LogInfo("Launching Cisco Secure Client GUI...")
 	err := exec.Command("open", guiApp).Run()
 	if err != nil {
-    	logger.LogError(err, "launching Cisco Secure Client GUI")
+		logger.LogError(err, "launching Cisco Secure Client GUI")
 	}
 	logger.LogInfo("Cisco GUI launched")
 }
@@ -199,12 +200,22 @@ func Connect(profile string) {
 
 	cmd := exec.CommandContext(ctx, vpnCmd, "status")
 	output, _ := cmd.CombinedOutput()
-	if contains(string(output), "Connected") {
-		logger.LogInfo("VPN already connected. Aborting connect operation.")
-		return
-	}
 
-	Disconnect()
+	// check the current vpn profile
+	if contains(string(output), "Connected") {
+		last, err := middleware.GetLastConnectedProfile()
+		if err != nil {
+			logger.LogError(err, "retrieve error:")
+		}
+		logger.LogInfo("Last connected VPN profile: " + last)
+
+		if last == profile {
+			logger.LogInfo(fmt.Sprintf("VPN already connected to profile: %s. Aborting connect operation.", profile))
+			return
+		}
+		logger.LogInfo(fmt.Sprintf("VPN connected to profile %s, switching to %s...", last, profile))
+		Disconnect()
+	}
 
 	logger.LogInfo(fmt.Sprintf("Reading VPN profile script from (hidden path) %s", ""))
 	scriptContent, err := os.ReadFile(profilePath)
@@ -226,41 +237,6 @@ func Connect(profile string) {
 		logger.LogError(err, "writing temp VPN input file")
 		return
 	}
-
-	// logger.LogInfo("Running VPN command with provided script")
-	// vpn_profile := "" // Default profile
-	// // Set the VPN profile based on the provided profile name
-	// switch profile {
-	// case "dev":
-	// 	vpn_profile = "DEV-VPN-REMOTE"
-	// case "intra":
-	// 	vpn_profile = "INTRA"
-	// }
-	// cmd = exec.Command(vpnCmd, "connect", vpn_profile, "-s")
-	// stdinFile, err := os.Open(tempScript)
-	// if err != nil {
-	// 	logger.LogError(err, "opening temp script")
-	// 	return
-	// }
-	// cmd.Stdin = stdinFile
-	
-	// err = cmd.Run()
-	// if err != nil {
-	// 	logger.LogError(err, "connecting to VPN")
-	// 	return
-	// }
-
-	// // Clean up the temporary script file
-	// defer os.Remove(tempScript)
-
-	// // close the stdin file after use
-	// if err := stdinFile.Close(); err != nil {
-	// 	logger.LogError(err, "closing temp script file")
-	// 	return
-	// }
-
-	// logger.LogInfo(fmt.Sprintf("Connected to VPN profile: %s", profile))
-	// LaunchGUI()
 
 	logger.LogInfo("Running VPN command with provided script")
 
@@ -324,6 +300,11 @@ func Connect(profile string) {
 		return
 	}
 
+	// set the last connected profile in the database
+	if err := middleware.SetLastConnectedProfile(profile); err != nil {
+		logger.LogError(err, "store error:")
+	}
+
 	LaunchGUI()
 }
 
@@ -353,9 +334,9 @@ func getProfilePath(name string) string {
 	u, _ := user.Current()
 	switch name {
 	case "intra":
-		return filepath.Join(u.HomeDir, ".vpn", ".credential", ".credential_intra")
+		return filepath.Join(u.HomeDir, ".vpnctl", ".credential", ".credential_intra")
 	case "dev":
-		return filepath.Join(u.HomeDir, ".vpn", ".credential", ".credential_dev")
+		return filepath.Join(u.HomeDir, ".vpnctl", ".credential", ".credential_dev")
 	default:
 		return ""
 	}
@@ -376,7 +357,7 @@ func contains(text, keyword string) bool {
 // If the file cannot be read or the format is invalid, it returns an error.
 // This function is useful for securely retrieving the VPN credentials needed for connection.
 func readCredentials(profile string) (string, string, string, string, error) {
-	basePath := filepath.Join(os.Getenv("HOME"), ".vpn", ".credential")
+	basePath := filepath.Join(os.Getenv("HOME"), ".vpnctl", ".credential")
 	var credentialsPath string
 
 	switch profile {
@@ -418,215 +399,3 @@ func Info() {
 	fmt.Println("Your version is up to date!")
 	fmt.Print("Run 'vpnctl help' for available commands\n")
 }
-
-// package internal
-
-// import (
-// 	"context"
-// 	"fmt"
-// 	"os"
-// 	"os/exec"
-// 	"os/user"
-// 	"path/filepath"
-// 	"strconv"
-// 	"strings"
-// 	"syscall"
-// 	"time"
-
-// 	"vpnctl/logger"
-// )
-
-// var (
-// 	vpnCmd = "/opt/cisco/secureclient/bin/vpn"
-// 	guiApp = "/Applications/Cisco/Cisco Secure Client.app/"
-// )
-
-// func Status() {
-// 	logger.LogInfo("Checking VPN status...")
-// 	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
-// 	defer cancel()
-
-// 	cmd := exec.CommandContext(ctx, vpnCmd, "status", "-s")
-// 	output, err := cmd.CombinedOutput()
-
-// 	if ctx.Err() == context.DeadlineExceeded {
-// 		logger.LogError(fmt.Errorf("vpn status timed out"), "status check")
-// 		// killVPNProcesses() // <-- added fallback kill
-// 		return
-// 	}
-
-// 	if err != nil {
-// 		logger.LogError(err, "retrieving VPN status")
-// 		fmt.Println(string(output))
-// 		return
-// 	}
-
-// 	logger.LogInfo("VPN status retrieved successfully")
-// 	fmt.Println(string(output))
-// }
-
-// func Disconnect() {
-// 	logger.LogInfo("Attempting to disconnect VPN...")
-// 	if err := exec.Command(vpnCmd, "disconnect").Run(); err != nil {
-// 		logger.LogError(err, "disconnecting VPN")
-// 	}
-// 	// killVPNProcesses() // <-- updated
-// 	logger.LogInfo("VPN disconnected and related processes killed")
-// }
-
-// func KillGUI() {
-// 	logger.LogInfo("Killing Cisco Secure Client GUI...")
-// 	// killVPNProcesses() // <-- updated
-// 	logger.LogInfo("Cisco GUI killed")
-// }
-
-// func LaunchGUI() {
-// 	logger.LogInfo("Launching Cisco Secure Client GUI...")
-// 	err := exec.Command("open", guiApp).Run()
-// 	if err != nil {
-// 		logger.LogError(err, "launching GUI")
-// 	}
-// 	logger.LogInfo("Cisco GUI launched")
-// }
-
-// func Connect(profile string) {
-// 	logger.LogInfo(fmt.Sprintf("Initiating VPN connection using profile: %s", profile))
-
-// 	// killVPNProcesses()
-
-// 	profilePath := getProfilePath(profile)
-// 	if profilePath == "" {
-// 		logger.LogInfo("Unknown VPN profile")
-// 		return
-// 	}
-
-// 	username, password, y, y2, err := readCredentials(profile)
-// 	if err != nil {
-// 		logger.LogError(err, "reading credentials")
-// 		return
-// 	}
-
-// 	logger.LogInfo("Checking current VPN connection status...")
-// 	ctx, cancel := context.WithTimeout(context.Background(), 5 * time.Second)
-// 	defer cancel()
-
-// 	cmd := exec.CommandContext(ctx, vpnCmd, "status")
-// 	output, _ := cmd.CombinedOutput()
-// 	if contains(string(output), "Connected") {
-// 		logger.LogInfo("VPN already connected. Aborting connect operation.")
-// 		return
-// 	}
-
-// 	Disconnect()
-
-// 	logger.LogInfo("Reading VPN profile script from (hidden path)")
-// 	scriptContent, err := os.ReadFile(profilePath)
-// 	if err != nil {
-// 		logger.LogError(err, "reading VPN profile")
-// 		return
-// 	}
-
-// 	script := strings.ReplaceAll(string(scriptContent), "{{USERNAME}}", username)
-// 	script = strings.ReplaceAll(script, "{{PASSWORD}}", password)
-// 	script = strings.ReplaceAll(script, "{{Y}}", y)
-// 	if profile == "dev" {
-// 		script = strings.ReplaceAll(script, "{{Y2}}", y2)
-// 	}
-
-// 	tempScript := filepath.Join(os.TempDir(), "vpn_input.txt")
-// 	err = os.WriteFile(tempScript, []byte(script), 0600)
-// 	if err != nil {
-// 		logger.LogError(err, "writing temp VPN input file")
-// 		return
-// 	}
-// }
-
-// // New helper: kills vpn and GUI processes safely
-// func killVPNProcesses() {
-// 	processes := []string{"vpn", "Cisco Secure Client"}
-
-// 	for _, name := range processes {
-// 		pids, err := getPIDs(name)
-// 		if err != nil {
-// 			logger.LogWarn(err, "getting PIDs for "+name)
-// 			continue
-// 		}
-
-// 		for _, pid := range pids {
-// 			process, err := os.FindProcess(pid)
-// 			if err != nil {
-// 				logger.LogError(err, fmt.Sprintf("finding process %d", pid))
-// 				continue
-// 			}
-// 			logger.LogInfo(fmt.Sprintf("Killing process %s with PID %d", name, pid))
-// 			_ = process.Signal(syscall.SIGKILL)
-// 		}
-// 	}
-// }
-
-// // New helper: find process IDs using pgrep
-// func getPIDs(name string) ([]int, error) {
-// 	out, err := exec.Command("pgrep", "-f", name).Output()
-// 	if err != nil {
-// 		return nil, err
-// 	}
-
-// 	lines := strings.Split(strings.TrimSpace(string(out)), "\n")
-// 	var pids []int
-// 	for _, line := range lines {
-// 		if line == "" {
-// 			continue
-// 		}
-// 		pid, err := strconv.Atoi(line)
-// 		if err != nil {
-// 			continue
-// 		}
-// 		pids = append(pids, pid)
-// 	}
-// 	return pids, nil
-// }
-
-// func contains(text, keyword string) bool {
-// 	return strings.Contains(text, keyword)
-// }
-
-// func readCredentials(profile string) (string, string, string, string, error) {
-// 	basePath := filepath.Join(os.Getenv("HOME"), ".vpn", ".credential")
-// 	var credentialsPath string
-
-// 	switch profile {
-// 	case "intra":
-// 		credentialsPath = filepath.Join(basePath, ".credential_intra")
-// 	case "dev":
-// 		credentialsPath = filepath.Join(basePath, ".credential_dev")
-// 	default:
-// 		return "", "", "", "", fmt.Errorf("unsupported profile for credentials")
-// 	}
-
-// 	logger.LogInfo(fmt.Sprintf("Reading credentials for %s (hidden path)", profile))
-// 	creds, err := os.ReadFile(credentialsPath)
-// 	if err != nil {
-// 		return "", "", "", "", err
-// 	}
-
-// 	lines := strings.Split(strings.TrimSpace(string(creds)), "\n")
-// 	if profile == "intra" && len(lines) >= 3 {
-// 		return strings.TrimSpace(lines[0]), strings.TrimSpace(lines[1]), strings.TrimSpace(lines[2]), "", nil
-// 	} else if profile == "dev" && len(lines) >= 4 {
-// 		return strings.TrimSpace(lines[0]), strings.TrimSpace(lines[1]), strings.TrimSpace(lines[2]), strings.TrimSpace(lines[3]), nil
-// 	}
-
-// 	return "", "", "", "", fmt.Errorf("invalid credentials format for profile: %s", profile)
-// }
-
-// func getProfilePath(name string) string {
-// 	u, _ := user.Current()
-// 	switch name {
-// 	case "intra":
-// 		return filepath.Join(u.HomeDir, ".vpn", ".credential", ".credential_intra")
-// 	case "dev":
-// 		return filepath.Join(u.HomeDir, ".vpn", ".credential", ".credential_dev")
-// 	default:
-// 		return ""
-// 	}
-// }

@@ -1,0 +1,2 @@
+vpn.binary_path = "/opt/cisco/secureclient/bin/vpn"
+vpn.gui_path = "/Applications/Cisco/Cisco Secure Client.app/"
