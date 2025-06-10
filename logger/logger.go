@@ -16,7 +16,7 @@ var (
 )
 
 func InitLogger() {
-	logFile := filepath.Join(os.Getenv("HOME"), ".vpn", "go_vpn", "vpn_connect.log")
+	logFile := filepath.Join(os.Getenv("HOME"), "go_vpn", "vpn_connect.log")
 	_ = os.MkdirAll(filepath.Dir(logFile), 0755)
 	file, err := os.OpenFile(logFile, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
 	if err != nil {

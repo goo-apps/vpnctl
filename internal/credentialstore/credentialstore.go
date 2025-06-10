@@ -1,3 +1,4 @@
+// not used right now
 package credentialstore
 
 import (
