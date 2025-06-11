@@ -38,13 +38,17 @@ checksum:
   algorithm: sha256
 signs:
   - artifacts: checksum
+    cmd: gpg
     args:
-      # if you are using this in a GitHub action or some other automated pipeline, you 
-      # need to pass the batch flag to indicate its not interactive.
-      - "--batch"
-      - "--local-user"
-      - "--output"
-      - "--detach-sign"
+      - --batch
+      - --yes
+      - --armor
+      - --local-user
+      - 6583FBFB56949638D2D0CBAEF117572E15E3CA6F
+      - --output
+      - "${signature}"
+      - --detach-sign
+      - "${artifact}"
 release:
   # If you want to manually examine the release before its live, uncomment this line:
   draft: true

@@ -810,3 +810,31 @@ VPN>
 [vpnctl] 2025/06/10 16:01:57 logger.go:32: INFO [2025-06-10 16:01:57] vpnctl.go:241 Running VPN command with provided script
 [vpnctl] 2025/06/10 16:02:00 logger.go:32: INFO [2025-06-10 16:02:00] vpnctl.go:168 Launching Cisco Secure Client GUI...
 [vpnctl] 2025/06/10 16:02:00 logger.go:32: INFO [2025-06-10 16:02:00] vpnctl.go:173 Cisco GUI launched
+[vpnctl] 2025/06/10 22:15:45 logger.go:32: INFO [2025-06-10 22:15:45] vpnctl.go:183 Initiating VPN connection using profile: intra
+[vpnctl] 2025/06/10 22:15:45 logger.go:32: INFO [2025-06-10 22:15:45] vpnctl.go:372 Reading credentials for intra (hidden path)
+[vpnctl] 2025/06/10 22:15:45 logger.go:32: INFO [2025-06-10 22:15:45] vpnctl.go:197 Checking current VPN connection status...
+[vpnctl] 2025/06/10 22:15:48 logger.go:32: INFO [2025-06-10 22:15:48] vpnctl.go:220 Reading VPN profile script from (hidden path) 
+[vpnctl] 2025/06/10 22:15:48 logger.go:32: INFO [2025-06-10 22:15:48] vpnctl.go:241 Running VPN command with provided script
+[vpnctl] 2025/06/10 22:16:53 logger.go:32: INFO [2025-06-10 22:16:53] vpnctl.go:168 Launching Cisco Secure Client GUI...
+[vpnctl] 2025/06/10 22:16:53 logger.go:32: INFO [2025-06-10 22:16:53] vpnctl.go:173 Cisco GUI launched
+[vpnctl] 2025/06/11 09:03:42 logger.go:32: INFO [2025-06-11 09:03:42] vpnctl.go:168 Launching Cisco Secure Client GUI...
+[vpnctl] 2025/06/11 09:03:42 logger.go:32: INFO [2025-06-11 09:03:42] vpnctl.go:173 Cisco GUI launched
+[vpnctl] 2025/06/11 09:03:50 logger.go:32: INFO [2025-06-11 09:03:50] vpnctl.go:183 Initiating VPN connection using profile: intra
+[vpnctl] 2025/06/11 09:03:50 logger.go:32: INFO [2025-06-11 09:03:50] vpnctl.go:372 Reading credentials for intra (hidden path)
+[vpnctl] 2025/06/11 09:03:50 logger.go:32: INFO [2025-06-11 09:03:50] vpnctl.go:197 Checking current VPN connection status...
+[vpnctl] 2025/06/11 09:03:52 logger.go:32: INFO [2025-06-11 09:03:52] vpnctl.go:220 Reading VPN profile script from (hidden path) 
+[vpnctl] 2025/06/11 09:03:52 logger.go:32: INFO [2025-06-11 09:03:52] vpnctl.go:241 Running VPN command with provided script
+[vpnctl] 2025/06/11 09:03:54 logger.go:32: INFO [2025-06-11 09:03:54] vpnctl.go:168 Launching Cisco Secure Client GUI...
+[vpnctl] 2025/06/11 09:03:54 logger.go:32: INFO [2025-06-11 09:03:54] vpnctl.go:173 Cisco GUI launched
+[vpnctl] 2025/06/11 09:05:59 logger.go:32: INFO [2025-06-11 09:05:59] vpnctl.go:183 Initiating VPN connection using profile: intra
+[vpnctl] 2025/06/11 09:05:59 logger.go:32: INFO [2025-06-11 09:05:59] vpnctl.go:373 Reading credentials for intra (hidden path)
+[vpnctl] 2025/06/11 09:05:59 logger.go:32: INFO [2025-06-11 09:05:59] vpnctl.go:197 Checking current VPN connection status...
+[vpnctl] 2025/06/11 09:06:01 logger.go:32: INFO [2025-06-11 09:06:01] vpnctl.go:221 Reading VPN profile script from (hidden path) 
+[vpnctl] 2025/06/11 09:06:01 logger.go:32: INFO [2025-06-11 09:06:01] vpnctl.go:242 Running VPN command with provided script
+[vpnctl] 2025/06/11 09:06:03 logger.go:32: INFO [2025-06-11 09:06:03] vpnctl.go:168 Launching Cisco Secure Client GUI...
+[vpnctl] 2025/06/11 09:06:04 logger.go:32: INFO [2025-06-11 09:06:04] vpnctl.go:173 Cisco GUI launched
+[vpnctl] 2025/06/11 09:08:36 logger.go:32: INFO [2025-06-11 09:08:36] vpnctl.go:191 Initiating VPN connection using profile: intra
+[vpnctl] 2025/06/11 09:08:36 logger.go:32: INFO [2025-06-11 09:08:36] vpnctl.go:381 Reading credentials for intra (hidden path)
+[vpnctl] 2025/06/11 09:08:36 logger.go:32: INFO [2025-06-11 09:08:36] vpnctl.go:205 Checking current VPN connection status...
+[vpnctl] 2025/06/11 09:08:38 logger.go:32: INFO [2025-06-11 09:08:38] vpnctl.go:218 Last connected VPN profile: intra
+[vpnctl] 2025/06/11 09:08:38 logger.go:32: INFO [2025-06-11 09:08:38] vpnctl.go:221 VPN already connected to profile: intra. Aborting connect operation.
