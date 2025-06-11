@@ -173,6 +173,14 @@ func LaunchGUI() {
 	logger.LogInfo("Cisco GUI launched")
 }
 
+func KillCiscoProcesses() error {
+	cmd := exec.Command("pkill", "-f", "vpnui|vpnagentd|vpncli")
+	if err := cmd.Run(); err != nil {
+		return fmt.Errorf("failed to kill Cisco processes: %w", err)
+	}
+	return nil
+}
+
 // Connect establishes a VPN connection using the specified profile.
 // It reads the VPN profile script from a hidden path, replaces placeholders with credentials,
 // and executes the VPN command with the provided script.
@@ -215,6 +223,7 @@ func Connect(profile string) {
 		}
 		logger.LogInfo(fmt.Sprintf("VPN connected to profile %s, switching to %s...", last, profile))
 		Disconnect()
+		KillCiscoProcesses()
 	}
 
 	logger.LogInfo(fmt.Sprintf("Reading VPN profile script from (hidden path) %s", ""))
