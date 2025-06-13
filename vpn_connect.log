@@ -838,3 +838,366 @@ VPN>
 [vpnctl] 2025/06/11 09:08:36 logger.go:32: INFO [2025-06-11 09:08:36] vpnctl.go:205 Checking current VPN connection status...
 [vpnctl] 2025/06/11 09:08:38 logger.go:32: INFO [2025-06-11 09:08:38] vpnctl.go:218 Last connected VPN profile: intra
 [vpnctl] 2025/06/11 09:08:38 logger.go:32: INFO [2025-06-11 09:08:38] vpnctl.go:221 VPN already connected to profile: intra. Aborting connect operation.
+[vpnctl] 2025/06/11 12:51:11 logger.go:32: INFO [2025-06-11 12:51:11] vpnctl.go:191 Initiating VPN connection using profile: intra
+[vpnctl] 2025/06/11 12:51:11 logger.go:32: INFO [2025-06-11 12:51:11] vpnctl.go:381 Reading credentials for intra (hidden path)
+[vpnctl] 2025/06/11 12:51:11 logger.go:32: INFO [2025-06-11 12:51:11] vpnctl.go:205 Checking current VPN connection status...
+[vpnctl] 2025/06/11 12:51:13 logger.go:32: INFO [2025-06-11 12:51:13] vpnctl.go:229 Reading VPN profile script from (hidden path) 
+[vpnctl] 2025/06/11 12:51:13 logger.go:32: INFO [2025-06-11 12:51:13] vpnctl.go:250 Running VPN command with provided script
+[vpnctl] 2025/06/11 12:51:16 logger.go:32: INFO [2025-06-11 12:51:16] vpnctl.go:168 Launching Cisco Secure Client GUI...
+[vpnctl] 2025/06/11 12:51:16 logger.go:32: INFO [2025-06-11 12:51:16] vpnctl.go:173 Cisco GUI launched
+[vpnctl] 2025/06/11 12:57:13 logger.go:32: INFO [2025-06-11 12:57:13] vpnctl.go:191 Initiating VPN connection using profile: intra
+[vpnctl] 2025/06/11 12:57:13 logger.go:32: INFO [2025-06-11 12:57:13] vpnctl.go:399 Reading credentials for intra (hidden path)
+[vpnctl] 2025/06/11 12:57:13 logger.go:32: INFO [2025-06-11 12:57:13] vpnctl.go:205 Checking current VPN connection status...
+[vpnctl] 2025/06/11 12:57:16 logger.go:32: INFO [2025-06-11 12:57:16] vpnctl.go:229 Reading VPN profile script from (hidden path) 
+[vpnctl] 2025/06/11 12:57:16 logger.go:32: INFO [2025-06-11 12:57:16] vpnctl.go:250 Running VPN command with provided script
+[vpnctl] 2025/06/11 12:57:18 logger.go:32: INFO [2025-06-11 12:57:18] vpnctl.go:321 Detected Cisco VPN agent lock. Restarting Cisco services...
+[vpnctl] 2025/06/11 12:57:18 logger.go:32: INFO [2025-06-11 12:57:18] vpnctl.go:168 Launching Cisco Secure Client GUI...
+[vpnctl] 2025/06/11 12:57:18 logger.go:32: INFO [2025-06-11 12:57:18] vpnctl.go:173 Cisco GUI launched
+[vpnctl] 2025/06/11 13:00:21 logger.go:32: INFO [2025-06-11 13:00:21] vpnctl.go:191 Initiating VPN connection using profile: intra
+[vpnctl] 2025/06/11 13:00:21 logger.go:32: INFO [2025-06-11 13:00:21] vpnctl.go:404 Reading credentials for intra (hidden path)
+[vpnctl] 2025/06/11 13:00:21 logger.go:32: INFO [2025-06-11 13:00:21] vpnctl.go:205 Checking current VPN connection status...
+[vpnctl] 2025/06/11 13:00:24 logger.go:32: INFO [2025-06-11 13:00:24] vpnctl.go:229 Reading VPN profile script from (hidden path) 
+[vpnctl] 2025/06/11 13:00:24 logger.go:32: INFO [2025-06-11 13:00:24] vpnctl.go:250 Running VPN command with provided script
+[vpnctl] 2025/06/11 13:00:26 logger.go:32: INFO [2025-06-11 13:00:26] vpnctl.go:322 Detected Cisco VPN agent lock. Restarting Cisco services...
+[vpnctl] 2025/06/11 13:00:28 logger.go:32: INFO [2025-06-11 13:00:28] vpnctl.go:331 Retrying VPN connection to profile: intra
+[vpnctl] 2025/06/11 13:00:28 logger.go:32: INFO [2025-06-11 13:00:28] vpnctl.go:191 Initiating VPN connection using profile: intra
+[vpnctl] 2025/06/11 13:00:28 logger.go:32: INFO [2025-06-11 13:00:28] vpnctl.go:404 Reading credentials for intra (hidden path)
+[vpnctl] 2025/06/11 13:00:28 logger.go:32: INFO [2025-06-11 13:00:28] vpnctl.go:205 Checking current VPN connection status...
+[vpnctl] 2025/06/11 13:00:30 logger.go:32: INFO [2025-06-11 13:00:30] vpnctl.go:229 Reading VPN profile script from (hidden path) 
+[vpnctl] 2025/06/11 13:00:30 logger.go:32: INFO [2025-06-11 13:00:30] vpnctl.go:250 Running VPN command with provided script
+[vpnctl] 2025/06/11 13:00:32 logger.go:32: INFO [2025-06-11 13:00:32] vpnctl.go:322 Detected Cisco VPN agent lock. Restarting Cisco services...
+[vpnctl] 2025/06/11 13:00:34 logger.go:32: INFO [2025-06-11 13:00:34] vpnctl.go:331 Retrying VPN connection to profile: intra
+[vpnctl] 2025/06/11 13:00:34 logger.go:32: INFO [2025-06-11 13:00:34] vpnctl.go:191 Initiating VPN connection using profile: intra
+[vpnctl] 2025/06/11 13:00:34 logger.go:32: INFO [2025-06-11 13:00:34] vpnctl.go:404 Reading credentials for intra (hidden path)
+[vpnctl] 2025/06/11 13:00:34 logger.go:32: INFO [2025-06-11 13:00:34] vpnctl.go:205 Checking current VPN connection status...
+[vpnctl] 2025/06/11 13:00:36 logger.go:32: INFO [2025-06-11 13:00:36] vpnctl.go:229 Reading VPN profile script from (hidden path) 
+[vpnctl] 2025/06/11 13:00:36 logger.go:32: INFO [2025-06-11 13:00:36] vpnctl.go:250 Running VPN command with provided script
+[vpnctl] 2025/06/11 13:00:38 logger.go:32: INFO [2025-06-11 13:00:38] vpnctl.go:322 Detected Cisco VPN agent lock. Restarting Cisco services...
+[vpnctl] 2025/06/11 13:00:40 logger.go:32: INFO [2025-06-11 13:00:40] vpnctl.go:331 Retrying VPN connection to profile: intra
+[vpnctl] 2025/06/11 13:00:40 logger.go:32: INFO [2025-06-11 13:00:40] vpnctl.go:191 Initiating VPN connection using profile: intra
+[vpnctl] 2025/06/11 13:00:40 logger.go:32: INFO [2025-06-11 13:00:40] vpnctl.go:404 Reading credentials for intra (hidden path)
+[vpnctl] 2025/06/11 13:00:40 logger.go:32: INFO [2025-06-11 13:00:40] vpnctl.go:205 Checking current VPN connection status...
+[vpnctl] 2025/06/11 13:00:42 logger.go:32: INFO [2025-06-11 13:00:42] vpnctl.go:229 Reading VPN profile script from (hidden path) 
+[vpnctl] 2025/06/11 13:00:42 logger.go:32: INFO [2025-06-11 13:00:42] vpnctl.go:250 Running VPN command with provided script
+[vpnctl] 2025/06/11 13:00:44 logger.go:32: INFO [2025-06-11 13:00:44] vpnctl.go:322 Detected Cisco VPN agent lock. Restarting Cisco services...
+[vpnctl] 2025/06/11 13:03:38 logger.go:32: INFO [2025-06-11 13:03:38] vpnctl.go:352 Initiating VPN connection using profile: intra
+[vpnctl] 2025/06/11 13:03:38 logger.go:32: INFO [2025-06-11 13:03:38] vpnctl.go:565 Reading credentials for intra (hidden path)
+[vpnctl] 2025/06/11 13:03:38 logger.go:32: INFO [2025-06-11 13:03:38] vpnctl.go:366 Checking current VPN connection status...
+[vpnctl] 2025/06/11 13:03:40 logger.go:32: INFO [2025-06-11 13:03:40] vpnctl.go:389 Reading VPN profile script from (hidden path) 
+[vpnctl] 2025/06/11 13:03:40 logger.go:32: INFO [2025-06-11 13:03:40] vpnctl.go:410 Running VPN command with provided script
+[vpnctl] 2025/06/11 13:03:42 logger.go:32: INFO [2025-06-11 13:03:42] vpnctl.go:478 Detected Cisco VPN agent lock. Restarting Cisco services...
+[vpnctl] 2025/06/11 13:03:44 logger.go:32: INFO [2025-06-11 13:03:44] vpnctl.go:488 Retrying VPN connection to profile: intra (attempt 1)
+[vpnctl] 2025/06/11 13:03:44 logger.go:32: INFO [2025-06-11 13:03:44] vpnctl.go:352 Initiating VPN connection using profile: intra
+[vpnctl] 2025/06/11 13:03:44 logger.go:32: INFO [2025-06-11 13:03:44] vpnctl.go:565 Reading credentials for intra (hidden path)
+[vpnctl] 2025/06/11 13:03:44 logger.go:32: INFO [2025-06-11 13:03:44] vpnctl.go:366 Checking current VPN connection status...
+[vpnctl] 2025/06/11 13:03:47 logger.go:32: INFO [2025-06-11 13:03:47] vpnctl.go:389 Reading VPN profile script from (hidden path) 
+[vpnctl] 2025/06/11 13:03:47 logger.go:32: INFO [2025-06-11 13:03:47] vpnctl.go:410 Running VPN command with provided script
+[vpnctl] 2025/06/11 13:03:49 logger.go:32: INFO [2025-06-11 13:03:49] vpnctl.go:478 Detected Cisco VPN agent lock. Restarting Cisco services...
+[vpnctl] 2025/06/11 13:03:51 logger.go:32: INFO [2025-06-11 13:03:51] vpnctl.go:488 Retrying VPN connection to profile: intra (attempt 2)
+[vpnctl] 2025/06/11 13:03:51 logger.go:32: INFO [2025-06-11 13:03:51] vpnctl.go:352 Initiating VPN connection using profile: intra
+[vpnctl] 2025/06/11 13:03:51 logger.go:32: INFO [2025-06-11 13:03:51] vpnctl.go:565 Reading credentials for intra (hidden path)
+[vpnctl] 2025/06/11 13:03:51 logger.go:32: INFO [2025-06-11 13:03:51] vpnctl.go:366 Checking current VPN connection status...
+[vpnctl] 2025/06/11 13:03:53 logger.go:32: INFO [2025-06-11 13:03:53] vpnctl.go:389 Reading VPN profile script from (hidden path) 
+[vpnctl] 2025/06/11 13:03:53 logger.go:32: INFO [2025-06-11 13:03:53] vpnctl.go:410 Running VPN command with provided script
+[vpnctl] 2025/06/11 13:03:55 logger.go:32: INFO [2025-06-11 13:03:55] vpnctl.go:478 Detected Cisco VPN agent lock. Restarting Cisco services...
+[vpnctl] 2025/06/11 13:03:57 logger.go:32: INFO [2025-06-11 13:03:57] vpnctl.go:488 Retrying VPN connection to profile: intra (attempt 3)
+[vpnctl] 2025/06/11 13:03:57 logger.go:32: INFO [2025-06-11 13:03:57] vpnctl.go:352 Initiating VPN connection using profile: intra
+[vpnctl] 2025/06/11 13:03:57 logger.go:32: INFO [2025-06-11 13:03:57] vpnctl.go:565 Reading credentials for intra (hidden path)
+[vpnctl] 2025/06/11 13:03:57 logger.go:32: INFO [2025-06-11 13:03:57] vpnctl.go:366 Checking current VPN connection status...
+[vpnctl] 2025/06/11 13:03:59 logger.go:32: INFO [2025-06-11 13:03:59] vpnctl.go:389 Reading VPN profile script from (hidden path) 
+[vpnctl] 2025/06/11 13:03:59 logger.go:32: INFO [2025-06-11 13:03:59] vpnctl.go:410 Running VPN command with provided script
+[vpnctl] 2025/06/11 13:04:01 logger.go:32: INFO [2025-06-11 13:04:01] vpnctl.go:478 Detected Cisco VPN agent lock. Restarting Cisco services...
+[vpnctl] 2025/06/11 13:04:01 logger.go:40: ERROR [2025-06-11 13:04:01] vpnctl.go:491 VPN connect failed: maximum retry attempts reached
+[vpnctl] 2025/06/11 13:06:46 logger.go:32: INFO [2025-06-11 13:06:46] vpnctl.go:352 Initiating VPN connection using profile: intra
+[vpnctl] 2025/06/11 13:06:46 logger.go:32: INFO [2025-06-11 13:06:46] vpnctl.go:569 Reading credentials for intra (hidden path)
+[vpnctl] 2025/06/11 13:06:46 logger.go:32: INFO [2025-06-11 13:06:46] vpnctl.go:366 Checking current VPN connection status...
+[vpnctl] 2025/06/11 13:06:48 logger.go:40: ERROR [2025-06-11 13:06:48] vpnctl.go:390 failed to kill Cisco processes before reconnect: failed to kill Cisco processes: exit status 1
+[vpnctl] 2025/06/11 13:06:48 logger.go:32: INFO [2025-06-11 13:06:48] vpnctl.go:393 Reading VPN profile script from (hidden path)
+[vpnctl] 2025/06/11 13:06:48 logger.go:32: INFO [2025-06-11 13:06:48] vpnctl.go:414 Running VPN command with provided script
+[vpnctl] 2025/06/11 13:06:50 logger.go:32: INFO [2025-06-11 13:06:50] vpnctl.go:482 Detected Cisco VPN agent lock. Restarting Cisco services...
+[vpnctl] 2025/06/11 13:06:52 logger.go:32: INFO [2025-06-11 13:06:52] vpnctl.go:491 Retrying VPN connection to profile: intra (attempt 1)
+[vpnctl] 2025/06/11 13:06:52 logger.go:32: INFO [2025-06-11 13:06:52] vpnctl.go:352 Initiating VPN connection using profile: intra
+[vpnctl] 2025/06/11 13:06:52 logger.go:32: INFO [2025-06-11 13:06:52] vpnctl.go:569 Reading credentials for intra (hidden path)
+[vpnctl] 2025/06/11 13:06:52 logger.go:32: INFO [2025-06-11 13:06:52] vpnctl.go:366 Checking current VPN connection status...
+[vpnctl] 2025/06/11 13:06:55 logger.go:40: ERROR [2025-06-11 13:06:55] vpnctl.go:390 failed to kill Cisco processes before reconnect: failed to kill Cisco processes: exit status 1
+[vpnctl] 2025/06/11 13:06:55 logger.go:32: INFO [2025-06-11 13:06:55] vpnctl.go:393 Reading VPN profile script from (hidden path)
+[vpnctl] 2025/06/11 13:06:55 logger.go:32: INFO [2025-06-11 13:06:55] vpnctl.go:414 Running VPN command with provided script
+[vpnctl] 2025/06/11 13:06:57 logger.go:32: INFO [2025-06-11 13:06:57] vpnctl.go:482 Detected Cisco VPN agent lock. Restarting Cisco services...
+[vpnctl] 2025/06/11 13:06:59 logger.go:32: INFO [2025-06-11 13:06:59] vpnctl.go:491 Retrying VPN connection to profile: intra (attempt 2)
+[vpnctl] 2025/06/11 13:06:59 logger.go:32: INFO [2025-06-11 13:06:59] vpnctl.go:352 Initiating VPN connection using profile: intra
+[vpnctl] 2025/06/11 13:06:59 logger.go:32: INFO [2025-06-11 13:06:59] vpnctl.go:569 Reading credentials for intra (hidden path)
+[vpnctl] 2025/06/11 13:06:59 logger.go:32: INFO [2025-06-11 13:06:59] vpnctl.go:366 Checking current VPN connection status...
+[vpnctl] 2025/06/11 13:07:01 logger.go:40: ERROR [2025-06-11 13:07:01] vpnctl.go:390 failed to kill Cisco processes before reconnect: failed to kill Cisco processes: exit status 1
+[vpnctl] 2025/06/11 13:07:01 logger.go:32: INFO [2025-06-11 13:07:01] vpnctl.go:393 Reading VPN profile script from (hidden path)
+[vpnctl] 2025/06/11 13:07:01 logger.go:32: INFO [2025-06-11 13:07:01] vpnctl.go:414 Running VPN command with provided script
+[vpnctl] 2025/06/11 13:07:03 logger.go:32: INFO [2025-06-11 13:07:03] vpnctl.go:482 Detected Cisco VPN agent lock. Restarting Cisco services...
+[vpnctl] 2025/06/11 13:07:05 logger.go:32: INFO [2025-06-11 13:07:05] vpnctl.go:491 Retrying VPN connection to profile: intra (attempt 3)
+[vpnctl] 2025/06/11 13:07:05 logger.go:32: INFO [2025-06-11 13:07:05] vpnctl.go:352 Initiating VPN connection using profile: intra
+[vpnctl] 2025/06/11 13:07:05 logger.go:32: INFO [2025-06-11 13:07:05] vpnctl.go:569 Reading credentials for intra (hidden path)
+[vpnctl] 2025/06/11 13:07:05 logger.go:32: INFO [2025-06-11 13:07:05] vpnctl.go:366 Checking current VPN connection status...
+[vpnctl] 2025/06/11 13:07:07 logger.go:40: ERROR [2025-06-11 13:07:07] vpnctl.go:390 failed to kill Cisco processes before reconnect: failed to kill Cisco processes: exit status 1
+[vpnctl] 2025/06/11 13:07:07 logger.go:32: INFO [2025-06-11 13:07:07] vpnctl.go:393 Reading VPN profile script from (hidden path)
+[vpnctl] 2025/06/11 13:07:07 logger.go:32: INFO [2025-06-11 13:07:07] vpnctl.go:414 Running VPN command with provided script
+[vpnctl] 2025/06/11 13:07:09 logger.go:32: INFO [2025-06-11 13:07:09] vpnctl.go:482 Detected Cisco VPN agent lock. Restarting Cisco services...
+[vpnctl] 2025/06/11 13:07:09 logger.go:40: ERROR [2025-06-11 13:07:09] vpnctl.go:494 VPN connect failed: maximum retry attempts reached
+[vpnctl] 2025/06/11 13:11:50 logger.go:32: INFO [2025-06-11 13:11:50] vpnctl.go:372 Initiating VPN connection using profile: intra
+[vpnctl] 2025/06/11 13:11:50 logger.go:32: INFO [2025-06-11 13:11:50] vpnctl.go:589 Reading credentials for intra (hidden path)
+[vpnctl] 2025/06/11 13:11:50 logger.go:32: INFO [2025-06-11 13:11:50] vpnctl.go:386 Checking current VPN connection status...
+[vpnctl] 2025/06/11 13:11:52 logger.go:40: ERROR [2025-06-11 13:11:52] vpnctl.go:183 failed to kill process: vpnagentd: exit status 1
+[vpnctl] 2025/06/11 13:11:52 logger.go:40: ERROR [2025-06-11 13:11:52] vpnctl.go:183 failed to kill process: vpnui: exit status 1
+[vpnctl] 2025/06/11 13:11:52 logger.go:40: ERROR [2025-06-11 13:11:52] vpnctl.go:183 failed to kill process: vpncli: exit status 1
+[vpnctl] 2025/06/11 13:11:54 logger.go:40: ERROR [2025-06-11 13:11:54] vpnctl.go:410 failed to kill Cisco processes before reconnect: process vpnagentd still running after pkill
+[vpnctl] 2025/06/11 13:11:54 logger.go:32: INFO [2025-06-11 13:11:54] vpnctl.go:413 Reading VPN profile script from (hidden path)
+[vpnctl] 2025/06/11 13:11:54 logger.go:32: INFO [2025-06-11 13:11:54] vpnctl.go:434 Running VPN command with provided script
+[vpnctl] 2025/06/11 13:11:56 logger.go:32: INFO [2025-06-11 13:11:56] vpnctl.go:502 Detected Cisco VPN agent lock. Restarting Cisco services...
+[vpnctl] 2025/06/11 13:11:58 logger.go:32: INFO [2025-06-11 13:11:58] vpnctl.go:511 Retrying VPN connection to profile: intra (attempt 1)
+[vpnctl] 2025/06/11 13:11:58 logger.go:32: INFO [2025-06-11 13:11:58] vpnctl.go:372 Initiating VPN connection using profile: intra
+[vpnctl] 2025/06/11 13:11:58 logger.go:32: INFO [2025-06-11 13:11:58] vpnctl.go:589 Reading credentials for intra (hidden path)
+[vpnctl] 2025/06/11 13:11:58 logger.go:32: INFO [2025-06-11 13:11:58] vpnctl.go:386 Checking current VPN connection status...
+[vpnctl] 2025/06/11 13:12:00 logger.go:40: ERROR [2025-06-11 13:12:00] vpnctl.go:183 failed to kill process: vpnagentd: exit status 1
+[vpnctl] 2025/06/11 13:12:00 logger.go:40: ERROR [2025-06-11 13:12:00] vpnctl.go:183 failed to kill process: vpnui: exit status 1
+[vpnctl] 2025/06/11 13:12:00 logger.go:40: ERROR [2025-06-11 13:12:00] vpnctl.go:183 failed to kill process: vpncli: exit status 1
+[vpnctl] 2025/06/11 13:12:03 logger.go:40: ERROR [2025-06-11 13:12:03] vpnctl.go:410 failed to kill Cisco processes before reconnect: process vpnagentd still running after pkill
+[vpnctl] 2025/06/11 13:12:03 logger.go:32: INFO [2025-06-11 13:12:03] vpnctl.go:413 Reading VPN profile script from (hidden path)
+[vpnctl] 2025/06/11 13:12:03 logger.go:32: INFO [2025-06-11 13:12:03] vpnctl.go:434 Running VPN command with provided script
+[vpnctl] 2025/06/11 13:12:05 logger.go:32: INFO [2025-06-11 13:12:05] vpnctl.go:502 Detected Cisco VPN agent lock. Restarting Cisco services...
+[vpnctl] 2025/06/11 13:12:07 logger.go:32: INFO [2025-06-11 13:12:07] vpnctl.go:511 Retrying VPN connection to profile: intra (attempt 2)
+[vpnctl] 2025/06/11 13:12:07 logger.go:32: INFO [2025-06-11 13:12:07] vpnctl.go:372 Initiating VPN connection using profile: intra
+[vpnctl] 2025/06/11 13:12:07 logger.go:32: INFO [2025-06-11 13:12:07] vpnctl.go:589 Reading credentials for intra (hidden path)
+[vpnctl] 2025/06/11 13:12:07 logger.go:32: INFO [2025-06-11 13:12:07] vpnctl.go:386 Checking current VPN connection status...
+[vpnctl] 2025/06/11 13:12:09 logger.go:40: ERROR [2025-06-11 13:12:09] vpnctl.go:183 failed to kill process: vpnagentd: exit status 1
+[vpnctl] 2025/06/11 13:12:09 logger.go:40: ERROR [2025-06-11 13:12:09] vpnctl.go:183 failed to kill process: vpnui: exit status 1
+[vpnctl] 2025/06/11 13:12:09 logger.go:40: ERROR [2025-06-11 13:12:09] vpnctl.go:183 failed to kill process: vpncli: exit status 1
+[vpnctl] 2025/06/11 13:12:11 logger.go:40: ERROR [2025-06-11 13:12:11] vpnctl.go:410 failed to kill Cisco processes before reconnect: process vpnagentd still running after pkill
+[vpnctl] 2025/06/11 13:12:11 logger.go:32: INFO [2025-06-11 13:12:11] vpnctl.go:413 Reading VPN profile script from (hidden path)
+[vpnctl] 2025/06/11 13:12:11 logger.go:32: INFO [2025-06-11 13:12:11] vpnctl.go:434 Running VPN command with provided script
+[vpnctl] 2025/06/11 13:12:13 logger.go:32: INFO [2025-06-11 13:12:13] vpnctl.go:502 Detected Cisco VPN agent lock. Restarting Cisco services...
+[vpnctl] 2025/06/11 13:12:15 logger.go:32: INFO [2025-06-11 13:12:15] vpnctl.go:511 Retrying VPN connection to profile: intra (attempt 3)
+[vpnctl] 2025/06/11 13:12:15 logger.go:32: INFO [2025-06-11 13:12:15] vpnctl.go:372 Initiating VPN connection using profile: intra
+[vpnctl] 2025/06/11 13:12:15 logger.go:32: INFO [2025-06-11 13:12:15] vpnctl.go:589 Reading credentials for intra (hidden path)
+[vpnctl] 2025/06/11 13:12:15 logger.go:32: INFO [2025-06-11 13:12:15] vpnctl.go:386 Checking current VPN connection status...
+[vpnctl] 2025/06/11 13:12:17 logger.go:40: ERROR [2025-06-11 13:12:17] vpnctl.go:183 failed to kill process: vpnagentd: exit status 1
+[vpnctl] 2025/06/11 13:12:17 logger.go:40: ERROR [2025-06-11 13:12:17] vpnctl.go:183 failed to kill process: vpnui: exit status 1
+[vpnctl] 2025/06/11 13:12:17 logger.go:40: ERROR [2025-06-11 13:12:17] vpnctl.go:183 failed to kill process: vpncli: exit status 1
+[vpnctl] 2025/06/11 13:12:19 logger.go:40: ERROR [2025-06-11 13:12:19] vpnctl.go:410 failed to kill Cisco processes before reconnect: process vpnagentd still running after pkill
+[vpnctl] 2025/06/11 13:12:19 logger.go:32: INFO [2025-06-11 13:12:19] vpnctl.go:413 Reading VPN profile script from (hidden path)
+[vpnctl] 2025/06/11 13:12:19 logger.go:32: INFO [2025-06-11 13:12:19] vpnctl.go:434 Running VPN command with provided script
+[vpnctl] 2025/06/11 13:12:21 logger.go:32: INFO [2025-06-11 13:12:21] vpnctl.go:502 Detected Cisco VPN agent lock. Restarting Cisco services...
+[vpnctl] 2025/06/11 13:12:21 logger.go:40: ERROR [2025-06-11 13:12:21] vpnctl.go:514 VPN connect failed: maximum retry attempts reached
+[vpnctl] 2025/06/11 14:13:39 logger.go:32: INFO [2025-06-11 14:13:39] vpnctl.go:380 Initiating VPN connection using profile: intra
+[vpnctl] 2025/06/11 14:13:39 logger.go:32: INFO [2025-06-11 14:13:39] vpnctl.go:597 Reading credentials for intra (hidden path)
+[vpnctl] 2025/06/11 14:13:39 logger.go:32: INFO [2025-06-11 14:13:39] vpnctl.go:394 Checking current VPN connection status...
+[vpnctl] 2025/06/11 14:13:41 logger.go:40: ERROR [2025-06-11 14:13:41] vpnctl.go:184 failed to find process: vpnui: exit status 1
+[vpnctl] 2025/06/11 14:13:41 logger.go:40: ERROR [2025-06-11 14:13:41] vpnctl.go:184 failed to find process: vpncli: exit status 1
+[vpnctl] 2025/06/11 14:13:43 logger.go:32: INFO [2025-06-11 14:13:43] vpnctl.go:421 Reading VPN profile script from (hidden path)
+[vpnctl] 2025/06/11 14:13:43 logger.go:32: INFO [2025-06-11 14:13:43] vpnctl.go:442 Running VPN command with provided script
+[vpnctl] 2025/06/11 14:13:45 logger.go:32: INFO [2025-06-11 14:13:45] vpnctl.go:510 Detected Cisco VPN agent lock. Restarting Cisco services...
+[vpnctl] 2025/06/11 14:13:47 logger.go:32: INFO [2025-06-11 14:13:47] vpnctl.go:519 Retrying VPN connection to profile: intra (attempt 1)
+[vpnctl] 2025/06/11 14:13:47 logger.go:32: INFO [2025-06-11 14:13:47] vpnctl.go:380 Initiating VPN connection using profile: intra
+[vpnctl] 2025/06/11 14:13:47 logger.go:32: INFO [2025-06-11 14:13:47] vpnctl.go:597 Reading credentials for intra (hidden path)
+[vpnctl] 2025/06/11 14:13:47 logger.go:32: INFO [2025-06-11 14:13:47] vpnctl.go:394 Checking current VPN connection status...
+[vpnctl] 2025/06/11 14:13:50 logger.go:40: ERROR [2025-06-11 14:13:50] vpnctl.go:184 failed to find process: vpnui: exit status 1
+[vpnctl] 2025/06/11 14:13:50 logger.go:40: ERROR [2025-06-11 14:13:50] vpnctl.go:184 failed to find process: vpncli: exit status 1
+[vpnctl] 2025/06/11 14:13:52 logger.go:32: INFO [2025-06-11 14:13:52] vpnctl.go:421 Reading VPN profile script from (hidden path)
+[vpnctl] 2025/06/11 14:13:52 logger.go:32: INFO [2025-06-11 14:13:52] vpnctl.go:442 Running VPN command with provided script
+[vpnctl] 2025/06/11 14:13:54 logger.go:32: INFO [2025-06-11 14:13:54] vpnctl.go:510 Detected Cisco VPN agent lock. Restarting Cisco services...
+[vpnctl] 2025/06/11 14:13:56 logger.go:32: INFO [2025-06-11 14:13:56] vpnctl.go:519 Retrying VPN connection to profile: intra (attempt 2)
+[vpnctl] 2025/06/11 14:13:56 logger.go:32: INFO [2025-06-11 14:13:56] vpnctl.go:380 Initiating VPN connection using profile: intra
+[vpnctl] 2025/06/11 14:13:56 logger.go:32: INFO [2025-06-11 14:13:56] vpnctl.go:597 Reading credentials for intra (hidden path)
+[vpnctl] 2025/06/11 14:13:56 logger.go:32: INFO [2025-06-11 14:13:56] vpnctl.go:394 Checking current VPN connection status...
+[vpnctl] 2025/06/11 14:13:58 logger.go:40: ERROR [2025-06-11 14:13:58] vpnctl.go:184 failed to find process: vpnui: exit status 1
+[vpnctl] 2025/06/11 14:13:58 logger.go:40: ERROR [2025-06-11 14:13:58] vpnctl.go:184 failed to find process: vpncli: exit status 1
+[vpnctl] 2025/06/11 14:14:00 logger.go:32: INFO [2025-06-11 14:14:00] vpnctl.go:421 Reading VPN profile script from (hidden path)
+[vpnctl] 2025/06/11 14:14:00 logger.go:32: INFO [2025-06-11 14:14:00] vpnctl.go:442 Running VPN command with provided script
+[vpnctl] 2025/06/11 14:14:02 logger.go:32: INFO [2025-06-11 14:14:02] vpnctl.go:510 Detected Cisco VPN agent lock. Restarting Cisco services...
+[vpnctl] 2025/06/11 14:14:04 logger.go:32: INFO [2025-06-11 14:14:04] vpnctl.go:519 Retrying VPN connection to profile: intra (attempt 3)
+[vpnctl] 2025/06/11 14:14:04 logger.go:32: INFO [2025-06-11 14:14:04] vpnctl.go:380 Initiating VPN connection using profile: intra
+[vpnctl] 2025/06/11 14:14:04 logger.go:32: INFO [2025-06-11 14:14:04] vpnctl.go:597 Reading credentials for intra (hidden path)
+[vpnctl] 2025/06/11 14:14:04 logger.go:32: INFO [2025-06-11 14:14:04] vpnctl.go:394 Checking current VPN connection status...
+[vpnctl] 2025/06/11 14:14:06 logger.go:40: ERROR [2025-06-11 14:14:06] vpnctl.go:184 failed to find process: vpnui: exit status 1
+[vpnctl] 2025/06/11 14:14:06 logger.go:40: ERROR [2025-06-11 14:14:06] vpnctl.go:184 failed to find process: vpncli: exit status 1
+[vpnctl] 2025/06/11 14:14:08 logger.go:32: INFO [2025-06-11 14:14:08] vpnctl.go:421 Reading VPN profile script from (hidden path)
+[vpnctl] 2025/06/11 14:14:08 logger.go:32: INFO [2025-06-11 14:14:08] vpnctl.go:442 Running VPN command with provided script
+[vpnctl] 2025/06/11 14:14:10 logger.go:32: INFO [2025-06-11 14:14:10] vpnctl.go:510 Detected Cisco VPN agent lock. Restarting Cisco services...
+[vpnctl] 2025/06/11 14:14:10 logger.go:40: ERROR [2025-06-11 14:14:10] vpnctl.go:522 VPN connect failed: maximum retry attempts reached
+[vpnctl] 2025/06/11 14:21:50 logger.go:32: INFO [2025-06-11 14:21:50] vpnctl.go:381 Initiating VPN connection using profile: intra
+[vpnctl] 2025/06/11 14:21:50 logger.go:32: INFO [2025-06-11 14:21:50] vpnctl.go:603 Reading credentials for intra (hidden path)
+[vpnctl] 2025/06/11 14:21:50 logger.go:32: INFO [2025-06-11 14:21:50] vpnctl.go:395 Checking current VPN connection status...
+[vpnctl] 2025/06/11 14:21:52 logger.go:40: ERROR [2025-06-11 14:21:52] vpnctl.go:186 failed to find process: vpnui: exit status 1
+[vpnctl] 2025/06/11 14:21:52 logger.go:40: ERROR [2025-06-11 14:21:52] vpnctl.go:186 failed to find process: vpncli: exit status 1
+[vpnctl] 2025/06/11 14:21:54 logger.go:32: INFO [2025-06-11 14:21:54] vpnctl.go:421 Reading VPN profile script from (hidden path)
+[vpnctl] 2025/06/11 14:21:54 logger.go:32: INFO [2025-06-11 14:21:54] vpnctl.go:442 Running VPN command with provided script
+[vpnctl] 2025/06/11 14:21:56 logger.go:32: INFO [2025-06-11 14:21:56] vpnctl.go:510 Detected Cisco VPN agent lock. Restarting Cisco services...
+[vpnctl] 2025/06/11 14:22:51 logger.go:40: ERROR [2025-06-11 14:22:51] vpnctl.go:513 failed to restart Cisco VPN agent: exit status 1
+[vpnctl] 2025/06/11 14:22:53 logger.go:32: INFO [2025-06-11 14:22:53] vpnctl.go:381 Initiating VPN connection using profile: intra
+[vpnctl] 2025/06/11 14:22:53 logger.go:32: INFO [2025-06-11 14:22:53] vpnctl.go:603 Reading credentials for intra (hidden path)
+[vpnctl] 2025/06/11 14:22:53 logger.go:32: INFO [2025-06-11 14:22:53] vpnctl.go:395 Checking current VPN connection status...
+[vpnctl] 2025/06/11 14:22:55 logger.go:40: ERROR [2025-06-11 14:22:55] vpnctl.go:186 failed to find process: vpnui: exit status 1
+[vpnctl] 2025/06/11 14:22:55 logger.go:40: ERROR [2025-06-11 14:22:55] vpnctl.go:186 failed to find process: vpncli: exit status 1
+[vpnctl] 2025/06/11 14:22:57 logger.go:32: INFO [2025-06-11 14:22:57] vpnctl.go:421 Reading VPN profile script from (hidden path)
+[vpnctl] 2025/06/11 14:22:57 logger.go:32: INFO [2025-06-11 14:22:57] vpnctl.go:442 Running VPN command with provided script
+[vpnctl] 2025/06/11 14:22:59 logger.go:32: INFO [2025-06-11 14:22:59] vpnctl.go:510 Detected Cisco VPN agent lock. Restarting Cisco services...
+[vpnctl] 2025/06/11 14:24:13 logger.go:32: INFO [2025-06-11 14:24:13] vpnctl.go:381 Initiating VPN connection using profile: intra
+[vpnctl] 2025/06/11 14:24:13 logger.go:32: INFO [2025-06-11 14:24:13] vpnctl.go:600 Reading credentials for intra (hidden path)
+[vpnctl] 2025/06/11 14:24:13 logger.go:32: INFO [2025-06-11 14:24:13] vpnctl.go:395 Checking current VPN connection status...
+[vpnctl] 2025/06/11 14:24:15 logger.go:40: ERROR [2025-06-11 14:24:15] vpnctl.go:186 failed to find process: vpnui: exit status 1
+[vpnctl] 2025/06/11 14:24:15 logger.go:40: ERROR [2025-06-11 14:24:15] vpnctl.go:186 failed to find process: vpncli: exit status 1
+[vpnctl] 2025/06/11 14:24:17 logger.go:32: INFO [2025-06-11 14:24:17] vpnctl.go:421 Reading VPN profile script from (hidden path)
+[vpnctl] 2025/06/11 14:24:17 logger.go:32: INFO [2025-06-11 14:24:17] vpnctl.go:442 Running VPN command with provided script
+[vpnctl] 2025/06/11 14:24:19 logger.go:32: INFO [2025-06-11 14:24:19] vpnctl.go:510 Detected Cisco VPN agent lock. Restarting Cisco services...
+[vpnctl] 2025/06/11 14:24:19 logger.go:40: ERROR [2025-06-11 14:24:19] vpnctl.go:513 failed to restart Cisco VPN agent: exit status 113
+[vpnctl] 2025/06/11 14:27:53 logger.go:32: INFO [2025-06-11 14:27:53] vpnctl.go:383 Initiating VPN connection using profile: intra
+[vpnctl] 2025/06/11 14:27:53 logger.go:32: INFO [2025-06-11 14:27:53] vpnctl.go:594 Reading credentials for intra (hidden path)
+[vpnctl] 2025/06/11 14:27:53 logger.go:32: INFO [2025-06-11 14:27:53] vpnctl.go:397 Checking current VPN connection status...
+[vpnctl] 2025/06/11 14:27:56 logger.go:40: ERROR [2025-06-11 14:27:56] vpnctl.go:186 failed to find process: vpnui: exit status 1
+[vpnctl] 2025/06/11 14:27:56 logger.go:40: ERROR [2025-06-11 14:27:56] vpnctl.go:186 failed to find process: vpncli: exit status 1
+[vpnctl] 2025/06/11 14:27:58 logger.go:32: INFO [2025-06-11 14:27:58] vpnctl.go:209 If issues persist, please manually restart the Cisco Secure Client (AnyConnect) application.
+[vpnctl] 2025/06/11 14:27:58 logger.go:32: INFO [2025-06-11 14:27:58] vpnctl.go:423 Reading VPN profile script from (hidden path)
+[vpnctl] 2025/06/11 14:27:58 logger.go:32: INFO [2025-06-11 14:27:58] vpnctl.go:445 Running VPN command with provided script
+[vpnctl] 2025/06/11 14:28:00 logger.go:32: INFO [2025-06-11 14:28:00] vpnctl.go:512 Detected Cisco VPN agent lock. Please manually restart Cisco Secure Client (AnyConnect) and try again.
+[vpnctl] 2025/06/11 14:28:00 logger.go:32: INFO [2025-06-11 14:28:00] vpnctl.go:170 Launching Cisco Secure Client GUI...
+[vpnctl] 2025/06/11 14:28:00 logger.go:32: INFO [2025-06-11 14:28:00] vpnctl.go:175 Cisco GUI launched
+[vpnctl] 2025/06/11 14:28:20 logger.go:32: INFO [2025-06-11 14:28:20] vpnctl.go:383 Initiating VPN connection using profile: intra
+[vpnctl] 2025/06/11 14:28:20 logger.go:32: INFO [2025-06-11 14:28:20] vpnctl.go:594 Reading credentials for intra (hidden path)
+[vpnctl] 2025/06/11 14:28:20 logger.go:32: INFO [2025-06-11 14:28:20] vpnctl.go:397 Checking current VPN connection status...
+[vpnctl] 2025/06/11 14:28:22 logger.go:40: ERROR [2025-06-11 14:28:22] vpnctl.go:186 failed to find process: vpnui: exit status 1
+[vpnctl] 2025/06/11 14:28:22 logger.go:40: ERROR [2025-06-11 14:28:22] vpnctl.go:186 failed to find process: vpncli: exit status 1
+[vpnctl] 2025/06/11 14:28:24 logger.go:32: INFO [2025-06-11 14:28:24] vpnctl.go:209 If issues persist, please manually restart the Cisco Secure Client (AnyConnect) application.
+[vpnctl] 2025/06/11 14:28:24 logger.go:32: INFO [2025-06-11 14:28:24] vpnctl.go:423 Reading VPN profile script from (hidden path)
+[vpnctl] 2025/06/11 14:28:24 logger.go:32: INFO [2025-06-11 14:28:24] vpnctl.go:445 Running VPN command with provided script
+[vpnctl] 2025/06/11 14:29:19 logger.go:32: INFO [2025-06-11 14:29:19] vpnctl.go:170 Launching Cisco Secure Client GUI...
+[vpnctl] 2025/06/11 14:29:19 logger.go:32: INFO [2025-06-11 14:29:19] vpnctl.go:175 Cisco GUI launched
+[vpnctl] 2025/06/11 14:34:14 logger.go:32: INFO [2025-06-11 14:34:14] vpnctl.go:381 Initiating VPN connection using profile: intra
+[vpnctl] 2025/06/11 14:34:14 logger.go:32: INFO [2025-06-11 14:34:14] vpnctl.go:592 Reading credentials for intra (hidden path)
+[vpnctl] 2025/06/11 14:34:14 logger.go:32: INFO [2025-06-11 14:34:14] vpnctl.go:395 Checking current VPN connection status...
+[vpnctl] 2025/06/11 14:34:17 logger.go:32: INFO [2025-06-11 14:34:17] vpnctl.go:407 Last connected VPN profile: intra
+[vpnctl] 2025/06/11 14:34:17 logger.go:32: INFO [2025-06-11 14:34:17] vpnctl.go:410 VPN already connected to profile: intra. Aborting connect operation.
+[vpnctl] 2025/06/11 14:35:31 logger.go:32: INFO [2025-06-11 14:35:31] vpnctl.go:381 Initiating VPN connection using profile: dev
+[vpnctl] 2025/06/11 14:35:31 logger.go:32: INFO [2025-06-11 14:35:31] vpnctl.go:592 Reading credentials for dev (hidden path)
+[vpnctl] 2025/06/11 14:35:31 logger.go:32: INFO [2025-06-11 14:35:31] vpnctl.go:395 Checking current VPN connection status...
+[vpnctl] 2025/06/11 14:35:33 logger.go:32: INFO [2025-06-11 14:35:33] vpnctl.go:407 Last connected VPN profile: intra
+[vpnctl] 2025/06/11 14:35:33 logger.go:32: INFO [2025-06-11 14:35:33] vpnctl.go:413 VPN connected to profile intra, switching to dev...
+[vpnctl] 2025/06/11 14:35:33 logger.go:32: INFO [2025-06-11 14:35:33] vpnctl.go:102 Attempting to disconnect VPN...
+[vpnctl] 2025/06/11 14:35:34 logger.go:32: INFO [2025-06-11 14:35:34] vpnctl.go:104 VPN disconnected
+[vpnctl] 2025/06/11 14:35:34 logger.go:32: INFO [2025-06-11 14:35:34] vpnctl.go:106 Cisco Secure Client process killed
+[vpnctl] 2025/06/11 14:35:34 logger.go:40: ERROR [2025-06-11 14:35:34] vpnctl.go:186 failed to find process: Cisco Secure Client: exit status 1
+[vpnctl] 2025/06/11 14:35:36 logger.go:32: INFO [2025-06-11 14:35:36] vpnctl.go:421 Reading VPN profile script from (hidden path)
+[vpnctl] 2025/06/11 14:35:36 logger.go:32: INFO [2025-06-11 14:35:36] vpnctl.go:443 Running VPN command with provided script
+[vpnctl] 2025/06/11 14:36:42 logger.go:32: INFO [2025-06-11 14:36:42] vpnctl.go:170 Launching Cisco Secure Client GUI...
+[vpnctl] 2025/06/11 14:36:42 logger.go:32: INFO [2025-06-11 14:36:42] vpnctl.go:175 Cisco GUI launched
+[vpnctl] 2025/06/11 14:37:21 logger.go:32: INFO [2025-06-11 14:37:21] vpnctl.go:381 Initiating VPN connection using profile: intra
+[vpnctl] 2025/06/11 14:37:21 logger.go:32: INFO [2025-06-11 14:37:21] vpnctl.go:592 Reading credentials for intra (hidden path)
+[vpnctl] 2025/06/11 14:37:21 logger.go:32: INFO [2025-06-11 14:37:21] vpnctl.go:395 Checking current VPN connection status...
+[vpnctl] 2025/06/11 14:37:23 logger.go:32: INFO [2025-06-11 14:37:23] vpnctl.go:407 Last connected VPN profile: dev
+[vpnctl] 2025/06/11 14:37:23 logger.go:32: INFO [2025-06-11 14:37:23] vpnctl.go:413 VPN connected to profile dev, switching to intra...
+[vpnctl] 2025/06/11 14:37:23 logger.go:32: INFO [2025-06-11 14:37:23] vpnctl.go:102 Attempting to disconnect VPN...
+[vpnctl] 2025/06/11 14:37:25 logger.go:32: INFO [2025-06-11 14:37:25] vpnctl.go:104 VPN disconnected
+[vpnctl] 2025/06/11 14:37:25 logger.go:32: INFO [2025-06-11 14:37:25] vpnctl.go:106 Cisco Secure Client process killed
+[vpnctl] 2025/06/11 14:37:25 logger.go:40: ERROR [2025-06-11 14:37:25] vpnctl.go:186 failed to find process: Cisco Secure Client: exit status 1
+[vpnctl] 2025/06/11 14:37:27 logger.go:32: INFO [2025-06-11 14:37:27] vpnctl.go:421 Reading VPN profile script from (hidden path)
+[vpnctl] 2025/06/11 14:37:27 logger.go:32: INFO [2025-06-11 14:37:27] vpnctl.go:443 Running VPN command with provided script
+[vpnctl] 2025/06/11 14:38:17 logger.go:32: INFO [2025-06-11 14:38:17] vpnctl.go:170 Launching Cisco Secure Client GUI...
+[vpnctl] 2025/06/11 14:38:17 logger.go:32: INFO [2025-06-11 14:38:17] vpnctl.go:175 Cisco GUI launched
+[vpnctl] 2025/06/11 14:57:53 logger.go:32: INFO [2025-06-11 14:57:53] vpnctl.go:392 Initiating VPN connection using profile: intra
+[vpnctl] 2025/06/11 14:57:53 logger.go:32: INFO [2025-06-11 14:57:53] vpnctl.go:604 Reading credentials for intra (hidden path)
+[vpnctl] 2025/06/11 14:57:53 logger.go:32: INFO [2025-06-11 14:57:53] vpnctl.go:406 Checking current VPN connection status...
+[vpnctl] 2025/06/11 14:57:55 logger.go:32: INFO [2025-06-11 14:57:55] vpnctl.go:418 Last connected VPN profile: intra
+[vpnctl] 2025/06/11 14:57:55 logger.go:32: INFO [2025-06-11 14:57:55] vpnctl.go:421 VPN already connected to profile: intra. Aborting connect operation.
+[vpnctl] 2025/06/11 14:57:59 logger.go:32: INFO [2025-06-11 14:57:59] vpnctl.go:392 Initiating VPN connection using profile: dev
+[vpnctl] 2025/06/11 14:57:59 logger.go:32: INFO [2025-06-11 14:57:59] vpnctl.go:604 Reading credentials for dev (hidden path)
+[vpnctl] 2025/06/11 14:57:59 logger.go:32: INFO [2025-06-11 14:57:59] vpnctl.go:406 Checking current VPN connection status...
+[vpnctl] 2025/06/11 14:58:02 logger.go:32: INFO [2025-06-11 14:58:02] vpnctl.go:418 Last connected VPN profile: intra
+[vpnctl] 2025/06/11 14:58:02 logger.go:32: INFO [2025-06-11 14:58:02] vpnctl.go:424 VPN connected to profile intra, switching to dev...
+[vpnctl] 2025/06/11 14:58:02 logger.go:32: INFO [2025-06-11 14:58:02] vpnctl.go:102 Attempting to disconnect VPN...
+[vpnctl] 2025/06/11 14:58:03 logger.go:32: INFO [2025-06-11 14:58:03] vpnctl.go:104 VPN disconnected
+[vpnctl] 2025/06/11 14:58:03 logger.go:32: INFO [2025-06-11 14:58:03] vpnctl.go:106 Cisco Secure Client process killed
+[vpnctl] 2025/06/11 14:58:03 logger.go:40: ERROR [2025-06-11 14:58:03] vpnctl.go:186 failed to find process: Cisco Secure Client: exit status 1
+[vpnctl] 2025/06/11 14:58:05 logger.go:32: INFO [2025-06-11 14:58:05] vpnctl.go:432 Reading VPN profile script from (hidden path)
+[vpnctl] 2025/06/11 14:58:05 logger.go:32: INFO [2025-06-11 14:58:05] vpnctl.go:455 Running VPN command with provided script
+[vpnctl] 2025/06/11 14:59:04 logger.go:32: INFO [2025-06-11 14:59:04] vpnctl.go:170 Launching Cisco Secure Client GUI...
+[vpnctl] 2025/06/11 14:59:05 logger.go:32: INFO [2025-06-11 14:59:05] vpnctl.go:175 Cisco GUI launched
+[vpnctl] 2025/06/11 15:12:18 logger.go:32: INFO [2025-06-11 15:12:18] vpnctl.go:388 Initiating VPN connection using profile: intra
+[vpnctl] 2025/06/11 15:12:18 logger.go:40: ERROR [2025-06-11 15:12:18] middleware.go:189 Error scanning credential: no such column: profile
+[vpnctl] 2025/06/11 15:12:18 logger.go:40: ERROR [2025-06-11 15:12:18] vpnctl.go:398 Erro during fetching credential: no such column: profile
+[vpnctl] 2025/06/11 15:12:18 logger.go:40: ERROR [2025-06-11 15:12:18] vpnctl.go:408 reading credentials: no such column: profile
+[vpnctl] 2025/06/11 15:19:09 logger.go:32: INFO [2025-06-11 15:19:09] vpnctl.go:388 Initiating VPN connection using profile: intra
+[vpnctl] 2025/06/11 15:19:09 logger.go:40: ERROR [2025-06-11 15:19:09] vpnctl.go:398 Error during fetching credential: no credential found for profile: intra
+[vpnctl] 2025/06/11 15:19:09 logger.go:40: ERROR [2025-06-11 15:19:09] vpnctl.go:408 reading credentials: no credential found for profile: intra
+[vpnctl] 2025/06/11 15:28:00 logger.go:32: INFO [2025-06-11 15:28:00] vpnctl.go:388 Initiating VPN connection using profile: intra
+[vpnctl] 2025/06/11 15:28:00 logger.go:40: ERROR [2025-06-11 15:28:00] vpnctl.go:398 Error during fetching credential: no credential found for profile: intra
+[vpnctl] 2025/06/11 15:28:00 logger.go:40: ERROR [2025-06-11 15:28:00] vpnctl.go:408 reading credentials: no credential found for profile: intra
+[vpnctl] 2025/06/11 15:28:09 logger.go:32: INFO [2025-06-11 15:28:09] vpnctl.go:388 Initiating VPN connection using profile: intra
+[vpnctl] 2025/06/11 15:28:09 logger.go:40: ERROR [2025-06-11 15:28:09] vpnctl.go:398 Error during fetching credential: no credential found for profile: intra
+[vpnctl] 2025/06/11 15:28:09 logger.go:40: ERROR [2025-06-11 15:28:09] vpnctl.go:408 reading credentials: no credential found for profile: intra
+[vpnctl] 2025/06/11 15:31:43 logger.go:32: INFO [2025-06-11 15:31:43] vpnctl.go:388 Initiating VPN connection using profile: intra
+[vpnctl] 2025/06/11 15:31:43 logger.go:40: ERROR [2025-06-11 15:31:43] vpnctl.go:402 Error during fetching credential: no credential found for profile: ts-rohan.das
+[vpnctl] 2025/06/11 15:31:43 logger.go:40: ERROR [2025-06-11 15:31:43] vpnctl.go:412 reading credentials: no credential found for profile: ts-rohan.das
+[vpnctl] 2025/06/11 15:34:25 logger.go:32: INFO [2025-06-11 15:34:25] vpnctl.go:388 Initiating VPN connection using profile: intra
+[vpnctl] 2025/06/11 15:34:25 logger.go:40: ERROR [2025-06-11 15:34:25] vpnctl.go:402 Error during fetching credential: no credential found for user: ts-rohan.das
+[vpnctl] 2025/06/11 15:34:25 logger.go:40: ERROR [2025-06-11 15:34:25] vpnctl.go:412 reading credentials: no credential found for user: ts-rohan.das
+[vpnctl] 2025/06/11 15:37:20 logger.go:32: INFO [2025-06-11 15:37:20] vpnctl.go:388 Initiating VPN connection using profile: intra
+[vpnctl] 2025/06/11 15:37:20 logger.go:40: ERROR [2025-06-11 15:37:20] vpnctl.go:402 Error during fetching credential: no credential found for user: ts-rohan.das
+[vpnctl] 2025/06/11 15:37:20 logger.go:48: WARN [2025-06-11 15:37:20] vpnctl.go:403 If you haven't set your credential yet, please use the /set-credential to set your credential; Check help for more information!: <nil>
+[vpnctl] 2025/06/11 15:37:20 logger.go:40: ERROR [2025-06-11 15:37:20] vpnctl.go:413 reading credentials: no credential found for user: ts-rohan.das
+[vpnctl] 2025/06/11 15:48:09 logger.go:32: INFO [2025-06-11 15:48:09] main.go:62 HTTP server started on port 8080
+[vpnctl] 2025/06/11 15:51:42 logger.go:32: INFO [2025-06-11 15:51:42] main.go:73 Shutting down server...
+[vpnctl] 2025/06/11 15:51:42 logger.go:32: INFO [2025-06-11 15:51:42] main.go:77 Server stopped gracefully.
+[vpnctl] 2025/06/11 15:51:42 logger.go:32: INFO [2025-06-11 15:51:42] vpnctl.go:388 Initiating VPN connection using profile: intra
+[vpnctl] 2025/06/11 15:51:42 logger.go:40: ERROR [2025-06-11 15:51:42] vpnctl.go:402 Error during fetching credential: no credential found for user: ts-rohan.das
+[vpnctl] 2025/06/11 15:51:42 logger.go:48: WARN [2025-06-11 15:51:42] vpnctl.go:403 If you haven't set your credential yet, please use the /set-credential to register your credential; Check help for more information!: <nil>
+[vpnctl] 2025/06/11 15:51:42 logger.go:40: ERROR [2025-06-11 15:51:42] vpnctl.go:413 reading credentials: no credential found for user: ts-rohan.das
+[vpnctl] 2025/06/11 15:51:52 logger.go:32: INFO [2025-06-11 15:51:52] main.go:70 HTTP server started on port 8080
+[vpnctl] 2025/06/11 15:51:52 logger.go:32: INFO [2025-06-11 15:51:52] vpnctl.go:388 Initiating VPN connection using profile: intra
+[vpnctl] 2025/06/11 15:51:52 logger.go:40: ERROR [2025-06-11 15:51:52] vpnctl.go:402 Error during fetching credential: no credential found for user: ts-rohan.das
+[vpnctl] 2025/06/11 15:51:52 logger.go:48: WARN [2025-06-11 15:51:52] vpnctl.go:403 If you haven't set your credential yet, please use the /set-credential to register your credential; Check help for more information!: <nil>
+[vpnctl] 2025/06/11 15:51:52 logger.go:40: ERROR [2025-06-11 15:51:52] vpnctl.go:413 reading credentials: no credential found for user: ts-rohan.das
+[vpnctl] 2025/06/11 15:51:52 logger.go:32: INFO [2025-06-11 15:51:52] main.go:122 Shutting down server...
+[vpnctl] 2025/06/11 15:51:52 logger.go:32: INFO [2025-06-11 15:51:52] main.go:126 Server stopped gracefully.
+[vpnctl] 2025/06/11 15:52:06 logger.go:32: INFO [2025-06-11 15:52:06] vpnctl.go:388 Initiating VPN connection using profile: intra
+[vpnctl] 2025/06/11 15:52:06 logger.go:32: INFO [2025-06-11 15:52:06] main.go:70 HTTP server started on port 8080
+[vpnctl] 2025/06/11 15:52:06 logger.go:40: ERROR [2025-06-11 15:52:06] vpnctl.go:402 Error during fetching credential: no credential found for user: ts-rohan.das
+[vpnctl] 2025/06/11 15:52:06 logger.go:48: WARN [2025-06-11 15:52:06] vpnctl.go:403 If you haven't set your credential yet, please use the /set-credential to register your credential; Check help for more information!: <nil>
+[vpnctl] 2025/06/11 15:52:06 logger.go:40: ERROR [2025-06-11 15:52:06] vpnctl.go:413 reading credentials: no credential found for user: ts-rohan.das
+[vpnctl] 2025/06/11 15:52:06 logger.go:32: INFO [2025-06-11 15:52:06] main.go:122 Shutting down server...
+[vpnctl] 2025/06/11 15:52:06 logger.go:32: INFO [2025-06-11 15:52:06] main.go:126 Server stopped gracefully.
+[vpnctl] 2025/06/11 15:54:48 logger.go:32: INFO [2025-06-11 15:54:47] vpnctl.go:388 Initiating VPN connection using profile: intra
+[vpnctl] 2025/06/11 15:54:48 logger.go:32: INFO [2025-06-11 15:54:47] main.go:70 HTTP server started on port 8080
+[vpnctl] 2025/06/11 15:54:48 logger.go:32: INFO [2025-06-11 15:54:48] vpnctl.go:417 Checking current VPN connection status...
+[vpnctl] 2025/06/11 15:54:50 logger.go:32: INFO [2025-06-11 15:54:50] vpnctl.go:429 Last connected VPN profile: dev
+[vpnctl] 2025/06/11 15:54:50 logger.go:32: INFO [2025-06-11 15:54:50] vpnctl.go:435 VPN connected to profile dev, switching to intra...
+[vpnctl] 2025/06/11 15:54:50 logger.go:32: INFO [2025-06-11 15:54:50] vpnctl.go:102 Attempting to disconnect VPN...
+[vpnctl] 2025/06/11 15:54:51 logger.go:32: INFO [2025-06-11 15:54:51] vpnctl.go:104 VPN disconnected
+[vpnctl] 2025/06/11 15:54:51 logger.go:32: INFO [2025-06-11 15:54:51] vpnctl.go:106 Cisco Secure Client process killed
+[vpnctl] 2025/06/11 15:54:51 logger.go:40: ERROR [2025-06-11 15:54:51] vpnctl.go:186 failed to find process: Cisco Secure Client: exit status 1
+[vpnctl] 2025/06/11 15:54:53 logger.go:32: INFO [2025-06-11 15:54:53] vpnctl.go:443 Reading VPN profile script from (hidden path)
+[vpnctl] 2025/06/11 15:54:53 logger.go:32: INFO [2025-06-11 15:54:53] vpnctl.go:465 Running VPN command with provided script
+[vpnctl] 2025/06/11 15:55:47 logger.go:32: INFO [2025-06-11 15:55:47] vpnctl.go:170 Launching Cisco Secure Client GUI...
+[vpnctl] 2025/06/11 15:55:47 logger.go:32: INFO [2025-06-11 15:55:47] vpnctl.go:175 Cisco GUI launched
+[vpnctl] 2025/06/11 15:55:47 logger.go:32: INFO [2025-06-11 15:55:47] main.go:122 Shutting down server...
+[vpnctl] 2025/06/11 15:55:47 logger.go:32: INFO [2025-06-11 15:55:47] main.go:126 Server stopped gracefully.
+[vpnctl] 2025/06/11 16:08:07 logger.go:32: INFO [2025-06-11 16:08:07] vpnctl.go:388 Initiating VPN connection using profile: intra
+[vpnctl] 2025/06/11 16:08:07 logger.go:32: INFO [2025-06-11 16:08:07] vpnctl.go:417 Checking current VPN connection status...
+[vpnctl] 2025/06/11 16:08:09 logger.go:32: INFO [2025-06-11 16:08:09] vpnctl.go:429 Last connected VPN profile: intra
+[vpnctl] 2025/06/11 16:08:09 logger.go:32: INFO [2025-06-11 16:08:09] vpnctl.go:432 VPN already connected to profile: intra. Aborting connect operation.
+[vpnctl] 2025/06/11 16:09:11 logger.go:40: ERROR [2025-06-11 16:09:11] main.go:69 error fetching credential: no credential found for user: ts-rohan.das
+[vpnctl] 2025/06/11 16:10:35 logger.go:40: ERROR [2025-06-11 16:10:35] main.go:69 error fetching credential: no credential found for user: ts-rohan.das
+[vpnctl] 2025/06/11 16:10:35 logger.go:32: INFO [2025-06-11 16:10:35] main.go:87 Username not set. Waiting for /set-credential API call...
+[vpnctl] 2025/06/11 16:10:35 logger.go:32: INFO [2025-06-11 16:10:35] main.go:90 HTTP server started on port 8080
+[vpnctl] 2025/06/11 16:17:24 logger.go:40: ERROR [2025-06-11 16:17:24] main.go:69 error fetching credential: no credential found for user: ts-rohan.das
+[vpnctl] 2025/06/11 16:17:24 logger.go:32: INFO [2025-06-11 16:17:24] main.go:87 Username not set. Waiting for /set-credential API call...
+[vpnctl] 2025/06/11 16:17:24 logger.go:32: INFO [2025-06-11 16:17:24] main.go:90 HTTP server started on port 8080
+[vpnctl] 2025/06/11 16:22:21 logger.go:40: ERROR [2025-06-11 16:22:21] main.go:72 error fetching credential: no credential found for user: ts-rohan.das
+[vpnctl] 2025/06/11 16:22:21 logger.go:32: INFO [2025-06-11 16:22:21] main.go:91 Username not set. Waiting for /set-credential API call...
+[vpnctl] 2025/06/11 16:22:21 logger.go:32: INFO [2025-06-11 16:22:21] main.go:98 HTTP server started on port 8080
+[vpnctl] 2025/06/12 17:50:22 logger.go:40: ERROR [2025-06-12 17:50:22] main.go:72 error fetching credential: no credential found for user: ts-rohan.das
+[vpnctl] 2025/06/12 17:50:22 logger.go:32: INFO [2025-06-12 17:50:22] main.go:91 Username not set. Waiting for /set-credential API call...
+[vpnctl] 2025/06/12 17:50:22 logger.go:32: INFO [2025-06-12 17:50:22] main.go:98 HTTP server started on port 8080
+[vpnctl] 2025/06/12 17:51:05 logger.go:40: ERROR [2025-06-12 17:51:05] credential.go:32 Failed to parse JSON: unexpected end of JSON input
+[vpnctl] 2025/06/12 17:52:49 logger.go:40: ERROR [2025-06-12 17:52:49] main.go:72 error fetching credential: no credential found for user: ts-rohan.das
+[vpnctl] 2025/06/12 17:52:49 logger.go:32: INFO [2025-06-12 17:52:49] main.go:91 Username not set. Waiting for /set-credential API call...
+[vpnctl] 2025/06/12 17:52:49 logger.go:32: INFO [2025-06-12 17:52:49] main.go:98 HTTP server started on port 8080
+[vpnctl] 2025/06/12 17:52:49 logger.go:40: ERROR [2025-06-12 17:52:49] main.go:100 Server failed:: listen tcp :8080: bind: address already in use
+[vpnctl] 2025/06/12 17:55:27 logger.go:32: INFO [2025-06-12 17:55:27] vpnctl.go:388 Initiating VPN connection using profile: intra
+[vpnctl] 2025/06/12 17:55:27 logger.go:40: ERROR [2025-06-12 17:55:27] vpnctl.go:402 Error during fetching credential: no credential found for user: ts-rohan.das
+[vpnctl] 2025/06/12 17:55:27 logger.go:48: WARN [2025-06-12 17:55:27] vpnctl.go:403 If you haven't set your credential yet, please use the /set-credential to register your credential; Check help for more information!: <nil>
+[vpnctl] 2025/06/12 17:55:27 logger.go:40: ERROR [2025-06-12 17:55:27] vpnctl.go:413 reading credentials: no credential found for user: ts-rohan.das
