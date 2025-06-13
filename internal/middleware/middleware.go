@@ -72,14 +72,6 @@ func InitDB() (*sql.DB, error) {
 		return nil, err
 	}
 
-	// dbDir := filepath.Dir(expandedPath)
-	// // Ensure the directory for the database file exists.
-	// if _, err := os.Stat(dbDir); os.IsNotExist(err) {
-	// 	if err := os.MkdirAll(dbDir, 0755); err != nil {
-	// 		return nil, err
-	// 	}
-	// }
-
 	DB, err := sql.Open("sqlite3", expandedPath)
 	if err != nil {
 		return nil, err

@@ -1,4 +1,5 @@
-package internal
+// Package vpnctl provides a CLI and library to manage VPN profiles on macOS and Linux.
+package vpnctl
 
 import (
 	"bufio"

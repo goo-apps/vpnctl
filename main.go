@@ -11,7 +11,7 @@ import (
 	"os"
 
 	"github.com/goo-apps/vpnctl/internal/middleware"
-	internal "github.com/goo-apps/vpnctl/internal/vpnctl"
+	"github.com/goo-apps/vpnctl/internal/vpnctl"
 	"github.com/goo-apps/vpnctl/logger"
 
 	"github.com/common-nighthawk/go-figure"
@@ -73,15 +73,15 @@ func main() {
 				logger.Warningf("Please specify profile: intra or dev")
 				return
 			}
-			internal.Connect(os.Args[2])
+			vpnctl.Connect(os.Args[2])
 		case "disconnect":
-			internal.DisconnectWithKillPid()
+			vpnctl.DisconnectWithKillPid()
 		case "status":
-			internal.Status()
+			vpnctl.Status()
 		case "kill":
-			internal.KillGUI()
+			vpnctl.KillGUI()
 		case "gui":
-			internal.LaunchGUI()
+			vpnctl.LaunchGUI()
 		case "help":
 			showHelp()
 		case "info":
