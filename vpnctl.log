@@ -1,0 +1,93 @@
+Log file created at: 2025/06/12 21:54:47
+Running on machine: JP-L6KC69XMXV
+Binary: Built with gc go1.23.1 for darwin/amd64
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I0612 21:54:47.677718   38595 logger.go:98] App started
+W0612 21:54:47.684063   38595 logger.go:102] This is a warning
+E0612 21:54:47.684080   38595 logger.go:106] This is an error
+I0612 21:54:47.714727   38595 logger.go:98] Checking VPN status...
+I0612 21:54:49.823233   38595 logger.go:98] VPN status retrieved successfully
+Log file created at: 2025/06/12 21:59:15
+Running on machine: JP-L6KC69XMXV
+Binary: Built with gc go1.23.1 for darwin/amd64
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I0612 21:59:15.513754   39822 logger.go:98] Checking VPN status...
+I0612 21:59:17.636111   39822 logger.go:98] VPN status retrieved successfully
+{"level":"info","module":"vpnctl","time":"2025-06-12T22:35:45+09:00","caller":"/Users/ts-rohan.das/go_vpn/logger/logger.go:197","message":"Checking VPN status..."}
+{"level":"info","module":"vpnctl","time":"2025-06-12T22:35:47+09:00","caller":"/Users/ts-rohan.das/go_vpn/logger/logger.go:197","message":"VPN status retrieved successfully"}
+{"level":"info","module":"vpnctl","time":"2025-06-12T22:47:46+09:00","caller":"/Users/ts-rohan.das/go_vpn/logger/logger.go:197","message":"Initiating VPN connection using profile: intra"}
+{"level":"error","module":"vpnctl","time":"2025-06-12T22:47:46+09:00","caller":"/Users/ts-rohan.das/go_vpn/logger/logger.go:209","message":"Error during fetching credential%!(EXTRA *errors.errorString=no credential found for user: ts-rohan.das)"}
+{"level":"warn","module":"vpnctl","time":"2025-06-12T22:47:46+09:00","caller":"/Users/ts-rohan.das/go_vpn/logger/logger.go:205","message":"If you haven't set your credential yet, please use the /set-credential to register your credential; Check help for more information!"}
+{"level":"error","module":"vpnctl","time":"2025-06-12T22:47:46+09:00","caller":"/Users/ts-rohan.das/go_vpn/logger/logger.go:209","message":"reading credentials%!(EXTRA *errors.errorString=no credential found for user: ts-rohan.das)"}
+{"level":"info","module":"vpnctl","time":"2025-06-13T00:52:10+09:00","caller":"/Users/ts-rohan.das/go_vpn/logger/logger.go:196","message":"Initiating VPN connection using profile: intra"}
+{"level":"error","module":"vpnctl","time":"2025-06-13T00:52:10+09:00","caller":"/Users/ts-rohan.das/go_vpn/logger/logger.go:208","message":"Error during fetching credential no credential found for user: ts-rohan.das"}
+{"level":"warn","module":"vpnctl","time":"2025-06-13T00:52:10+09:00","caller":"/Users/ts-rohan.das/go_vpn/logger/logger.go:204","message":"If you haven't set your credential yet, please use the /set-credential to register your credential; Check help for more information!"}
+{"level":"error","module":"vpnctl","time":"2025-06-13T00:52:10+09:00","caller":"/Users/ts-rohan.das/go_vpn/logger/logger.go:208","message":"reading credentials%!(EXTRA *errors.errorString=no credential found for user: ts-rohan.das)"}
+{"level":"info","module":"vpnctl","time":"2025-06-13T00:57:30+09:00","caller":"/Users/ts-rohan.das/go_vpn/logger/logger.go:196","message":"Initiating VPN connection using profile: intra"}
+{"level":"info","module":"vpnctl","time":"2025-06-13T00:57:30+09:00","caller":"/Users/ts-rohan.das/go_vpn/logger/logger.go:196","message":"Checking current VPN connection status..."}
+{"level":"error","module":"vpnctl","time":"2025-06-13T00:57:32+09:00","caller":"/Users/ts-rohan.das/go_vpn/logger/logger.go:208","message":"failed to find process: Cisco Secure Client%!(EXTRA *exec.ExitError=exit status 1)"}
+{"level":"info","module":"vpnctl","time":"2025-06-13T00:57:34+09:00","caller":"/Users/ts-rohan.das/go_vpn/logger/logger.go:196","message":"Reading VPN profile script from (hidden path)"}
+{"level":"info","module":"vpnctl","time":"2025-06-13T00:57:34+09:00","caller":"/Users/ts-rohan.das/go_vpn/logger/logger.go:196","message":"Running VPN command with provided script"}
+{"level":"info","module":"vpnctl","time":"2025-06-13T00:58:42+09:00","caller":"/Users/ts-rohan.das/go_vpn/logger/logger.go:196","message":"Launching Cisco Secure Client GUI..."}
+{"level":"info","module":"vpnctl","time":"2025-06-13T00:58:42+09:00","caller":"/Users/ts-rohan.das/go_vpn/logger/logger.go:196","message":"Cisco GUI launched"}
+{"level":"info","module":"vpnctl","time":"2025-06-13T01:12:48+09:00","caller":"/Users/ts-rohan.das/go_vpn/logger/logger.go:196","message":"Attempting to disconnect VPN..."}
+{"level":"info","module":"vpnctl","time":"2025-06-13T01:12:49+09:00","caller":"/Users/ts-rohan.das/go_vpn/logger/logger.go:196","message":"VPN disconnected"}
+{"level":"info","module":"vpnctl","time":"2025-06-13T01:12:49+09:00","caller":"/Users/ts-rohan.das/go_vpn/logger/logger.go:196","message":"Cisco Secure Client process killed"}
+{"level":"info","module":"vpnctl","time":"2025-06-13T01:12:49+09:00","caller":"/Users/ts-rohan.das/go_vpn/logger/logger.go:196","message":"Killing VPN process with PID 539"}
+{"level":"error","module":"vpnctl","time":"2025-06-13T01:12:49+09:00","caller":"/Users/ts-rohan.das/go_vpn/logger/logger.go:208","message":"killing VPN process 539%!(EXTRA syscall.Errno=operation not permitted)"}
+{"level":"info","module":"vpnctl","time":"2025-06-13T01:12:49+09:00","caller":"/Users/ts-rohan.das/go_vpn/logger/logger.go:196","message":"VPN disconnected and related processes killed"}
+{"level":"info","module":"vpnctl","time":"2025-06-13T13:08:40+09:00","caller":"/Users/ts-rohan.das/go_vpn/logger/logger.go:196","message":"Attempting to disconnect VPN..."}
+{"level":"info","module":"vpnctl","time":"2025-06-13T13:08:42+09:00","caller":"/Users/ts-rohan.das/go_vpn/logger/logger.go:196","message":"VPN disconnected"}
+{"level":"info","module":"vpnctl","time":"2025-06-13T13:08:42+09:00","caller":"/Users/ts-rohan.das/go_vpn/logger/logger.go:196","message":"Cisco Secure Client process killed"}
+{"level":"info","module":"vpnctl","time":"2025-06-13T13:08:42+09:00","caller":"/Users/ts-rohan.das/go_vpn/logger/logger.go:196","message":"Killing VPN process with PID 539"}
+{"level":"error","module":"vpnctl","time":"2025-06-13T13:08:42+09:00","caller":"/Users/ts-rohan.das/go_vpn/logger/logger.go:208","message":"killing VPN process 539%!(EXTRA syscall.Errno=operation not permitted)"}
+{"level":"info","module":"vpnctl","time":"2025-06-13T13:08:42+09:00","caller":"/Users/ts-rohan.das/go_vpn/logger/logger.go:196","message":"VPN disconnected and related processes killed"}
+{"level":"info","module":"vpnctl","time":"2025-06-13T13:09:49+09:00","caller":"logger.go:200","message":"Attempting to disconnect VPN..."}
+{"level":"info","module":"vpnctl","time":"2025-06-13T13:09:51+09:00","caller":"logger.go:200","message":"VPN disconnected"}
+{"level":"info","module":"vpnctl","time":"2025-06-13T13:09:51+09:00","caller":"logger.go:200","message":"Cisco Secure Client process killed"}
+{"level":"info","module":"vpnctl","time":"2025-06-13T13:09:51+09:00","caller":"logger.go:200","message":"Killing VPN process with PID 539"}
+{"level":"error","module":"vpnctl","time":"2025-06-13T13:09:51+09:00","caller":"logger.go:212","message":"killing VPN process 539%!(EXTRA syscall.Errno=operation not permitted)"}
+{"level":"info","module":"vpnctl","time":"2025-06-13T13:09:51+09:00","caller":"logger.go:200","message":"VPN disconnected and related processes killed"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:73","time":"2025-06-13T13:16:54+09:00","message":"Attempting to disconnect VPN..."}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:75","time":"2025-06-13T13:16:56+09:00","message":"VPN disconnected"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:77","time":"2025-06-13T13:16:56+09:00","message":"Cisco Secure Client process killed"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:91","time":"2025-06-13T13:16:56+09:00","message":"Killing VPN process with PID 539"}
+{"level":"error","module":"vpnctl","caller":"vpnctl.go:94","time":"2025-06-13T13:16:56+09:00","message":"killing VPN process 539%!(EXTRA syscall.Errno=operation not permitted)"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:97","time":"2025-06-13T13:16:56+09:00","message":"VPN disconnected and related processes killed"}
+{"level":"info","module":"vpnctl","caller":"main.go:78","time":"2025-06-13T13:21:28+09:00","message":"Attempting to disconnect VPN..."}
+{"level":"info","module":"vpnctl","caller":"main.go:78","time":"2025-06-13T13:21:31+09:00","message":"VPN disconnected"}
+{"level":"info","module":"vpnctl","caller":"main.go:78","time":"2025-06-13T13:21:31+09:00","message":"Cisco Secure Client process killed"}
+{"level":"info","module":"vpnctl","caller":"main.go:78","time":"2025-06-13T13:21:31+09:00","message":"Killing VPN process with PID 539"}
+{"level":"error","module":"vpnctl","caller":"main.go:78","time":"2025-06-13T13:21:31+09:00","message":"killing VPN process 539%!(EXTRA syscall.Errno=operation not permitted)"}
+{"level":"info","module":"vpnctl","caller":"main.go:78","time":"2025-06-13T13:21:31+09:00","message":"VPN disconnected and related processes killed"}
+{"level":"info","module":"vpnctl","caller":"proc.go:272","time":"2025-06-13T13:21:51+09:00","message":"Attempting to disconnect VPN..."}
+{"level":"info","module":"vpnctl","caller":"proc.go:272","time":"2025-06-13T13:21:53+09:00","message":"VPN disconnected"}
+{"level":"info","module":"vpnctl","caller":"proc.go:272","time":"2025-06-13T13:21:53+09:00","message":"Cisco Secure Client process killed"}
+{"level":"info","module":"vpnctl","caller":"proc.go:272","time":"2025-06-13T13:21:53+09:00","message":"Killing VPN process with PID 539"}
+{"level":"error","module":"vpnctl","caller":"proc.go:272","time":"2025-06-13T13:21:53+09:00","message":"killing VPN process 539%!(EXTRA syscall.Errno=operation not permitted)"}
+{"level":"info","module":"vpnctl","caller":"proc.go:272","time":"2025-06-13T13:21:53+09:00","message":"VPN disconnected and related processes killed"}
+{"level":"info","module":"vpnctl","caller":"logger.go:176","time":"2025-06-13T13:22:07+09:00","message":"Attempting to disconnect VPN..."}
+{"level":"info","module":"vpnctl","caller":"logger.go:176","time":"2025-06-13T13:22:09+09:00","message":"VPN disconnected"}
+{"level":"info","module":"vpnctl","caller":"logger.go:176","time":"2025-06-13T13:22:09+09:00","message":"Cisco Secure Client process killed"}
+{"level":"info","module":"vpnctl","caller":"logger.go:176","time":"2025-06-13T13:22:09+09:00","message":"Killing VPN process with PID 539"}
+{"level":"error","module":"vpnctl","caller":"logger.go:182","time":"2025-06-13T13:22:09+09:00","message":"killing VPN process 539%!(EXTRA syscall.Errno=operation not permitted)"}
+{"level":"info","module":"vpnctl","caller":"logger.go:176","time":"2025-06-13T13:22:09+09:00","message":"VPN disconnected and related processes killed"}
+{"level":"info","module":"vpnctl","caller":"logger.go:176","time":"2025-06-13T13:22:25+09:00","message":"Attempting to disconnect VPN..."}
+{"level":"info","module":"vpnctl","caller":"logger.go:176","time":"2025-06-13T13:22:27+09:00","message":"VPN disconnected"}
+{"level":"info","module":"vpnctl","caller":"logger.go:176","time":"2025-06-13T13:22:27+09:00","message":"Cisco Secure Client process killed"}
+{"level":"info","module":"vpnctl","caller":"logger.go:176","time":"2025-06-13T13:22:27+09:00","message":"Killing VPN process with PID 539"}
+{"level":"error","module":"vpnctl","caller":"logger.go:182","time":"2025-06-13T13:22:27+09:00","message":"killing VPN process 539%!(EXTRA syscall.Errno=operation not permitted)"}
+{"level":"info","module":"vpnctl","caller":"logger.go:176","time":"2025-06-13T13:22:27+09:00","message":"Killing VPN process with PID 25536"}
+{"level":"info","module":"vpnctl","caller":"logger.go:176","time":"2025-06-13T13:22:27+09:00","message":"VPN disconnected and related processes killed"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:73","time":"2025-06-13T13:22:44+09:00","message":"Attempting to disconnect VPN..."}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:75","time":"2025-06-13T13:22:46+09:00","message":"VPN disconnected"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:77","time":"2025-06-13T13:22:46+09:00","message":"Cisco Secure Client process killed"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:91","time":"2025-06-13T13:22:46+09:00","message":"Killing VPN process with PID 539"}
+{"level":"error","module":"vpnctl","caller":"vpnctl.go:94","time":"2025-06-13T13:22:46+09:00","message":"killing VPN process 539%!(EXTRA syscall.Errno=operation not permitted)"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:97","time":"2025-06-13T13:22:46+09:00","message":"VPN disconnected and related processes killed"}
+{"level":"info","module":"vpnctl","caller":"internal/vpnctl/vpnctl.go:73","time":"2025-06-13T13:24:39+09:00","message":"Attempting to disconnect VPN..."}
+{"level":"info","module":"vpnctl","caller":"internal/vpnctl/vpnctl.go:75","time":"2025-06-13T13:24:41+09:00","message":"VPN disconnected"}
+{"level":"info","module":"vpnctl","caller":"internal/vpnctl/vpnctl.go:77","time":"2025-06-13T13:24:41+09:00","message":"Cisco Secure Client process killed"}
+{"level":"info","module":"vpnctl","caller":"internal/vpnctl/vpnctl.go:91","time":"2025-06-13T13:24:41+09:00","message":"Killing VPN process with PID 539"}
+{"level":"error","module":"vpnctl","caller":"internal/vpnctl/vpnctl.go:94","time":"2025-06-13T13:24:41+09:00","message":"killing VPN process 539%!(EXTRA syscall.Errno=operation not permitted)"}
+{"level":"info","module":"vpnctl","caller":"internal/vpnctl/vpnctl.go:97","time":"2025-06-13T13:24:41+09:00","message":"VPN disconnected and related processes killed"}
