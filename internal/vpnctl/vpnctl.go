@@ -14,18 +14,13 @@ import (
 	"strings"
 	"time"
 
+	"github.com/goo-apps/vpnctl/config"
 	"github.com/goo-apps/vpnctl/internal/middleware"
+	"github.com/goo-apps/vpnctl/internal/model"
 	"github.com/goo-apps/vpnctl/logger"
 
 	"github.com/common-nighthawk/go-figure"
 )
-
-var (
-	vpnCmd = "/opt/cisco/secureclient/bin/vpn"
-	guiApp = "/Applications/Cisco/Cisco Secure Client.app/"
-)
-
-const maxRetries = 1
 
 // Status checks the current VPN connection status using the Cisco Secure Client command line tool.
 // It runs the command with a timeout to avoid hanging indefinitely.
@@ -38,16 +33,16 @@ func Status() {
 	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 	defer cancel()
 
-	cmd := exec.CommandContext(ctx, vpnCmd, "status", "-s")
+	cmd := exec.CommandContext(ctx, config.VPN_BINARY_PATH, "status", "-s")
 	output, err := cmd.CombinedOutput()
 
 	if ctx.Err() == context.DeadlineExceeded {
-		logger.Errorf("status check", fmt.Errorf("vpn status timed out"))
+		logger.Errorf("status check: %v", fmt.Errorf("vpn status timed out"))
 		return
 	}
 
 	if err != nil {
-		logger.Errorf("retrieving VPN status", err)
+		logger.Errorf("retrieving VPN status: %v", err)
 		fmt.Println(string(output))
 		return
 	}
@@ -72,36 +67,55 @@ func Status() {
 // After disconnecting, it attempts to kill the Cisco Secure Client GUI process using `pkill`.
 func DisconnectWithKillPid() {
 	logger.Infof("Attempting to disconnect VPN...")
-	exec.Command(vpnCmd, "disconnect").Run()
+	exec.Command(config.VPN_BINARY_PATH, "disconnect").Run()
 	logger.Infof("VPN disconnected")
-	exec.Command("pkill", "-x", "Cisco Secure Client").Run()
-	logger.Infof("Cisco Secure Client process killed")
 
-	// Optionally, you can also kill the VPN process
+	// Kill Cisco Secure Client UI only, not vpnagentd
+	exec.Command("pkill", "-x", "Cisco Secure Client").Run()
+	logger.Infof("Cisco Secure Client UI process killed")
+
 	pids, err := getPIDs("vpn")
 	if err != nil {
 		logger.Errorf("getting VPN PIDs: %v", err)
 		return
 	}
+
 	for _, pid := range pids {
+		// Use `ps -p <pid> -o command=` to get the full process path/command
+		out, err := exec.Command("ps", "-p", fmt.Sprintf("%d", pid), "-o", "command=").Output()
+		if err != nil {
+			logger.Errorf("could not inspect process %d: %v", pid, err)
+			continue
+		}
+
+		cmdline := string(out)
+		cmdline = strings.TrimSpace(cmdline)
+
+		if strings.Contains(cmdline, "vpnagentd") {
+			logger.Infof("Skipping vpnagentd process (PID %d)", pid)
+			continue
+		}
+
+		logger.Infof("Killing VPN process with PID %d", pid)
+
 		process, err := os.FindProcess(pid)
 		if err != nil {
 			logger.Errorf(fmt.Sprintf("finding process %d", pid), err)
 			continue
 		}
-		logger.Infof(fmt.Sprintf("Killing VPN process with PID %d", pid))
-		err = process.Signal(os.Interrupt) // Use SIGINT to gracefully stop
+
+		err = process.Signal(os.Interrupt)
 		if err != nil {
 			logger.Errorf(fmt.Sprintf("killing VPN process %d", pid), err)
 		}
 	}
-	logger.Infof("VPN disconnected and related processes killed")
-	// killVPNProcesses() // <-- updated
+
+	logger.Infof("VPN disconnected and related processes (excluding vpnagentd) killed")
 }
 
 func Disconnect() {
 	logger.Infof("Attempting to disconnect VPN...")
-	exec.Command(vpnCmd, "disconnect").Run()
+	exec.Command(config.VPN_BINARY_PATH, "disconnect").Run()
 	logger.Infof("VPN disconnected")
 	exec.Command("pkill", "-x", "Cisco Secure Client").Run()
 	logger.Infof("Cisco Secure Client process killed")
@@ -119,7 +133,7 @@ func KillGUI() {
 	// Optionally, you can also kill the VPN process
 	pids, err := getPIDs("vpn")
 	if err != nil {
-		logger.Errorf("getting VPN PIDs", err)
+		logger.Errorf("getting VPN PIDs: %v", err)
 		return
 	}
 	for _, pid := range pids {
@@ -169,9 +183,9 @@ func getPIDs(name string) ([]int, error) {
 // This function is useful for starting the GUI after a successful VPN connection.
 func LaunchGUI() {
 	logger.Infof("Launching Cisco Secure Client GUI...")
-	err := exec.Command("open", guiApp).Run()
+	err := exec.Command("open", config.VPN_GUI_PATH).Run()
 	if err != nil {
-		logger.Errorf("launching Cisco Secure Client GUI", err)
+		logger.Errorf("launching Cisco Secure Client GUI: %v", err)
 	}
 	logger.Infof("Cisco GUI launched")
 }
@@ -184,7 +198,7 @@ func KillCiscoProcesses() error {
 		cmd := exec.Command("pgrep", "-f", name)
 		output, err := cmd.Output()
 		if err != nil {
-			logger.Errorf(fmt.Sprintf("failed to find process: %v", name), err)
+			logger.Errorf(fmt.Sprintf("failed to find process: %s", name), err)
 			continue
 		}
 
@@ -215,166 +229,8 @@ func KillCiscoProcesses() error {
 // It checks the current VPN connection status before attempting to connect.
 // If the VPN is already connected, it aborts the connection operation.
 // It also reads the credentials for the specified profile from a hidden file.
-
-// WORKING VERSION
-// func Connect(profile string) {
-// 	logger.Infof(fmt.Sprintf("Initiating VPN connection using profile: %v", profile))
-
-// 	profilePath := getProfilePath(profile)
-// 	if profilePath == "" {
-// 		logger.Infof("Unknown VPN profile")
-// 		return
-// 	}
-
-// 	username, password, y, y2, err := readCredentials(profile)
-// 	if err != nil {
-// 		logger.Errorf(err, "reading credentials")
-// 		return
-// 	}
-
-// 	logger.Infof("Checking current VPN connection status...")
-// 	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
-// 	defer cancel()
-
-// 	cmd := exec.CommandContext(ctx, vpnCmd, "status")
-// 	output, _ := cmd.CombinedOutput()
-
-// 	// check the current vpn profile
-// 	if contains(string(output), "Connected") {
-// 		last, err := middleware.GetLastConnectedProfile()
-// 		if err != nil {
-// 			logger.Errorf(err, "retrieve error:")
-// 		}
-// 		logger.Infof("Last connected VPN profile: " + last)
-
-// 		if last == profile {
-// 			logger.Infof(fmt.Sprintf("VPN already connected to profile: %v. Aborting connect operation.", profile))
-// 			return
-// 		}
-// 		logger.Infof(fmt.Sprintf("VPN connected to profile %v, switching to %v...", last, profile))
-// 		Disconnect()
-// 		KillCiscoProcesses()
-// 	}
-
-// 	logger.Infof(fmt.Sprintf("Reading VPN profile script from (hidden path) %v", ""))
-// 	scriptContent, err := os.ReadFile(profilePath)
-// 	if err != nil {
-// 		logger.Errorf(err, "reading VPN profile")
-// 		return
-// 	}
-
-// 	script := strings.ReplaceAll(string(scriptContent), "{{USERNAME}}", username)
-// 	script = strings.ReplaceAll(script, "{{PASSWORD}}", password)
-// 	script = strings.ReplaceAll(script, "{{Y}}", y)
-// 	if profile == "dev" {
-// 		script = strings.ReplaceAll(script, "{{Y2}}", y2)
-// 	}
-
-// 	tempScript := filepath.Join(os.TempDir(), "vpn_input.txt")
-// 	err = os.WriteFile(tempScript, []byte(script), 0600)
-// 	if err != nil {
-// 		logger.Errorf(err, "writing temp VPN input file")
-// 		return
-// 	}
-
-// 	logger.Infof("Running VPN command with provided script")
-
-// 	vpnProfile := ""
-// 	switch profile {
-// 	case "dev":
-// 		vpnProfile = "DEV-VPN-REMOTE"
-// 	case "intra":
-// 		vpnProfile = "INTRA"
-// 	}
-
-// 	cmd = exec.Command(vpnCmd, "connect", vpnProfile, "-s")
-
-// 	stdinFile, err := os.Open(tempScript)
-// 	if err != nil {
-// 		logger.Errorf(err, "opening temp script")
-// 		return
-// 	}
-// 	defer stdinFile.Close()
-// 	defer os.Remove(tempScript)
-
-// 	cmd.Stdin = stdinFile
-
-// 	// Declare the stdout channels outside so they're accessible later
-// 	stdoutLines := make(chan string, 100)
-// 	done := make(chan struct{})
-
-// 	stdoutPipe, err := cmd.StdoutPipe()
-// 	if err != nil {
-// 		logger.Errorf(err, "getting stdout pipe")
-// 		return
-// 	}
-// 	stderrPipe, err := cmd.StderrPipe()
-// 	if err != nil {
-// 		logger.Errorf(err, "getting stderr pipe")
-// 		return
-// 	}
-
-// 	if err := cmd.Start(); err != nil {
-// 		logger.Errorf(err, "starting VPN command")
-// 		return
-// 	}
-
-// 	// Stream stdout
-// 	go func() {
-// 		scanner := bufio.NewScanner(stdoutPipe)
-// 		for scanner.Scan() {
-// 			line := scanner.Text()
-// 			fmt.Println("[VPN stdout] " + line)
-// 			stdoutLines <- line
-// 		}
-// 		close(done)
-// 	}()
-
-// 	// Stream stderr
-// 	go func() {
-// 		scanner := bufio.NewScanner(stderrPipe)
-// 		for scanner.Scan() {
-// 			logger.Errorf(errors.New(scanner.Text()), "VPN stderr")
-// 		}
-// 	}()
-
-// 	if err := cmd.Wait(); err != nil {
-// 		logger.Errorf(err, "VPN command exited with error")
-// 	}
-
-// 	// Scan the output for Cisco lock issue
-// 	<-done
-// 	close(stdoutLines)
-
-// 	shouldRetry := false
-// 	for line := range stdoutLines {
-// 		if strings.Contains(line, "Connect capability is unavailable") {
-// 			logger.Infof("Detected Cisco VPN agent lock. Restarting Cisco services...")
-// 			KillCiscoProcesses()
-// 			shouldRetry = true
-// 			break
-// 		}
-// 	}
-
-// 	if shouldRetry {
-// 		time.Sleep(2 * time.Second)
-// 		logger.Infof("Retrying VPN connection to profile: " + profile)
-// 		Connect(profile)
-// 		return
-// 	}
-
-// 	if err := middleware.SetLastConnectedProfile(profile); err != nil {
-// 		logger.Errorf(err, "store error:")
-// 	}
-
-// 	LaunchGUI()
-// }
-
-// Connect establishes a VPN connection using the specified profile.
-// It reads the VPN profile script from a hidden path, replaces placeholders with credentials,
-// and executes the VPN command with the provided script.
-func Connect(profile string) {
-	connectWithRetries(profile, 0)
+func Connect(credential *model.CREDENTIAL_FOR_LOGIN,profile string) {
+	connectWithRetries(credential, profile, config.VPN_CONNECTION_RETRY_COUNT)
 }
 
 // connectWithRetries attempts to connect to the VPN with retries.
@@ -385,7 +241,7 @@ func Connect(profile string) {
 // This function is useful for establishing a VPN connection with error handling and retry logic.
 // It reads the credentials for the specified profile from a hidden file.
 // It also handles the case where the VPN is already connected to a different profile.
-func connectWithRetries(profile string, retryCount int) {
+func connectWithRetries(credential *model.CREDENTIAL_FOR_LOGIN, profile string, retryCount int) {
 	logger.Infof(fmt.Sprintf("Initiating VPN connection using profile: %v", profile))
 
 	profilePath := getProfilePath(profile)
@@ -394,32 +250,18 @@ func connectWithRetries(profile string, retryCount int) {
 		return
 	}
 
-	// get username from env
-	username_env := middleware.GetUsernameFromEnv()
-
-
-	result, err := middleware.GetCredential(username_env)
-	if err != nil {
-		logger.Errorf("Error during fetching credential %v", err)
-		logger.Warningf("If you haven't set your credential yet, please use the /set-credential to register your credential; Check help for more information!")
-	}
-
-	username := result.Username
-	password := result.Password
-	secondPassword := result.SecondPassword
-	y_flag := result.YFlag
-
-	// username, password, secondPassword, y_flag, err := readCredentials(profile)
-	if err != nil {
-		logger.Errorf("reading credentials", err)
-		return
-	}
+	// implement keychain here and get rid of credential files
+	// username, password, y_flag, secondPassword, err := readCredentials(profile)
+	// if err != nil {
+	// 	logger.Fatalf("reading credentials for profile %v: %v", profile, err)
+	// 	return
+	// }
 
 	logger.Infof("Checking current VPN connection status...")
 	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 	defer cancel()
 
-	cmd := exec.CommandContext(ctx, vpnCmd, "status")
+	cmd := exec.CommandContext(ctx, config.VPN_BINARY_PATH, "status")
 	output, _ := cmd.CombinedOutput()
 
 	if contains(string(output), "Connected") {
@@ -427,7 +269,7 @@ func connectWithRetries(profile string, retryCount int) {
 		if err != nil {
 			logger.Errorf("retrieve error: %v", err)
 		}
-		logger.Infof("Last connected VPN profile: " + last)
+		logger.Infof("Last connected VPN profile: %v", last)
 
 		if last == profile {
 			logger.Infof(fmt.Sprintf("VPN already connected to profile: %v. Aborting connect operation.", profile))
@@ -438,27 +280,27 @@ func connectWithRetries(profile string, retryCount int) {
 	}
 
 	if err := KillCiscoProcesses(); err != nil {
-		logger.Errorf("failed to kill Cisco processes before reconnect", err)
+		logger.Errorf("failed to kill Cisco processes before reconnect: %v", err)
 	}
 
 	logger.Infof("Reading VPN profile script from (hidden path)")
 	scriptContent, err := os.ReadFile(profilePath)
 	if err != nil {
-		logger.Errorf("reading VPN profile", err)
+		logger.Errorf("reading VPN profile: %v", err)
 		return
 	}
 
-	script := strings.ReplaceAll(string(scriptContent), "{{USERNAME}}", username)
-	script = strings.ReplaceAll(script, "{{PASSWORD}}", password)
-	script = strings.ReplaceAll(script, "{{Y}}", y_flag)
+	script := strings.ReplaceAll(string(scriptContent), "{{USERNAME}}", credential.Username)
+	script = strings.ReplaceAll(script, "{{PASSWORD}}", credential.Password)
+	script = strings.ReplaceAll(script, "{{Y}}", credential.YFlag)
 	if profile == "dev" {
-		script = strings.ReplaceAll(script, "{{SECOND_PASSWORD}}", secondPassword)
+		script = strings.ReplaceAll(script, "{{SECOND_PASSWORD}}", credential.Push)
 	}
 
 	tempScript := filepath.Join(os.TempDir(), "vpn_input.txt")
 	err = os.WriteFile(tempScript, []byte(script), 0600)
 	if err != nil {
-		logger.Errorf("writing temp VPN input file", err)
+		logger.Errorf("writing temp VPN input file: %v", err)
 		return
 	}
 	defer os.Remove(tempScript)
@@ -473,11 +315,11 @@ func connectWithRetries(profile string, retryCount int) {
 		vpnProfile = "INTRA"
 	}
 
-	cmd = exec.Command(vpnCmd, "connect", vpnProfile, "-s")
+	cmd = exec.Command(config.VPN_BINARY_PATH, "connect", vpnProfile, "-s")
 
 	stdinFile, err := os.Open(tempScript)
 	if err != nil {
-		logger.Errorf("opening temp script", err)
+		logger.Errorf("opening temp script: %v", err)
 		return
 	}
 	defer stdinFile.Close()
@@ -488,18 +330,18 @@ func connectWithRetries(profile string, retryCount int) {
 	// Capture stdout and stderr
 	stdoutPipe, err := cmd.StdoutPipe()
 	if err != nil {
-		logger.Errorf("getting stdout pipe", err)
+		logger.Errorf("getting stdout pipe: %s", err)
 		return
 	}
 	stderrPipe, err := cmd.StderrPipe()
 	if err != nil {
-		logger.Errorf("getting stderr pipe", err)
+		logger.Errorf("getting stderr pipe: %v", err)
 		return
 	}
 
 	// Start command before scanning
 	if err := cmd.Start(); err != nil {
-		logger.Errorf("starting VPN command", err)
+		logger.Errorf("starting VPN command: %v", err)
 		return
 	}
 
@@ -519,12 +361,12 @@ func connectWithRetries(profile string, retryCount int) {
 	go func() {
 		scanner := bufio.NewScanner(stderrPipe)
 		for scanner.Scan() {
-			logger.Errorf("VPN stderr", errors.New(scanner.Text()))
+			logger.Errorf("VPN stderr: %v", errors.New(scanner.Text()))
 		}
 	}()
 
 	if err := cmd.Wait(); err != nil {
-		logger.Errorf("VPN command exited with error", err)
+		logger.Errorf("VPN command exited with error: %v", err)
 	}
 
 	<-done
@@ -539,18 +381,18 @@ func connectWithRetries(profile string, retryCount int) {
 		}
 	}
 
-	if shouldRetry && retryCount < maxRetries {
+	if shouldRetry && retryCount < config.VPN_CONNECTION_RETRY_COUNT {
 		time.Sleep(2 * time.Second)
 		logger.Infof(fmt.Sprintf("Retrying VPN connection to profile: %v (attempt %d)", profile, retryCount+1))
-		connectWithRetries(profile, retryCount+1)
+		connectWithRetries(credential, profile, retryCount+1)
 		return
 	}
 
-	go func ()  {
+	go func() {
 		if err := middleware.SetLastConnectedProfile(profile); err != nil {
-			logger.Errorf("store error:", err)
+			logger.Errorf("store error: %v", err)
 		}
-	}() 
+	}()
 
 	LaunchGUI()
 }

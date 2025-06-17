@@ -9,6 +9,7 @@ import (
 	"strings"
 	"time"
 
+	"github.com/goo-apps/vpnctl/config"
 	"github.com/goo-apps/vpnctl/logger"
 
 	_ "github.com/mattn/go-sqlite3"
@@ -16,41 +17,7 @@ import (
 	"github.com/goo-apps/vpnctl/internal/model"
 )
 
-const dbPath = "~/.vpnctl/vpnctl.db"
-
-// Function to prompt the user for a username and store it in an environment variable
-func GetUsernameFromEnv() string {
-	// Check if the username is already set in the DB
-	username, err := GetUsernameFromDB()
-	if err != nil {
-		logger.Errorf("error while fetching user from db: %d", err)
-	}
-	if username != "" {
-		// fmt.Println("Username found in database.")
-		return username
-	}
-
-	// Prompt the user for a username
-	reader := bufio.NewReader(os.Stdin)
-	fmt.Print("Enter your username to proceed: ")
-	username, _ = reader.ReadString('\n')
-	username = strings.TrimSpace(username)
-
-	// Validate the username (you can add more complex validation here)
-	if username == "" {
-		fmt.Println("Username cannot be empty.")
-		return GetUsernameFromEnv() // Recursively call the function until a valid username is entered
-	}
-
-	// Set the username in the environment variable for future use
-	dberr := SetUsernameToDB(username)
-	if dberr != nil {
-		logger.Errorf("error while setting user to db: %v", err)
-	}
-
-	fmt.Println("Username set in environment variable.")
-	return username
-}
+// const dbPath = "~/.vpnctl/vpnctl.db"
 
 // expandPath expands ~ to the user home directory.
 func expandPath(path string) (string, error) {
@@ -67,7 +34,7 @@ func expandPath(path string) (string, error) {
 // initDB initializes the SQLite database and creates the helm_charts table if it doesn't exist.
 func InitDB() (*sql.DB, error) {
 	var err error
-	expandedPath, err := expandPath(dbPath)
+	expandedPath, err := expandPath(config.SQLITE_DB_PATH)
 	if err != nil {
 		return nil, err
 	}
@@ -82,6 +49,7 @@ func InitDB() (*sql.DB, error) {
 		id INTEGER PRIMARY KEY AUTOINCREMENT,
 		profile TEXT UNIQUE NOT NULL,
 		last_connected_at DATETIME
+		timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 	);`
 
 	_, err = DB.Exec(query_vpn_profile)
@@ -114,6 +82,20 @@ func InitDB() (*sql.DB, error) {
 	);`
 
 	_, err = DB.Exec(query_vpn_user_env)
+	if err != nil {
+		DB.Close()
+		return nil, fmt.Errorf("failed to create table: %w", err)
+	}
+
+	query_vpn_user_credential_expiry := `
+	CREATE TABLE IF NOT EXISTS vpn_user_credential_expiry (
+		id INTEGER PRIMARY KEY AUTOINCREMENT,
+		username TEXT NOT NULL UNIQUE,
+		expiry_date DATE NOT NULL,
+		timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+	);`
+
+	_, err = DB.Exec(query_vpn_user_credential_expiry)
 	if err != nil {
 		DB.Close()
 		return nil, fmt.Errorf("failed to create table: %w", err)
@@ -152,34 +134,40 @@ func SetLastConnectedProfile(profile string) error {
 	}
 	defer db.Close()
 
+	now := time.Now().Format(time.RFC3339)
+
 	query := `
 	INSERT INTO vpn_profile (profile, last_connected_at) VALUES (?, ?)
 	ON CONFLICT(profile) DO UPDATE SET last_connected_at=excluded.last_connected_at;
 	`
-	_, dberr := db.Exec(query, profile, time.Now())
+	_, dberr := db.Exec(query, profile, now)
 	return dberr
 }
 
 func GetLastConnectedProfile() (string, error) {
-	// Initialize the database
 	db, err := InitDB()
 	if err != nil {
-		logger.Errorf("Error connecting to db: %v", err)
+		return "", fmt.Errorf("db init error: %w", err)
 	}
 	defer db.Close()
 
+	var profile string
 	query := `SELECT profile FROM vpn_profile ORDER BY last_connected_at DESC LIMIT 1;`
 	row := db.QueryRow(query)
-	var profile string
-	if dberr := row.Scan(&profile); err != nil {
-		return "", dberr
+
+	if err := row.Scan(&profile); err != nil {
+		// Explicit error if no data or scan fails
+		return "", fmt.Errorf("scan error (maybe no profile stored yet): %w", err)
 	}
+
+	logger.Infof("Last connected profile: %s", profile)
+
 	return profile, nil
 }
 
 // AddCredential adds a new VPN user credential to the vpn_user_credential table.
 // It now takes the profile as an argument and uses the Credentials struct.
-func SetCredential(creds model.USER_CREDENTIAL) error {
+func SetCredentialToDB(creds model.USER_CREDENTIAL) error {
 	db, err := InitDB()
 	if err != nil {
 		logger.Errorf("Error connecting to db: %v", err)
@@ -203,7 +191,7 @@ func SetCredential(creds model.USER_CREDENTIAL) error {
 
 // GetCredential retrieves a VPN user credential from the vpn_user_credential table by profile.
 // It now returns a Credentials struct.
-func GetCredential(username string) (model.USER_CREDENTIAL, error) {
+func GetCredentialFromDB(username string) (model.USER_CREDENTIAL, error) {
 	db, err := InitDB()
 	if err != nil {
 		logger.Errorf("Error connecting to db: %v", err)
@@ -267,4 +255,38 @@ func GetUsernameFromDB() (string, error) {
 	}
 
 	return username, nil
+}
+
+// Function to prompt the user for a username and store it in an environment variable
+func GetUsernameFromEnv() string {
+	// Check if the username is already set in the DB
+	username, err := GetUsernameFromDB()
+	if err != nil {
+		logger.Errorf("error while fetching user from db: %d", err)
+	}
+	if username != "" {
+		// fmt.Println("Username found in database.")
+		return username
+	}
+
+	// Prompt the user for a username
+	reader := bufio.NewReader(os.Stdin)
+	fmt.Print("Enter your username to proceed: ")
+	username, _ = reader.ReadString('\n')
+	username = strings.TrimSpace(username)
+
+	// Validate the username (you can add more complex validation here)
+	if username == "" {
+		fmt.Println("Username cannot be empty.")
+		return GetUsernameFromEnv() // Recursively call the function until a valid username is entered
+	}
+
+	// Set the username in the environment variable for future use
+	dberr := SetUsernameToDB(username)
+	if dberr != nil {
+		logger.Errorf("error while setting user to db: %v", err)
+	}
+
+	fmt.Println("Username set in environment variable.")
+	return username
 }

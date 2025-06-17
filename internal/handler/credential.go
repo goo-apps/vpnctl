@@ -1,90 +1,78 @@
-// not used right now
 package handler
 
 import (
-	"database/sql"
-	"encoding/json"
-	"io"
-	"net/http"
-	"sync"
+	"bufio"
+	"fmt"
+	"os"
+	"strings"
 
-	"github.com/goo-apps/vpnctl/internal/middleware"
 	"github.com/goo-apps/vpnctl/internal/model"
-	"github.com/goo-apps/vpnctl/logger"
+	"github.com/zalando/go-keyring"
+	"golang.org/x/term"
 )
 
-var ServerWaitGroup *sync.WaitGroup
+const service = "vpnctl"
 
-// SetCredentialHandler handles the API request to set a credential.
-func SetCredentialHandler(w http.ResponseWriter, r *http.Request) {
-	var creds model.USER_CREDENTIAL
-
-	body, err := io.ReadAll(r.Body)
-	if err != nil {
-		logger.Errorf("Failed to read request body", err)
-		http.Error(w, "Invalid request", http.StatusBadRequest)
-		return
-	}
-	defer r.Body.Close()
-
-	err = json.Unmarshal(body, &creds)
-	if err != nil {
-		logger.Errorf("Failed to parse JSON", err)
-		http.Error(w, "Invalid JSON", http.StatusBadRequest)
-		return
-	}
-
-	if creds == (model.USER_CREDENTIAL{}) {
-		http.Error(w, "Empty credential payload", http.StatusBadRequest)
-		return
-	}
-
-	err = middleware.SetCredential(creds)
-	if err != nil {
-		logger.Errorf("Failed to store credential", err)
-		http.Error(w, "Failed to store credential", http.StatusInternalServerError)
-		return
-	}
-
-	logger.Infof("Credential saved successfully")
-	w.WriteHeader(http.StatusOK)
-	w.Write([]byte(`{"message":"Credential saved successfully"}`))
-
-	// Signal main to resume
-	if ServerWaitGroup != nil {
-		ServerWaitGroup.Done()
-	}
+// Save credential securely
+func StoreCredential(profile, username, password string) error {
+	entry := username + "\n" + password
+	return keyring.Set(service, profile, entry)
 }
 
-// GetCredentialHandler handles the API request to get a credential by username.
-func GetCredentialHandler(w http.ResponseWriter, r *http.Request) {
-	if r.Method != http.MethodGet {
-		http.Error(w, "Only GET method is allowed", http.StatusMethodNotAllowed)
-		return
-	}
-
-	username := r.URL.Query().Get("username")
-	if username == "" {
-		http.Error(w, "Username is required", http.StatusBadRequest)
-		return
-	}
-
-	creds, err := middleware.GetCredential(username)
+// Get credential securely
+func GetCredential(profile string) (username, password, push, y_flag string, err error) {
+	entry, err := keyring.Get(service, profile)
 	if err != nil {
-		if err == sql.ErrNoRows {
-			http.Error(w, "Credential not found", http.StatusNotFound)
-		} else {
-			logger.Errorf("Error getting credential from database", err)
-			http.Error(w, "Failed to get credential", http.StatusInternalServerError)
+		return "", "", "", "", err
+	}
+
+	parts := strings.SplitN(entry, "\n", 4)
+	if len(parts) != 4 {
+		return "", "", "", "", fmt.Errorf("invalid credential format")
+	}
+	return parts[0], parts[1], parts[2], parts[3], nil
+}
+
+func GetOrPromptCredential(profile string) (model.CREDENTIAL_FOR_LOGIN, error) {
+	var credential model.CREDENTIAL_FOR_LOGIN
+	// Check keyring first
+	entry, err := keyring.Get(service, profile)
+	if err == nil {
+		parts := strings.SplitN(entry, "\n", 4)
+		if len(parts) == 4 {
+			credential.Username = parts[0]
+			credential.Password = parts[1]
+			credential.Push = parts[2]
+			credential.YFlag = parts[3]
+
+			return credential, nil
 		}
-		return
 	}
 
-	w.Header().Set("Content-Type", "application/json")
-	err = json.NewEncoder(w).Encode(creds)
-	if err != nil {
-		logger.Errorf("Error encoding JSON response", err)
-		http.Error(w, "Failed to encode JSON", http.StatusInternalServerError)
-		return
+	// Prompt the user (first time)
+	reader := bufio.NewReader(os.Stdin)
+
+	fmt.Printf("Enter username for profile '%s': ", profile)
+	username, _ := reader.ReadString('\n')
+	username = strings.TrimSpace(username)
+
+	fmt.Print("Enter password: ")
+	bytePassword, _ := term.ReadPassword(int(os.Stdin.Fd()))
+	password := string(bytePassword)
+	fmt.Println()
+
+	push := "push"
+	y_flag := "y"
+
+	// Store securely
+	cred := username + "\n" + password + "\n" + push + "\n" + y_flag
+	if err := keyring.Set(service, profile, cred); err != nil {
+		return credential, fmt.Errorf("failed to store credentials: %w", err)
 	}
+	credential.Username = username
+	credential.Password = password
+	credential.Push = push
+	credential.YFlag = y_flag
+
+	return credential, nil
 }
