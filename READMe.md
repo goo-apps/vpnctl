@@ -1,7 +1,6 @@
 # vpnctl 🛡️
 
-[![Go Reference](https://pkg.go.dev/github.com/goo-apps/vpnctl)](https://pkg.go.dev/github.com/goo-apps/vpnctl)
-
+[![Actions Status](https://github.com/goo-apps/vpnctl/actions/workflows/workflow-file/badge.svg)](https://github.com/goo-apps/vpnctl/actions)
 
 `vpnctl` is a lightweight CLI wrapper to manage Cisco Secure Client VPN sessions on macOS.
 
