@@ -1,7 +1,7 @@
 // Author: rohan.das
 
 // vpnctl - Cross-platform VPN CLI
-// Copyright (c) 2025 Rohan (dev.work.rohan@gmail.com)
+// Copyright (c) 2025 goo-apps (rohan.das1203@gmail.com)
 // Licensed under the MIT License. See LICENSE file for details.
 
 package main
@@ -10,7 +10,10 @@ import (
 	"fmt"
 	"os"
 
+	"github.com/goo-apps/vpnctl/config"
+	"github.com/goo-apps/vpnctl/internal/handler"
 	"github.com/goo-apps/vpnctl/internal/middleware"
+	"github.com/goo-apps/vpnctl/internal/model"
 	"github.com/goo-apps/vpnctl/internal/vpnctl"
 	"github.com/goo-apps/vpnctl/logger"
 
@@ -18,8 +21,10 @@ import (
 )
 
 func info() {
-	banner := figure.NewColorFigure("VPNCTL", "", "green", true)
+	banner := figure.NewColorFigure("VPNCTL", "basic", "green", true)
 	banner.Print()
+	fmt.Println()
+	fmt.Printf("You're using vpnctl CLI[%v]", config.APPLICATION_ENVIRONMENT)
 	fmt.Println()
 	fmt.Println("vpnctl - VPN Helper CLI for Cisco Secure Client")
 	fmt.Println("Author: @Rohan Das")
@@ -49,12 +54,17 @@ func main() {
 	logger.InitLogger(true, "")
 	defer logger.Shutdown()
 
-	// write the logic to set credential by cli command
+	// load configuration
+	// configPath := os.Getenv("CONFIG_PATH")
+	// if configPath == "" {
+	// 	logger.Fatalf("CONFIG_PATH is not set for resource")
+	// }
+	config.LoadAllConfigAtOnce("") // loading from embedded config
 
 	// Initialize the database (ensure it's done before API handlers)
-	_, err := middleware.InitDB()
-	if err != nil {
-		logger.Errorf("Failed to initialize database: %s", err)
+	_, dberr := middleware.InitDB()
+	if dberr != nil {
+		logger.Errorf("Failed to initialize database: %s", dberr)
 		os.Exit(1) // Exit if database initialization fails
 	}
 
@@ -64,16 +74,25 @@ func main() {
 		return
 	}
 
+	var profile string
+	var err error
 	// Process CLI commands after credentials are set
 	if len(os.Args) >= 2 {
+		var credential model.CREDENTIAL_FOR_LOGIN
 		cmd := os.Args[1]
 		switch cmd {
 		case "connect":
 			if len(os.Args) < 3 {
-				logger.Warningf("Please specify profile: intra or dev")
+				fmt.Print("Please specify profile: intra or dev")
 				return
 			}
-			vpnctl.Connect(os.Args[2])
+			profile = os.Args[2]
+			credential, err = handler.GetOrPromptCredential(profile)
+			if err != nil {
+				logger.Fatalf("Failed to get credentials: %s", err)
+				return
+			}
+			vpnctl.Connect(&credential, os.Args[2])
 		case "disconnect":
 			vpnctl.DisconnectWithKillPid()
 		case "status":
@@ -86,8 +105,9 @@ func main() {
 			showHelp()
 		case "info":
 			info()
-		// case "register-credential":
-		// 	test()
+		case "register-credential":
+			// handler.StoreCredential(profile, credential.Username, credential.Password)
+
 		// case "fetch-credential":
 		// 	test()
 		// case "update-credential":
@@ -95,7 +115,7 @@ func main() {
 		// case "delete-credential":
 		// 	test()
 		default:
-			logger.Warningf("Unknown command: " + cmd)
+			fmt.Printf("Unknown command: %s", cmd)
 		}
 	}
 }

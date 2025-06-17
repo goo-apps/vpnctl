@@ -1,0 +1,10 @@
+[application]
+environment = "DEVELOPMENT"
+
+[vpn]
+binary_path = "/opt/cisco/secureclient/bin/vpn"
+gui_path = "/Applications/Cisco/Cisco Secure Client.app/"
+connection_retry = 3
+
+[sqlite]
+path = "~/.vpnctl/vpnctl.db"

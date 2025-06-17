@@ -31,7 +31,7 @@ func InitLogger(logToFile bool, logFilePath string) {
 	if logToFile {
 		if logFilePath == "" {
 			home, _ := os.UserHomeDir()
-			logFilePath = filepath.Join(home, "go_vpn", "vpnctl.log")
+			logFilePath = filepath.Join(home, "go_vpn", "application.log")
 		}
 		_ = os.MkdirAll(filepath.Dir(logFilePath), 0755)
 		file, err := os.OpenFile(logFilePath, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
@@ -77,9 +77,13 @@ func callerInfo() string {
 	return fmt.Sprintf("%s:%d", file, line)
 }
 
-
-
 // logging functions
+func Debugf(format string, args ...interface{}) {
+	log.Debug().
+		Str("caller", callerInfo()).
+		Msgf(format, args...)
+}
+
 func Infof(format string, args ...interface{}) {
 	log.Info().
 		Str("caller", callerInfo()).
