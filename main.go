@@ -11,6 +11,7 @@ import (
 	"os"
 
 	tea "github.com/charmbracelet/bubbletea"
+	"github.com/charmbracelet/lipgloss"
 	goautobuild "github.com/goo-apps/go-auto-build"
 	"github.com/goo-apps/vpnctl/cmd/vpnctl"
 	"github.com/goo-apps/vpnctl/config"
@@ -23,10 +24,10 @@ import (
 )
 
 var (
-	headerStyle  = lipgloss.NewStyle().Bold(true).Foreground(lipgloss.Color("205"))
-	cursorStyle  = lipgloss.NewStyle().Foreground(lipgloss.Color("212"))
+	headerStyle   = lipgloss.NewStyle().Bold(true).Foreground(lipgloss.Color("205"))
+	cursorStyle   = lipgloss.NewStyle().Foreground(lipgloss.Color("212"))
 	selectedStyle = lipgloss.NewStyle().Foreground(lipgloss.Color("229")).Background(lipgloss.Color("57")).Bold(true)
-	normalStyle  = lipgloss.NewStyle().Foreground(lipgloss.Color("245"))
+	normalStyle   = lipgloss.NewStyle().Foreground(lipgloss.Color("245"))
 )
 
 type tui struct {
@@ -87,8 +88,6 @@ func (m tui) View() string {
 	return s
 }
 
-
-
 func info() {
 	banner := figure.NewColorFigure("VPNCTL", "basic", "green", true)
 	banner.Print()
@@ -102,7 +101,7 @@ func info() {
 	fmt.Println("Your version is up to date!")
 	fmt.Print("Run 'vpnctl help' for available commands\n")
 	fmt.Println()
-	
+
 	p := tea.NewProgram(initialModel())
 	if _, err := p.Run(); err != nil {
 		fmt.Println("Error running program:", err)
