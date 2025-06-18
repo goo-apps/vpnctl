@@ -198,7 +198,7 @@ func KillCiscoProcesses() error {
 		cmd := exec.Command("pgrep", "-f", name)
 		output, err := cmd.Output()
 		if err != nil {
-			logger.Errorf(fmt.Sprintf("failed to find process: %s", name), err)
+			logger.Warningf(fmt.Sprintf("failed to find process: %s", name), err)
 			continue
 		}
 
@@ -229,7 +229,7 @@ func KillCiscoProcesses() error {
 // It checks the current VPN connection status before attempting to connect.
 // If the VPN is already connected, it aborts the connection operation.
 // It also reads the credentials for the specified profile from a hidden file.
-func Connect(credential *model.CREDENTIAL_FOR_LOGIN,profile string) {
+func Connect(credential *model.CREDENTIAL_FOR_LOGIN, profile string) {
 	connectWithRetries(credential, profile, config.VPN_CONNECTION_RETRY_COUNT)
 }
 
@@ -246,7 +246,7 @@ func connectWithRetries(credential *model.CREDENTIAL_FOR_LOGIN, profile string, 
 
 	profilePath := getProfilePath(profile)
 	if profilePath == "" {
-		logger.Infof("Unknown VPN profile")
+		logger.Infof("Unknown VPN profile: %v", profile)
 		return
 	}
 
@@ -256,7 +256,7 @@ func connectWithRetries(credential *model.CREDENTIAL_FOR_LOGIN, profile string, 
 	// 	logger.Fatalf("reading credentials for profile %v: %v", profile, err)
 	// 	return
 	// }
-
+	
 	logger.Infof("Checking current VPN connection status...")
 	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 	defer cancel()

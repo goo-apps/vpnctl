@@ -30,6 +30,10 @@ type Config struct {
 	Application struct {
 		Environment string `toml:"environment"`
 	} `toml:"application"`
+
+	Keyring struct {
+		ServiceName string `toml:"service_name"`
+	} `toml:"keyring"`
 }
 
 // Credential represents a simple structure for storing user credentials.
