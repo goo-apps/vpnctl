@@ -1,5 +1,5 @@
 [application]
-environment = "DEVELOPMENT"
+environment = "PRODUCTION"
 
 [vpn]
 binary_path = "/opt/cisco/secureclient/bin/vpn"
@@ -8,3 +8,6 @@ connection_retry = 3
 
 [sqlite]
 path = "~/.vpnctl/vpnctl.db"
+
+[keyring]
+service_name = "vpnctl"

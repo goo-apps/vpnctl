@@ -18,6 +18,7 @@ var (
 	VPN_CONNECTION_RETRY_COUNT int
 	SQLITE_DB_PATH             string
 	APPLICATION_ENVIRONMENT    string
+	KEYRING_SERVICE_NAME       string
 )
 
 type ConfigReader struct {
@@ -138,6 +139,7 @@ func LoadAllConfigAtOnce(configPath string) {
 	VPN_CONNECTION_RETRY_COUNT = vr.VPN.ConnectionRetry
 	SQLITE_DB_PATH = vr.Sqlite.Path
 	APPLICATION_ENVIRONMENT = vr.Application.Environment
+	KEYRING_SERVICE_NAME = vr.Keyring.ServiceName
 
 	// print all loaded configurations for debugging
 	// for key, value := range vr.data {
