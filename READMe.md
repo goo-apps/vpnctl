@@ -8,7 +8,7 @@
 
 ## Features
 
-- 🔐 Connect to VPN profiles (`intra`, `dev`)
+- 🔐 Connect to VPN profiles (currently supprting intra and dev)
 - ✅ Check current VPN status
 - ❌ Disconnect VPN + kill GUI
 - 🪓 Kill only the GUI process
