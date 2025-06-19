@@ -3,15 +3,16 @@
 // vpnctl - Cross-platform VPN CLI
 // Copyright (c) 2025 goo-apps (rohan.das1203@gmail.com)
 // Licensed under the MIT License. See LICENSE file for details.
-
 package main
 
 import (
+	"bufio"
+	"encoding/json"
 	"fmt"
 	"os"
+	"strings"
+	"text/tabwriter"
 
-	tea "github.com/charmbracelet/bubbletea"
-	"github.com/charmbracelet/lipgloss"
 	goautobuild "github.com/goo-apps/go-auto-build"
 	"github.com/goo-apps/vpnctl/cmd/vpnctl"
 	"github.com/goo-apps/vpnctl/config"
@@ -19,81 +20,17 @@ import (
 	"github.com/goo-apps/vpnctl/internal/middleware"
 	"github.com/goo-apps/vpnctl/internal/model"
 	"github.com/goo-apps/vpnctl/logger"
+	"golang.org/x/term"
 
 	"github.com/common-nighthawk/go-figure"
 )
 
-var (
-	headerStyle   = lipgloss.NewStyle().Bold(true).Foreground(lipgloss.Color("205"))
-	cursorStyle   = lipgloss.NewStyle().Foreground(lipgloss.Color("212"))
-	selectedStyle = lipgloss.NewStyle().Foreground(lipgloss.Color("229")).Background(lipgloss.Color("57")).Bold(true)
-	normalStyle   = lipgloss.NewStyle().Foreground(lipgloss.Color("245"))
-)
 
-type tui struct {
-	cursor   int
-	choices  []string
-	selected string
-}
-
-func initialModel() tui {
-	return tui{
-		choices: []string{"🔌 Connect to VPN", "❌ Disconnect VPN", "📊 VPN Status", "🧾 View Logs", "🚪 Exit"},
-	}
-}
-
-func (m tui) Init() tea.Cmd {
-	return nil
-}
-
-func (m tui) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
-	switch msg := msg.(type) {
-	case tea.KeyMsg:
-		switch msg.String() {
-		case "ctrl+c", "q":
-			return m, tea.Quit
-		case "up", "k":
-			if m.cursor > 0 {
-				m.cursor--
-			}
-		case "down", "j":
-			if m.cursor < len(m.choices)-1 {
-				m.cursor++
-			}
-		case "enter":
-			m.selected = m.choices[m.cursor]
-			return m, tea.Quit
-		}
-	}
-	return m, nil
-}
-
-func (m tui) View() string {
-	s := headerStyle.Render("\n🔧 vpnctl: Choose an action\n\n")
-
-	for i, choice := range m.choices {
-		cursor := "  "
-		lineStyle := normalStyle
-		if m.cursor == i {
-			cursor = cursorStyle.Render("❯ ")
-			lineStyle = selectedStyle
-		}
-		s += fmt.Sprintf("%s%s\n", cursor, lineStyle.Render(choice))
-	}
-
-	if m.selected != "" {
-		s += fmt.Sprintf("\n👉 Selected: %s\n", selectedStyle.Render(m.selected))
-	}
-
-	return s
-}
-
+// introduction to cpnctl fro user
 func info() {
 	banner := figure.NewColorFigure("VPNCTL", "basic", "green", true)
 	banner.Print()
-	fmt.Println()
-	fmt.Printf("You're using vpnctl CLI[%v]", config.APPLICATION_ENVIRONMENT)
-	fmt.Println()
+	// fmt.Printf("You're using vpnctl CLI[%v]", config.APPLICATION_ENVIRONMENT)
 	fmt.Println("vpnctl - VPN Helper CLI for Cisco Secure Client")
 	fmt.Println("Author: @Rohan Das")
 	fmt.Println("Email: dev.work.rohan@gmail.com")
@@ -101,26 +38,26 @@ func info() {
 	fmt.Println("Your version is up to date!")
 	fmt.Print("Run 'vpnctl help' for available commands\n")
 	fmt.Println()
-
-	p := tea.NewProgram(initialModel())
-	if _, err := p.Run(); err != nil {
-		fmt.Println("Error running program:", err)
-		os.Exit(1)
-	}
 }
 
+// showHelp displays the help message for vpnctl commands
 func showHelp() {
-	fmt.Println(`
-🛡️  vpnctl - VPN Helper CLI
------------------------------
-vpnctl status           Show VPN status
-vpnctl connect intra    Connect using intra profile
-vpnctl connect dev      Connect using dev profile
-vpnctl disconnect       Disconnect VPN and kill GUI
-vpnctl kill             Kill Cisco Secure Client GUI only
-vpnctl gui              Launch Cisco GUI
-vpnctl help             Show this help message
-	`)
+	fmt.Println("🛡️  vpnctl - A Cisco Secure Client Helper CLI")
+	fmt.Println("-----------------------------")
+	w := tabwriter.NewWriter(os.Stdout, 0, 0, 2, ' ', 0)
+	fmt.Fprintln(w, "Command\tDescription")
+	fmt.Fprintln(w, "-------\t-----------")
+	fmt.Fprintln(w, "vpnctl status\tShow VPN status")
+	fmt.Fprintln(w, "vpnctl connect intra\tConnect using intra profile")
+	fmt.Fprintln(w, "vpnctl connect dev\tConnect using dev profile")
+	fmt.Fprintln(w, "vpnctl disconnect\tDisconnect VPN and kill GUI")
+	fmt.Fprintln(w, "vpnctl kill\tKill Cisco Secure Client GUI only")
+	fmt.Fprintln(w, "vpnctl gui\tLaunch Cisco GUI")
+	fmt.Fprintln(w, "vpnctl help\tShow this help message")
+	fmt.Fprintln(w, "vpnctl credential update\tUpdate your credential")
+	fmt.Fprintln(w, "vpnctl credential fetch\tFetch your existing credential")
+	fmt.Fprintln(w, "vpnctl credential delete\tRemove your existing credential")
+	w.Flush()
 }
 
 func main() {
@@ -129,11 +66,8 @@ func main() {
 	defer logger.Shutdown()
 
 	// load configuration
-	// configPath := os.Getenv("CONFIG_PATH")
-	// if configPath == "" {
-	// 	logger.Fatalf("CONFIG_PATH is not set for resource")
-	// }
-	config.LoadAllConfigAtOnce("") // loading from embedded config
+	configPath := os.Getenv("CONFIG_PATH")
+	config.LoadAllConfigAtOnce(configPath) // loading from embedded config
 
 	// Initialize the database (ensure it's done before API handlers)
 	_, dberr := middleware.InitDB()
@@ -150,7 +84,6 @@ func main() {
 		}
 	}
 
-	var profile string
 	var err error
 	// Process CLI commands after credentials are set
 	if len(os.Args) >= 2 {
@@ -162,8 +95,7 @@ func main() {
 				fmt.Print("Please specify profile: intra or dev")
 				return
 			}
-			profile = os.Args[2]
-			credential, err = handler.GetOrPromptCredential(profile)
+			credential, err = handler.GetOrPromptCredential()
 			if err != nil {
 				logger.Fatalf("Failed to get credentials: %s", err)
 				return
@@ -181,15 +113,56 @@ func main() {
 			showHelp()
 		case "info":
 			info()
-		case "register-credential":
-			// handler.StoreCredential(profile, credential.Username, credential.Password)
+		// case "register-credential":
+		// handler.StoreCredential(profile, credential.Username, credential.Password)
+		case "credential":
+			if len(os.Args) < 3 {
+				fmt.Print("Please specify an operation: fetch or update or delete")
+				return
+			}
 
-		// case "fetch-credential":
-		// 	test()
-		// case "update-credential":
-		// 	test()
-		// case "delete-credential":
-		// 	test()
+			switch os.Args[2] {
+			case "fetch":
+				creds, err := handler.GetCredential()
+				if err != nil {
+					logger.Fatalf("Failed to fetch credential from keyring: %s", err)
+					return
+				}
+				data, err := json.MarshalIndent(creds, "", "  ")
+				if err != nil {
+					fmt.Println("Error marshaling to JSON:", err)
+				} else {
+					fmt.Println(string(data))
+				}
+			case "update":
+				reader := bufio.NewReader(os.Stdin)
+				fmt.Printf("Enter username for '%s': ", config.KEYRING_SERVICE_NAME)
+				username, _ := reader.ReadString('\n')
+				username = strings.TrimSpace(username)
+
+				fmt.Print("Enter password: ")
+				bytePassword, _ := term.ReadPassword(int(os.Stdin.Fd()))
+				password := string(bytePassword)
+
+				credential := model.CREDENTIAL_FOR_LOGIN{
+					Username: username,
+					Password: password,
+				}
+				// call store function
+				err := handler.StoreCredential(credential)
+				if err != nil {
+					logger.Fatalf("Failed to store credential: %s", err)
+					return
+				}
+
+			case "delete":
+				err := handler.RemoveCredential()
+				if err != nil {
+					logger.Fatalf("Failed to remove credential: %s", err)
+					return
+				}
+
+			}
 		default:
 			fmt.Printf("Unknown command: %s", cmd)
 		}
@@ -209,8 +182,6 @@ func main() {
 	watcher := goautobuild.NewWatcher(cfg)
 	if config.APPLICATION_ENVIRONMENT == "DEVELOPMENT" {
 		go watcher.Start()
+		select {} // for indefinite run
 	}
-
-	select {} // for indefinite run
-
 }
