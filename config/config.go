@@ -19,6 +19,7 @@ var (
 	SQLITE_DB_PATH             string
 	APPLICATION_ENVIRONMENT    string
 	KEYRING_SERVICE_NAME       string
+	KEYRING_ENCRYPTION_KEY     string
 )
 
 type ConfigReader struct {
@@ -140,6 +141,7 @@ func LoadAllConfigAtOnce(configPath string) {
 	SQLITE_DB_PATH = vr.Sqlite.Path
 	APPLICATION_ENVIRONMENT = vr.Application.Environment
 	KEYRING_SERVICE_NAME = vr.Keyring.ServiceName
+	KEYRING_ENCRYPTION_KEY = vr.Keyring.EncryptionKey
 
 	// print all loaded configurations for debugging
 	// for key, value := range vr.data {

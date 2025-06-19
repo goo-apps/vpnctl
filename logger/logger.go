@@ -15,6 +15,7 @@ import (
 var (
 	logFile *os.File
 	log     *zerolog.Logger
+	// logFileSubPath = "/go_vpn/application.log"
 )
 
 // InitLogger sets up zerolog for file and/or console output
@@ -31,10 +32,12 @@ func InitLogger(logToFile bool, logFilePath string) {
 	if logToFile {
 		if logFilePath == "" {
 			home, _ := os.UserHomeDir()
-			logFilePath = filepath.Join(home, "go_vpn", "application.log")
+			logFilePath = filepath.Join(home, "go_vpn", "application.log") // when production release change the go_vpn dir to .vpnctl
+			
 		}
 		_ = os.MkdirAll(filepath.Dir(logFilePath), 0755)
 		file, err := os.OpenFile(logFilePath, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
+		
 		if err == nil {
 			writers = append(writers, file)
 		}

@@ -11,8 +11,8 @@ type USER_CREDENTIAL struct {
 type CREDENTIAL_FOR_LOGIN struct {
 	Username string `json:"username"`
 	Password string `json:"password"`
-	Push     string `json:"push"`
-	YFlag    string `json:"y_flag"`
+	Push     string `json:"-"`
+	YFlag    string `json:"-"`
 }
 
 // Config holds the configuration settings for the application.
@@ -32,7 +32,8 @@ type Config struct {
 	} `toml:"application"`
 
 	Keyring struct {
-		ServiceName string `toml:"service_name"`
+		ServiceName   string `toml:"service_name"`
+		EncryptionKey string `toml:"encryption_key"`
 	} `toml:"keyring"`
 }
 
