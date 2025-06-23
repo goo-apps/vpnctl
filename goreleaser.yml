@@ -33,6 +33,8 @@ builds:
       goarch: arm
     - goos: freebsd
       goarch: arm
+    - goos: freebsd
+      goarch: '386'
   binary: '{{ .ProjectName }}_v{{ .Version }}'
 archives:
 - format: zip
