@@ -10,8 +10,10 @@ import (
 	"io"
 	"os"
 	"strings"
+	"time"
 
 	"github.com/goo-apps/vpnctl/config"
+	"github.com/goo-apps/vpnctl/internal/middleware"
 	"github.com/goo-apps/vpnctl/internal/model"
 	"github.com/goo-apps/vpnctl/logger"
 	"github.com/zalando/go-keyring"
@@ -69,24 +71,29 @@ func GetCredential() (creds model.CREDENTIAL_FOR_LOGIN, err error) {
 func GetOrPromptCredential() (*model.CREDENTIAL_FOR_LOGIN, error) {
 	var credential model.CREDENTIAL_FOR_LOGIN
 	
-	// Check keyring first
-	entry, err := keyring.Get(config.KEYRING_SERVICE_NAME, config.KEYRING_SERVICE_NAME)
-	if err == nil {
-		parts := strings.SplitN(entry, "\n", 4)
-		if len(parts) == 4 {
-			// decrypt the password 
-			decryptedPassword, err := Decrypt(parts[1], config.KEYRING_ENCRYPTION_KEY)
-			if err != nil {
-				return &credential, fmt.Errorf("failed to decrypt password: %w", err)
-			}
-			credential.Username = parts[0]
-			credential.Password = decryptedPassword
-			credential.Push = "push"
-			credential.YFlag = "y"
-
-			return &credential, nil
-		}
-	}
+	// Check expiry in db first
+	expiryStr, err := middleware.GetExpiryFromDB(config.KEYRING_SERVICE_NAME)
+    if err == nil && expiryStr != "" {
+        expiry, _ := time.Parse("2006-01-02", expiryStr)
+        if time.Now().Before(expiry) {
+            // Not expired, check keyring
+            entry, err := keyring.Get(config.KEYRING_SERVICE_NAME, config.KEYRING_SERVICE_NAME)
+            if err == nil {
+                parts := strings.SplitN(entry, "\n", 4)
+                if len(parts) == 4 {
+                    decryptedPassword, err := Decrypt(parts[1], config.KEYRING_ENCRYPTION_KEY)
+                    if err != nil {
+                        return &credential, fmt.Errorf("failed to decrypt password: %w", err)
+                    }
+                    credential.Username = parts[0]
+                    credential.Password = decryptedPassword
+                    credential.Push = "push"
+                    credential.YFlag = "y"
+                    return &credential, nil
+                }
+            }
+        }
+    }
 
 	// Prompt the user (first time)
 	reader := bufio.NewReader(os.Stdin)
@@ -110,10 +117,21 @@ func GetOrPromptCredential() (*model.CREDENTIAL_FOR_LOGIN, error) {
 	password = encryptedPassword
 
 	// Store securely
-	cred := username + "\n" + password + "\n" + push + "\n" + y_flag
-	if err := keyring.Set(config.KEYRING_SERVICE_NAME, config.KEYRING_SERVICE_NAME, cred); err != nil {
-		return &credential, fmt.Errorf("failed to store credentials: %w", err)
-	}
+	go func() {
+		cred := username + "\n" + password + "\n" + push + "\n" + y_flag
+		if err := keyring.Set(config.KEYRING_SERVICE_NAME, config.KEYRING_SERVICE_NAME, cred); err != nil {
+			logger.Errorf("failed to store credentials: %v", err)
+		}
+	}()
+	go func() {
+		// Store expiry in db
+		// Set expiry in DB (180 days from now)
+		expiry := time.Now().Add(180 * 24 * time.Hour).Format("2006-01-02")
+		if err := middleware.SetExpiryToDB(config.KEYRING_SERVICE_NAME, expiry); err != nil {
+			logger.Errorf("failed to set expiry: %v", err)
+		}
+	}()
+
 	credential.Username = username
 	credential.Password = password
 	credential.Push = push

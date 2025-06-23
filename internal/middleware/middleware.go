@@ -59,40 +59,42 @@ func InitDB() (*sql.DB, error) {
 		return nil, fmt.Errorf("failed to create table: %w", err)
 	}
 
-	query_vpn_user_credential := `
-	CREATE TABLE IF NOT EXISTS vpn_user_credential (
-		id INTEGER PRIMARY KEY AUTOINCREMENT,
-		username TEXT NOT NULL UNIQUE,
-		password TEXT NOT NULL,
-		second_password TEXT NOT NULL,
-		y_flag TEXT NOT NULL,
-		timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-	);`
+	// abolished
+	// query_vpn_user_credential := `
+	// CREATE TABLE IF NOT EXISTS vpn_user_credential (
+	// 	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	// 	username TEXT NOT NULL UNIQUE,
+	// 	password TEXT NOT NULL,
+	// 	second_password TEXT NOT NULL,
+	// 	y_flag TEXT NOT NULL,
+	// 	timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+	// );`
 
-	_, err = DB.Exec(query_vpn_user_credential)
-	if err != nil {
-		DB.Close()
-		return nil, fmt.Errorf("failed to create table: %w", err)
-	}
+	// _, err = DB.Exec(query_vpn_user_credential)
+	// if err != nil {
+	// 	DB.Close()
+	// 	return nil, fmt.Errorf("failed to create table: %w", err)
+	// }
 
-	query_vpn_user_env := `
-	CREATE TABLE IF NOT EXISTS vpn_user_env (
-		id INTEGER PRIMARY KEY AUTOINCREMENT,
-		username TEXT NOT NULL UNIQUE,
-		timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-	);`
+	// abolished
+	// query_vpn_user_env := `
+	// CREATE TABLE IF NOT EXISTS vpn_user_env (
+	// 	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	// 	username TEXT NOT NULL UNIQUE,
+	// 	timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+	// );`
 
-	_, err = DB.Exec(query_vpn_user_env)
-	if err != nil {
-		DB.Close()
-		return nil, fmt.Errorf("failed to create table: %w", err)
-	}
+	// _, err = DB.Exec(query_vpn_user_env)
+	// if err != nil {
+	// 	DB.Close()
+	// 	return nil, fmt.Errorf("failed to create table: %w", err)
+	// }
 
 	query_vpn_user_credential_expiry := `
 	CREATE TABLE IF NOT EXISTS vpn_user_credential_expiry (
 		id INTEGER PRIMARY KEY AUTOINCREMENT,
 		username TEXT NOT NULL UNIQUE,
-		expiry_date DATE NOT NULL,
+		expiry_date TEXT NOT NULL,
 		timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 	);`
 
@@ -104,6 +106,44 @@ func InitDB() (*sql.DB, error) {
 
 	return DB, nil
 }
+
+// GetExpiryToDB retrieves the expiry date for a given username from the database.
+func GetExpiryFromDB(username string) (string, error) {
+    db, err := InitDB()
+    if err != nil {
+        return "", err
+    }
+    defer db.Close()
+
+    var expiry string
+    query := `SELECT expiry_date FROM vpn_user_credential_expiry WHERE username = ?`
+    err = db.QueryRow(query, username).Scan(&expiry)
+    if err != nil {
+        return "", err
+    }
+    return expiry, nil
+}
+
+// SetExpiryToDB sets or updates the expiry date for a given username.
+func SetExpiryToDB(username, expiry string) error {
+    db, err := InitDB()
+    if err != nil {
+        return err
+    }
+    defer db.Close()
+
+    query := `
+    INSERT INTO vpn_user_credential_expiry (username, expiry_date)
+    VALUES (?, ?)
+    ON CONFLICT(username) DO UPDATE SET expiry_date=excluded.expiry_date, timestamp=CURRENT_TIMESTAMP;
+    `
+    _, dberr := db.Exec(query, username, expiry)
+    if dberr != nil {
+        return dberr
+    }
+    return nil
+}
+
 
 // func CleanAllProfile() error {
 // 	// Initialize the database
@@ -161,7 +201,7 @@ func GetLastConnectedProfile() (string, error) {
 		return "", fmt.Errorf("scan error (maybe no profile stored yet): %w", err)
 	}
 
-	logger.Infof("Last connected profile: %s", profile)
+	// logger.Infof("Last connected profile: %s", profile)
 
 	return profile, nil
 }

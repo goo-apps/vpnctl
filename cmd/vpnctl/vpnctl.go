@@ -267,7 +267,7 @@ func connectWithRetries(credential *model.CREDENTIAL_FOR_LOGIN, profile string, 
 	if contains(string(output), "Connected") {
 		last, err := middleware.GetLastConnectedProfile()
 		if err != nil {
-			logger.Errorf("retrieve error: %v", err)
+			logger.Warningf("retrieve error: %v", err)
 		}
 		logger.Infof("Last connected VPN profile: %v", last)
 

@@ -9,6 +9,7 @@ import (
 	"path/filepath"
 	"runtime"
 
+	"github.com/goo-apps/vpnctl/config"
 	"github.com/rs/zerolog"
 )
 
@@ -71,9 +72,15 @@ func callerInfo() string {
 	}
 
 	// Try to get relative path from current working directory
-	if wd, err := os.Getwd(); err == nil {
-		if rel, err := filepath.Rel(wd, file); err == nil {
-			file = rel
+	// supported logger level, 1 and 2
+	switch config.LOGGER_LEVEL {
+	case 1:
+		file = filepath.Base(file) // Get only the base file name
+	case 2: 
+		if wd, err := os.Getwd(); err == nil {
+			if rel, err := filepath.Rel(wd, file); err == nil {
+				file = rel
+			}
 		}
 	}
 

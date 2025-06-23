@@ -12,3 +12,6 @@ path = "~/.vpnctl/vpnctl.db"
 [keyring]
 service_name = "vpnctl"
 encryption_key = "+7u13LXxwNcInI2UbPLRYA=="
+
+[logger]
+level = 1

@@ -9,7 +9,6 @@ import (
 
 	"github.com/BurntSushi/toml"
 	"github.com/goo-apps/vpnctl/internal/model"
-	"github.com/goo-apps/vpnctl/logger"
 )
 
 var (
@@ -20,6 +19,7 @@ var (
 	APPLICATION_ENVIRONMENT    string
 	KEYRING_SERVICE_NAME       string
 	KEYRING_ENCRYPTION_KEY     string
+	LOGGER_LEVEL               int
 )
 
 type ConfigReader struct {
@@ -129,10 +129,10 @@ func (c *ConfigReader) GetBool(path string) bool {
 }
 
 // Load all configuration at once from the default resource.toml file
-func LoadAllConfigAtOnce(configPath string) {
+func LoadAllConfigAtOnce(configPath string) error {
 	vr, err := LoadConfig(configPath)
 	if err != nil {
-		logger.Fatalf("Failed to load config: %v", err)
+		fmt.Errorf("failed to load configuration: %w", err)
 	}
 
 	VPN_BINARY_PATH = vr.VPN.BinaryPath
@@ -142,6 +142,7 @@ func LoadAllConfigAtOnce(configPath string) {
 	APPLICATION_ENVIRONMENT = vr.Application.Environment
 	KEYRING_SERVICE_NAME = vr.Keyring.ServiceName
 	KEYRING_ENCRYPTION_KEY = vr.Keyring.EncryptionKey
+	LOGGER_LEVEL = vr.Logger.LoggerLevel
 
 	// print all loaded configurations for debugging
 	// for key, value := range vr.data {
@@ -176,4 +177,6 @@ func LoadAllConfigAtOnce(configPath string) {
 	// 	logger.Fatalf("SQLite database path is not set in the configuration file")
 	// 	return
 	// }
+
+	return nil
 }

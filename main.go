@@ -54,7 +54,7 @@ func showHelp() {
 	fmt.Fprintln(w, "vpnctl gui\tLaunch Cisco GUI")
 	fmt.Fprintln(w, "vpnctl credential update\tUpdate your credential")
 	fmt.Fprintln(w, "vpnctl credential fetch\tFetch your existing credential")
-	fmt.Fprintln(w, "vpnctl credential delete\tRemove your existing credential")
+	fmt.Fprintln(w, "vpnctl credential remove\tRemove your existing credential")
 	fmt.Fprintln(w, "vpnctl help\tShow this help message")
 	w.Flush()
 }
@@ -66,7 +66,10 @@ func main() {
 
 	// load configuration
 	configPath := os.Getenv("CONFIG_PATH")
-	config.LoadAllConfigAtOnce(configPath) // loading from embedded config
+	cerr := config.LoadAllConfigAtOnce(configPath) // loading from embedded config
+	if cerr != nil {
+		logger.Fatalf("Failed to load configuration: %s", cerr)
+	}
 
 	// Initialize the database (ensure it's done before API handlers)
 	_, dberr := middleware.InitDB()
@@ -154,7 +157,7 @@ func main() {
 					return
 				}
 
-			case "delete":
+			case "remove":
 				err := handler.RemoveCredential()
 				if err != nil {
 					logger.Fatalf("Failed to remove credential: %s", err)

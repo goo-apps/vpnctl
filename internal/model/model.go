@@ -35,6 +35,10 @@ type Config struct {
 		ServiceName   string `toml:"service_name"`
 		EncryptionKey string `toml:"encryption_key"`
 	} `toml:"keyring"`
+
+	Logger struct {
+		LoggerLevel int `toml:"level"`
+	} `toml:"logger"`
 }
 
 // Credential represents a simple structure for storing user credentials.
