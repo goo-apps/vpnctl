@@ -92,7 +92,6 @@ func main() {
 	if errrr != nil {
 		logger.Errorf("Failed to detect Cisco Secure Client path: %s", errrr)
 		fmt.Println("Please ensure Cisco Secure Client is installed and in your PATH.")
-		return
 	}
 
 	var err error
