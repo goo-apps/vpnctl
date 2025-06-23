@@ -25,7 +25,6 @@ import (
 	"github.com/common-nighthawk/go-figure"
 )
 
-
 // introduction to cpnctl fro user
 func info() {
 	banner := figure.NewColorFigure("VPNCTL", "basic", "green", true)
@@ -43,7 +42,7 @@ func info() {
 // showHelp displays the help message for vpnctl commands
 func showHelp() {
 	fmt.Println("🛡️  vpnctl - A Cisco Secure Client Helper CLI")
-	fmt.Println("-----------------------------")
+	fmt.Println("=============================================")
 	w := tabwriter.NewWriter(os.Stdout, 0, 0, 2, ' ', 0)
 	fmt.Fprintln(w, "Command\tDescription")
 	fmt.Fprintln(w, "-------\t-----------")
@@ -53,10 +52,10 @@ func showHelp() {
 	fmt.Fprintln(w, "vpnctl disconnect\tDisconnect VPN and kill GUI")
 	fmt.Fprintln(w, "vpnctl kill\tKill Cisco Secure Client GUI only")
 	fmt.Fprintln(w, "vpnctl gui\tLaunch Cisco GUI")
-	fmt.Fprintln(w, "vpnctl help\tShow this help message")
 	fmt.Fprintln(w, "vpnctl credential update\tUpdate your credential")
 	fmt.Fprintln(w, "vpnctl credential fetch\tFetch your existing credential")
 	fmt.Fprintln(w, "vpnctl credential delete\tRemove your existing credential")
+	fmt.Fprintln(w, "vpnctl help\tShow this help message")
 	w.Flush()
 }
 

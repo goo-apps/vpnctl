@@ -1,4 +1,4 @@
-// Package vpnctl provides a CLI and library to manage VPN profiles on macOS and Linux.
+// // Package vpnctl provides a CLI and library to manage VPN profiles on macOS and Linux.
 package vpnctl
 
 import (
@@ -23,11 +23,11 @@ import (
 )
 
 // Status checks the current VPN connection status using the Cisco Secure Client command line tool.
-// It runs the command with a timeout to avoid hanging indefinitely.
-// If the command times out, it logs an error and returns.
-// If the command fails, it logs the error and prints the output.
-// If the command succeeds, it logs the success and prints the output.
-// This function is useful for checking if the VPN is currently connected or disconnected.
+// // It runs the command with a timeout to avoid hanging indefinitely.
+// // If the command times out, it logs an error and returns.
+// // If the command fails, it logs the error and prints the output.
+// // If the command succeeds, it logs the success and prints the output.
+// // This function is useful for checking if the VPN is currently connected or disconnected.
 func Status() {
 	logger.Infof("Checking VPN status...")
 	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
@@ -256,7 +256,7 @@ func connectWithRetries(credential *model.CREDENTIAL_FOR_LOGIN, profile string, 
 	// 	logger.Fatalf("reading credentials for profile %v: %v", profile, err)
 	// 	return
 	// }
-	
+
 	logger.Infof("Checking current VPN connection status...")
 	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 	defer cancel()

@@ -54,12 +54,12 @@ func GetCredential() (creds model.CREDENTIAL_FOR_LOGIN, err error) {
 	}
 
 	// decrypt the password 
-	decryptedPassword, err := Decrypt(parts[1], config.KEYRING_ENCRYPTION_KEY)
-	if err != nil {
-		return model.CREDENTIAL_FOR_LOGIN{}, fmt.Errorf("failed to decrypt password: %w", err)
-	}
+	// decryptedPassword, err := Decrypt(parts[1], config.KEYRING_ENCRYPTION_KEY)
+	// if err != nil {
+	// 	return model.CREDENTIAL_FOR_LOGIN{}, fmt.Errorf("failed to decrypt password: %w", err)
+	// }
 	creds.Username = parts[0]
-	creds.Password = decryptedPassword
+	creds.Password = parts[1]
 	creds.Push = parts[2]
 	creds.YFlag = parts[3]
 
