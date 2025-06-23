@@ -169,3 +169,4 @@
 {"level":"info","module":"vpnctl","caller":"vpnctl.go:308","time":"2025-06-23T17:42:40+09:00","message":"Running VPN command with provided script"}
 {"level":"info","module":"vpnctl","caller":"vpnctl.go:185","time":"2025-06-23T17:43:50+09:00","message":"Launching Cisco Secure Client GUI..."}
 {"level":"info","module":"vpnctl","caller":"vpnctl.go:190","time":"2025-06-23T17:43:50+09:00","message":"Cisco GUI launched"}
+{"level":"error","module":"vpnctl","caller":"main.go:93","time":"2025-06-23T17:53:29+09:00","message":"Failed to detect Cisco Secure Client path: vpn binary not found"}

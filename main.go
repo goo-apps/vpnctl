@@ -19,6 +19,7 @@ import (
 	"github.com/goo-apps/vpnctl/internal/handler"
 	"github.com/goo-apps/vpnctl/internal/middleware"
 	"github.com/goo-apps/vpnctl/internal/model"
+	servicediscovery "github.com/goo-apps/vpnctl/internal/service-discovery"
 	"github.com/goo-apps/vpnctl/logger"
 	"golang.org/x/term"
 
@@ -84,6 +85,14 @@ func main() {
 			info()
 			return
 		}
+	}
+
+	res, errrr := servicediscovery.DetectCiscoVPNPath()
+	fmt.Println("Detected Cisco Secure Client Path:", res)
+	if errrr != nil {
+		logger.Errorf("Failed to detect Cisco Secure Client path: %s", errrr)
+		fmt.Println("Please ensure Cisco Secure Client is installed and in your PATH.")
+		return
 	}
 
 	var err error
