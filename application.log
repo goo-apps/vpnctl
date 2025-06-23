@@ -44,3 +44,4 @@
 {"level":"info","module":"vpnctl","caller":"go_vpn/cmd/vpnctl/vpnctl.go:75","time":"2025-06-23T11:17:14+09:00","message":"Cisco Secure Client UI process killed"}
 {"level":"info","module":"vpnctl","caller":"go_vpn/cmd/vpnctl/vpnctl.go:95","time":"2025-06-23T11:17:14+09:00","message":"Skipping vpnagentd process (PID 523)"}
 {"level":"info","module":"vpnctl","caller":"go_vpn/cmd/vpnctl/vpnctl.go:113","time":"2025-06-23T11:17:14+09:00","message":"VPN disconnected and related processes (excluding vpnagentd) killed"}
+{"level":"error","module":"vpnctl","caller":"github.com/goo-apps/vpnctl/main.go:74","time":"2025-06-23T16:14:37+09:00","message":"Failed to initialize database: failed to create table: Binary was compiled with 'CGO_ENABLED=0', go-sqlite3 requires cgo to work. This is a stub"}

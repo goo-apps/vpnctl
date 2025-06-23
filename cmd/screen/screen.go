@@ -71,4 +71,3 @@ func (m tui) View() string {
 
 	return s
 }
-

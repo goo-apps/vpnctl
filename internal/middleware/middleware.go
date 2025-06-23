@@ -12,7 +12,8 @@ import (
 	"github.com/goo-apps/vpnctl/config"
 	"github.com/goo-apps/vpnctl/logger"
 
-	_ "github.com/mattn/go-sqlite3"
+	// _ "github.com/mattn/go-sqlite3"
+	_ "modernc.org/sqlite"
 
 	"github.com/goo-apps/vpnctl/internal/model"
 )
@@ -48,7 +49,7 @@ func InitDB() (*sql.DB, error) {
 	CREATE TABLE IF NOT EXISTS vpn_profile (
 		id INTEGER PRIMARY KEY AUTOINCREMENT,
 		profile TEXT UNIQUE NOT NULL,
-		last_connected_at DATETIME
+		last_connected_at DATETIME,
 		timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 	);`
 
