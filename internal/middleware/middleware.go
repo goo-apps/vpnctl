@@ -40,7 +40,7 @@ func InitDB() (*sql.DB, error) {
 		return nil, err
 	}
 
-	DB, err := sql.Open("sqlite3", expandedPath)
+	DB, err := sql.Open("sqlite", expandedPath)
 	if err != nil {
 		return nil, err
 	}
