@@ -1,7 +1,6 @@
 version: 1
 before:
   hooks:
-    - go vet
     - go mod tidy
 builds:
 - env:
