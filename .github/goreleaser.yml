@@ -44,7 +44,7 @@ signs:
       - --yes
       - --armor
       - --local-user
-      - 6583FBFB56949638D2D0CBAEF117572E15E3CA6F
+      - '{{ .Env.GPG_KEY_ID }}'
       - --output
       - "${signature}"
       - --detach-sign
