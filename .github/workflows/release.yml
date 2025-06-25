@@ -16,11 +16,6 @@ jobs:
         with:
           go-version: '1.23'
 
-      - name: Set up GoReleaser
-        uses: goreleaser/goreleaser-action@v5
-        with:
-          version: latest
-
       - name: Import GPG key
         env:
           GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
@@ -32,7 +27,10 @@ jobs:
           export GPG_TTY=$(tty)
 
       - name: Run GoReleaser
+        uses: goreleaser/goreleaser-action@v5
+        with:
+          version: latest
+          args: release --clean
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
-        run: goreleaser release --clean
