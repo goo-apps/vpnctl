@@ -1,15 +1,10 @@
-# Visit https://goreleaser.com for documentation on how to customize this
-# behavior.
 version: 1
 before:
   hooks:
-    # this is just an example and not a requirement for provider building/publishing
+    - go mod vet
     - go mod tidy
 builds:
 - env:
-    # goreleaser does not work with CGO, it could also complicate
-    # usage by users in CI/CD systems like Terraform Cloud where
-    # they are unable to install libraries.
     - CGO_ENABLED=0
   mod_timestamp: '{{ .CommitTimestamp }}'
   flags:
@@ -50,13 +45,12 @@ signs:
       - --yes
       - --armor
       - --local-user
-      - 6583FBFB56949638D2D0CBAEF117572E15E3CA6F
+      - '{{ .Env.GPG_KEY_ID }}'
       - --output
       - "${signature}"
       - --detach-sign
       - "${artifact}"
 release:
-  # If you want to manually examine the release before its live, uncomment this line:
   draft: false
 changelog:
   filters:
