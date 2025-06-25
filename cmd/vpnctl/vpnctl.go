@@ -1,4 +1,8 @@
-// // Package vpnctl provides a CLI and library to manage VPN profiles on macOS and Linux.
+// Author: rohan.das
+
+// vpnctl - Cross-platform VPN CLI
+// Copyright (c) 2025 goo-apps (rohan.das1203@gmail.com)
+// Licensed under the MIT License. See LICENSE file for details.
 package vpnctl
 
 import (

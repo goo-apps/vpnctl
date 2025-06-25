@@ -90,7 +90,7 @@ func main() {
 	res, errrr := servicediscovery.DetectCiscoVPNPath()
 	fmt.Println("Detected Cisco Secure Client Path:", res)
 	if errrr != nil {
-		logger.Errorf("Failed to detect Cisco Secure Client path: %s", errrr)
+		logger.Warningf("Failed to detect Cisco Secure Client path: %s", errrr)
 		fmt.Println("Please ensure Cisco Secure Client is installed and in your PATH.")
 	}
 

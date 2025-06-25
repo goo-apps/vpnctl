@@ -1,4 +1,8 @@
-//Author: rohan.das
+// Author: rohan.das
+
+// vpnctl - Cross-platform VPN CLI
+// Copyright (c) 2025 goo-apps (rohan.das1203@gmail.com)
+// Licensed under the MIT License. See LICENSE file for details.
 
 package logger
 
@@ -8,6 +12,7 @@ import (
 	"os"
 	"path/filepath"
 	"runtime"
+	"time"
 
 	"github.com/goo-apps/vpnctl/config"
 	"github.com/rs/zerolog"
@@ -21,11 +26,14 @@ var (
 
 // InitLogger sets up zerolog for file and/or console output
 func InitLogger(logToFile bool, logFilePath string) {
+	zerolog.TimeFieldFormat = "2006-01-02 15:04:05.000" // initialise timeformat
 	var writers []io.Writer
 
 	consoleWriter := zerolog.ConsoleWriter{
-		Out:        os.Stderr,
-		TimeFormat: "15:04:05",
+		Out:          os.Stderr,
+		TimeFormat:   "2006-01-02 15:04:05.000", // Full date + time with milliseconds
+		TimeLocation: time.Local,                // local timezone
+		NoColor:      false,
 	}
 
 	writers = append(writers, consoleWriter)
@@ -76,7 +84,7 @@ func callerInfo() string {
 	switch config.LOGGER_LEVEL {
 	case 1:
 		file = filepath.Base(file) // Get only the base file name
-	case 2: 
+	case 2:
 		if wd, err := os.Getwd(); err == nil {
 			if rel, err := filepath.Rel(wd, file); err == nil {
 				file = rel
@@ -114,6 +122,18 @@ func Warningf(format string, args ...interface{}) {
 
 func Fatalf(format string, args ...interface{}) {
 	log.Fatal().
+		Str("caller", callerInfo()).
+		Msgf(format, args...)
+}
+
+func Panicf(format string, args ...interface{}) {
+	log.Panic().
+		Str("caller", callerInfo()).
+		Msgf(format, args...)
+}
+
+func Tracef(format string, args ...interface{}) {
+	log.Trace().
 		Str("caller", callerInfo()).
 		Msgf(format, args...)
 }
