@@ -309,3 +309,78 @@
 {"level":"warn","module":"vpnctl","caller":"main.go:93","time":"2025-06-25 14:59:50.961","message":"Failed to detect Cisco Secure Client path: vpn binary not found"}
 {"level":"info","module":"vpnctl","caller":"vpnctl.go:32","time":"2025-06-25 14:59:50.962","message":"Checking VPN status..."}
 {"level":"info","module":"vpnctl","caller":"vpnctl.go:50","time":"2025-06-25 14:59:53.042","message":"VPN status retrieved successfully"}
+{"level":"warn","module":"vpnctl","caller":"main.go:93","time":"2025-06-26 10:21:46.786","message":"Failed to detect Cisco Secure Client path: vpn binary not found"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:249","time":"2025-06-26 10:21:46.904","message":"Initiating VPN connection using profile: intra"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:264","time":"2025-06-26 10:21:46.907","message":"Checking current VPN connection status..."}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:217","time":"2025-06-26 10:21:49.417","message":"Killed Cisco Secure Client (PID 50984)"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:290","time":"2025-06-26 10:21:51.418","message":"Reading VPN profile script from (hidden path)"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:312","time":"2025-06-26 10:21:51.422","message":"Running VPN command with provided script"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:189","time":"2025-06-26 10:22:54.342","message":"Launching Cisco Secure Client GUI..."}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:194","time":"2025-06-26 10:22:54.570","message":"Cisco GUI launched"}
+{"level":"warn","module":"vpnctl","caller":"main.go:93","time":"2025-06-26 14:35:30.016","message":"Failed to detect Cisco Secure Client path: vpn binary not found"}
+{"level":"warn","module":"vpnctl","caller":"main.go:93","time":"2025-06-26 15:09:14.565","message":"Failed to detect Cisco Secure Client path: vpn binary not found"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:73","time":"2025-06-26 15:09:14.566","message":"Attempting to disconnect VPN..."}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:75","time":"2025-06-26 15:09:16.900","message":"VPN disconnected"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:79","time":"2025-06-26 15:09:16.958","message":"Cisco Secure Client UI process killed"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:99","time":"2025-06-26 15:09:17.003","message":"Skipping vpnagentd process (PID 523)"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:117","time":"2025-06-26 15:09:17.003","message":"VPN disconnected and related processes (excluding vpnagentd) killed"}
+{"level":"warn","module":"vpnctl","caller":"main.go:93","time":"2025-06-26 15:46:25.208","message":"Failed to detect Cisco Secure Client path: vpn binary not found"}
+{"level":"fatal","module":"vpnctl","caller":"main.go:138","time":"2025-06-26 15:46:31.631","message":"Failed to fetch credential from keyring: invalid credential format"}
+{"level":"warn","module":"vpnctl","caller":"main.go:93","time":"2025-06-26 15:46:36.269","message":"Failed to detect Cisco Secure Client path: vpn binary not found"}
+{"level":"fatal","module":"vpnctl","caller":"main.go:138","time":"2025-06-26 15:46:37.743","message":"Failed to fetch credential from keyring: exit status 128"}
+{"level":"warn","module":"vpnctl","caller":"main.go:93","time":"2025-06-26 15:46:52.361","message":"Failed to detect Cisco Secure Client path: vpn binary not found"}
+{"level":"warn","module":"vpnctl","caller":"credential.go:154","time":"2025-06-26 15:46:52.404","message":"Your credential has been removed from keyring!!"}
+{"level":"warn","module":"vpnctl","caller":"main.go:93","time":"2025-06-26 15:47:03.460","message":"Failed to detect Cisco Secure Client path: vpn binary not found"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:249","time":"2025-06-26 15:47:12.023","message":"Initiating VPN connection using profile: intra"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:264","time":"2025-06-26 15:47:12.054","message":"Checking current VPN connection status..."}
+{"level":"warn","module":"vpnctl","caller":"vpnctl.go:205","time":"2025-06-26 15:47:14.442","message":"failed to find process: Cisco Secure Client%!(EXTRA *exec.ExitError=exit status 1)"}
+{"level":"warn","module":"vpnctl","caller":"main.go:93","time":"2025-06-26 15:47:18.786","message":"Failed to detect Cisco Secure Client path: vpn binary not found"}
+{"level":"warn","module":"vpnctl","caller":"main.go:93","time":"2025-06-26 16:28:48.102","message":"Failed to detect Cisco Secure Client path: vpn binary not found"}
+{"level":"warn","module":"vpnctl","caller":"main.go:93","time":"2025-06-26 17:34:26.724","message":"Failed to detect Cisco Secure Client path: vpn binary not found"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:249","time":"2025-06-26 17:34:26.838","message":"Initiating VPN connection using profile: dev"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:264","time":"2025-06-26 17:34:26.840","message":"Checking current VPN connection status..."}
+{"level":"warn","module":"vpnctl","caller":"vpnctl.go:205","time":"2025-06-26 17:34:29.623","message":"failed to find process: Cisco Secure Client%!(EXTRA *exec.ExitError=exit status 1)"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:290","time":"2025-06-26 17:34:31.625","message":"Reading VPN profile script from (hidden path)"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:312","time":"2025-06-26 17:34:31.629","message":"Running VPN command with provided script"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:189","time":"2025-06-26 17:35:37.096","message":"Launching Cisco Secure Client GUI..."}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:194","time":"2025-06-26 17:35:37.270","message":"Cisco GUI launched"}
+{"level":"warn","module":"vpnctl","caller":"main.go:93","time":"2025-06-27 14:07:38.603","message":"Failed to detect Cisco Secure Client path: vpn binary not found"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:249","time":"2025-06-27 14:07:38.695","message":"Initiating VPN connection using profile: dev"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:264","time":"2025-06-27 14:07:38.696","message":"Checking current VPN connection status..."}
+{"level":"warn","module":"vpnctl","caller":"vpnctl.go:205","time":"2025-06-27 14:07:41.081","message":"failed to find process: Cisco Secure Client%!(EXTRA *exec.ExitError=exit status 1)"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:290","time":"2025-06-27 14:07:43.084","message":"Reading VPN profile script from (hidden path)"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:312","time":"2025-06-27 14:07:43.088","message":"Running VPN command with provided script"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:189","time":"2025-06-27 14:09:09.943","message":"Launching Cisco Secure Client GUI..."}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:194","time":"2025-06-27 14:09:10.128","message":"Cisco GUI launched"}
+{"level":"warn","module":"vpnctl","caller":"main.go:93","time":"2025-06-27 16:43:19.664","message":"Failed to detect Cisco Secure Client path: vpn binary not found"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:249","time":"2025-06-27 16:43:19.749","message":"Initiating VPN connection using profile: dev"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:264","time":"2025-06-27 16:43:19.750","message":"Checking current VPN connection status..."}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:217","time":"2025-06-27 16:43:22.074","message":"Killed Cisco Secure Client (PID 91235)"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:290","time":"2025-06-27 16:43:24.075","message":"Reading VPN profile script from (hidden path)"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:312","time":"2025-06-27 16:43:24.081","message":"Running VPN command with provided script"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:189","time":"2025-06-27 16:44:34.756","message":"Launching Cisco Secure Client GUI..."}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:194","time":"2025-06-27 16:44:35.579","message":"Cisco GUI launched"}
+{"level":"warn","module":"vpnctl","caller":"main.go:93","time":"2025-06-30 08:50:57.612","message":"Failed to detect Cisco Secure Client path: vpn binary not found"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:249","time":"2025-06-30 08:50:57.690","message":"Initiating VPN connection using profile: intra"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:264","time":"2025-06-30 08:50:57.692","message":"Checking current VPN connection status..."}
+{"level":"warn","module":"vpnctl","caller":"vpnctl.go:205","time":"2025-06-30 08:50:59.580","message":"failed to find process: Cisco Secure Client%!(EXTRA *exec.ExitError=exit status 1)"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:290","time":"2025-06-30 08:50:57.195","message":"Reading VPN profile script from (hidden path)"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:312","time":"2025-06-30 08:50:57.201","message":"Running VPN command with provided script"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:189","time":"2025-06-30 08:51:47.447","message":"Launching Cisco Secure Client GUI..."}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:194","time":"2025-06-30 08:51:47.628","message":"Cisco GUI launched"}
+{"level":"warn","module":"vpnctl","caller":"main.go:93","time":"2025-06-30 14:11:36.010","message":"Failed to detect Cisco Secure Client path: vpn binary not found"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:249","time":"2025-06-30 14:11:36.104","message":"Initiating VPN connection using profile: dev"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:264","time":"2025-06-30 14:11:36.105","message":"Checking current VPN connection status..."}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:217","time":"2025-06-30 14:11:38.459","message":"Killed Cisco Secure Client (PID 86431)"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:290","time":"2025-06-30 14:11:40.461","message":"Reading VPN profile script from (hidden path)"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:312","time":"2025-06-30 14:11:40.466","message":"Running VPN command with provided script"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:189","time":"2025-06-30 14:12:41.017","message":"Launching Cisco Secure Client GUI..."}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:194","time":"2025-06-30 14:12:41.179","message":"Cisco GUI launched"}
+{"level":"warn","module":"vpnctl","caller":"main.go:93","time":"2025-06-30 14:14:40.417","message":"Failed to detect Cisco Secure Client path: vpn binary not found"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:249","time":"2025-06-30 14:14:40.491","message":"Initiating VPN connection using profile: dev"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:264","time":"2025-06-30 14:14:40.492","message":"Checking current VPN connection status..."}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:217","time":"2025-06-30 14:14:42.676","message":"Killed Cisco Secure Client (PID 30927)"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:290","time":"2025-06-30 14:14:44.678","message":"Reading VPN profile script from (hidden path)"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:312","time":"2025-06-30 14:14:44.680","message":"Running VPN command with provided script"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:189","time":"2025-06-30 14:15:46.444","message":"Launching Cisco Secure Client GUI..."}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:194","time":"2025-06-30 14:15:46.601","message":"Cisco GUI launched"}

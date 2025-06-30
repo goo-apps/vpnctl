@@ -18,12 +18,11 @@ import (
 	"strings"
 	"time"
 
+	"github.com/common-nighthawk/go-figure"
 	"github.com/goo-apps/vpnctl/config"
 	"github.com/goo-apps/vpnctl/internal/middleware"
 	"github.com/goo-apps/vpnctl/internal/model"
 	"github.com/goo-apps/vpnctl/logger"
-
-	"github.com/common-nighthawk/go-figure"
 )
 
 // Status checks the current VPN connection status using the Cisco Secure Client command line tool.

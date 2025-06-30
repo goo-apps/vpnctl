@@ -26,7 +26,29 @@
 
 Download the latest release: [download vpnctl](https://github.com/goo-apps/vpnctl/releases)
 
----
+## Installation
+
+### MacOS/Linux
+
+```sh
+# detect the binary(your download directory)
+# unzip it if ziped
+# move the executable to /bin directory
+$ cp vpnctl_v2.3.0 /usr/local/bin/vpnctl
+
+# make it executable
+$ chmod +x /usr/local/bin/vpnctl
+
+# verify the installation
+$ vpnctl
+
+# Note: Allow the binary in secuirty center in Settings, SystemPreferance > Security & Privacy > General > Allow apps downloaded from: "App Store and identified developers" or "Anywhere" if you have that option.
+```
+
+### Windows
+``` powershell
+Coming soon...
+```
 
 ## Usage
 
