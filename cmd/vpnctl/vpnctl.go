@@ -25,6 +25,11 @@ import (
 	"github.com/goo-apps/vpnctl/logger"
 )
 
+var (
+	shouldRetryAgentLock    bool
+	shouldRetryConnectivity bool
+)
+
 // Status checks the current VPN connection status using the Cisco Secure Client command line tool.
 // // It runs the command with a timeout to avoid hanging indefinitely.
 // // If the command times out, it logs an error and returns.
