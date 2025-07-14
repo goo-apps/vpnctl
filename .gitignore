@@ -1,6 +1,7 @@
 dist/
 # go.sum
 application.log
+application.log.*
 vpnctl.log
 vpn_connect.log
 *.asc
