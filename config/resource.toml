@@ -1,6 +1,6 @@
 [application]
 environment = "PRODUCTION"
-version = "v2.4.0"
+version = "v1.0.0"
 
 [vpn]
 binary_path = "/opt/cisco/secureclient/bin/vpn"
