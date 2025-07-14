@@ -28,14 +28,38 @@ import (
 // introduction to cpnctl fro user
 func info() {
 	banner := figure.NewColorFigure("VPNCTL", "basic", "green", true)
+
+	// fetch version from remote
+	latest, verr := vpnctl.FetchLatestRelease()
+	if verr != nil {
+		logger.Fatalf("error fetching latest release: %v", verr)
+		logger.Warningf("please re-run the application command: %v", verr)
+	}
+
+	serr := middleware.SetLatestVersionToDB(config.APPLICATION_VERSION)
+	if serr != nil {
+		logger.Warningf("error while storing version to db")
+	}
+
+	version, err := middleware.GetLatestVerisionFromDB()
+	if err != nil {
+		logger.Errorf("error while faething version: %v", err)
+	}
+
 	banner.Print()
 	// fmt.Printf("You're using vpnctl CLI[%v]", config.APPLICATION_ENVIRONMENT)
 	fmt.Println("vpnctl - VPN Helper CLI for Cisco Secure Client")
-	fmt.Println("Author: @Rohan Das")
-	fmt.Println("Email: dev.work.rohan@gmail.com")
-	fmt.Println("Version: 1.0.0")
-	fmt.Println("Your version is up to date!")
-	fmt.Print("Run 'vpnctl help' for available commands\n")
+	fmt.Println("👤 Author: @Rohan Das")
+	fmt.Println("📧 Email: dev.work.rohan@gmail.com")
+	fmt.Println("#️⃣ Version: ", version)
+	// Normalize and compare version strings
+	if strings.TrimPrefix(version, "v") == strings.TrimPrefix(latest.TagName, "v") {
+		fmt.Println("✅ Your version is up to date!")
+	} else {
+		fmt.Printf("⚠️ A newer version is available: %s\n", latest.TagName)
+		fmt.Printf("👉 Download it from: %s\n", latest.URL)
+	}
+	fmt.Print("📌 Run 'vpnctl help' for available commands\n")
 	fmt.Println()
 }
 

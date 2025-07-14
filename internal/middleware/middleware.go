@@ -109,7 +109,58 @@ func InitDB() (*sql.DB, error) {
 		return nil, fmt.Errorf("failed to create table: %w", err)
 	}
 
+	query_vpn_latest_version := `
+	CREATE TABLE IF NOT EXISTS vpn_latest_version (
+		id INTEGER PRIMARY KEY AUTOINCREMENT,
+		version TEXT NOT NULL UNIQUE,
+		timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+	);`
+
+	_, err = DB.Exec(query_vpn_latest_version)
+	if err != nil {
+		DB.Close()
+		return nil, fmt.Errorf("failed to create table: %w", err)
+	}
+
 	return DB, nil
+}
+
+func SetLatestVersionToDB(version string) (error){
+    db, err := InitDB()
+    if err != nil {
+        return err
+    }
+    defer db.Close()
+
+    query := `
+    INSERT INTO vpn_latest_version (version)
+    VALUES (?)
+    ON CONFLICT(version) DO UPDATE SET version=excluded.version, timestamp=CURRENT_TIMESTAMP;
+    `
+    _, dberr := db.Exec(query, version)
+    if dberr != nil {
+        return dberr
+    }
+    return nil
+}
+
+func GetLatestVerisionFromDB() (string, error){
+   db, err := InitDB()
+	if err != nil {
+		return "", fmt.Errorf("db init error: %w", err)
+	}
+	defer db.Close()
+
+	var version string
+	query := `SELECT version FROM vpn_latest_version ORDER BY timestamp DESC LIMIT 1;`
+	row := db.QueryRow(query)
+
+	if err := row.Scan(&version); err != nil {
+		// Explicit error if no data or scan fails
+		return "", fmt.Errorf("scan error (maybe no profile stored yet): %w", err)
+	}
+
+	return version, nil
 }
 
 // GetExpiryToDB retrieves the expiry date for a given username from the database.

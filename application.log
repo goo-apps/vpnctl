@@ -682,3 +682,12 @@
 {"level":"info","module":"vpnctl","caller":"vpnctl.go:316","time":"2025-07-07 22:26:57.940","message":"Running VPN command with provided script"}
 {"level":"info","module":"vpnctl","caller":"vpnctl.go:193","time":"2025-07-07 22:28:07.939","message":"Launching Cisco Secure Client GUI..."}
 {"level":"info","module":"vpnctl","caller":"vpnctl.go:198","time":"2025-07-07 22:28:08.215","message":"Cisco GUI launched"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:40","time":"2025-07-14 17:13:10.593","message":"Checking VPN status..."}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:58","time":"2025-07-14 17:13:12.690","message":"VPN status retrieved successfully"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:40","time":"2025-07-14 17:18:55.253","message":"Checking VPN status..."}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:58","time":"2025-07-14 17:18:57.326","message":"VPN status retrieved successfully"}
+{"level":"fatal","module":"vpnctl","caller":"main.go:37","time":"2025-07-14 17:22:00.170","message":"Error fetching latest release: Get \"https://api.github.com/repos/goo-apps/vpnctl/releases/latest\": net/http: TLS handshake timeout"}
+{"level":"error","module":"vpnctl","caller":"main.go:36","time":"2025-07-14 17:32:26.889","message":"error while faething version: scan error (maybe no profile stored yet): sql: no rows in result set"}
+{"level":"error","module":"vpnctl","caller":"main.go:36","time":"2025-07-14 17:32:48.659","message":"error while faething version: scan error (maybe no profile stored yet): sql: no rows in result set"}
+{"level":"error","module":"vpnctl","caller":"main.go:34","time":"2025-07-14 17:33:59.193","message":"error while faething version: scan error (maybe no profile stored yet): sql: no rows in result set"}
+{"level":"fatal","module":"vpnctl","caller":"main.go:40","time":"2025-07-14 17:34:24.632","message":"Error fetching latest release: Get \"https://api.github.com/repos/goo-apps/vpnctl/releases/latest\": net/http: TLS handshake timeout"}
