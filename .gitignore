@@ -3,3 +3,4 @@ dist/
 application.log
 vpnctl.log
 vpn_connect.log
+*.asc
