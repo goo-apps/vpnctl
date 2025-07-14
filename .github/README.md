@@ -1,42 +1,113 @@
-# Go VPN Project
+# vpnctl
 
-## Overview
-Go VPN is a Go-based VPN application that allows users to securely connect to the internet. This project is designed to be easy to use and deploy, making it suitable for both personal and professional use.
+**vpnctl** is a cross-platform CLI tool designed to help users manage Cisco Secure Client VPN connections efficiently from the terminal.
+
+---
 
 ## Features
-- Secure and private internet connection
-- Cross-platform support (Windows, macOS, Linux, FreeBSD)
-- Easy installation and configuration
-- Built with Go for performance and reliability
 
-## Getting Started
+- **Connect/Disconnect** to VPN profiles (`intra`, `dev`)
+- **Show VPN status**
+- **Launch/Kill Cisco Secure Client GUI**
+- **Manage credentials** (store, fetch, update, remove) securely
+- **Auto-detect Cisco Secure Client installation**
+- **Developer-friendly auto-build/watch mode**
 
-### Prerequisites
-- Go 1.16 or later
-- Git
+---
 
-### Installation
-1. Clone the repository:
-   ```
-   git clone https://github.com/yourusername/go_vpn.git
-   ```
-2. Navigate to the project directory:
-   ```
-   cd go_vpn
-   ```
-3. Build the application:
-   ```
-   go build
-   ```
+## Author
 
-### Usage
-To run the application, use the following command:
+- **Rohan Das**
+- Email: [dev.work.rohan@gmail.com](mailto:dev.work.rohan@gmail.com)
+
+---
+
+## Download
+
+Download the latest release: [download vpnctl](https://github.com/goo-apps/vpnctl/releases)
+
+## Installation
+
+### MacOS/Linux
+
+```sh
+# detect the binary(your download directory)
+# unzip it if ziped
+# move the executable to /bin directory
+$ cp vpnctl_v2.3.0 /usr/local/bin/vpnctl
+
+# make it executable
+$ chmod +x /usr/local/bin/vpnctl
+
+# verify the installation
+$ vpnctl
+
+# Note: Allow the binary in secuirty center in Settings, SystemPreferance > Security & Privacy > General > Allow apps downloaded from: "App Store and identified developers" or "Anywhere" if you have that option.
 ```
-./go_vpn
+
+### Windows
+``` powershell
+Coming soon...
 ```
 
-## Contributing
-Contributions are welcome! Please open an issue or submit a pull request for any enhancements or bug fixes.
+## Usage
+
+After installing `vpnctl`, you can use the following commands:
+
+| Command                              | Description                                 |
+|---------------------------------------|---------------------------------------------|
+| `vpnctl status`                       | Show VPN status                             |
+| `vpnctl connect intra`                | Connect using intra profile                 |
+| `vpnctl connect dev`                  | Connect using dev profile                   |
+| `vpnctl disconnect`                   | Disconnect VPN and kill GUI                 |
+| `vpnctl kill`                         | Kill Cisco Secure Client GUI only           |
+| `vpnctl gui`                          | Launch Cisco GUI                            |
+| `vpnctl credential update`            | Update your credential                      |
+| `vpnctl credential fetch`             | Fetch your existing credential              |
+| `vpnctl credential remove`            | Remove your existing credential             |
+| `vpnctl help`                         | Show help message                           |
+| `vpnctl info`                         | Show version and author info                |
+
+---
+
+## Example
+
+```sh
+vpnctl connect intra
+vpnctl status
+vpnctl credential update
+vpnctl disconnect
+```
+
+---
+
+## Reporting Bugs & Issues
+
+If you encounter any bugs or issues, **please open an issue in the [Issues section](https://github.com/goo-apps/vpnctl/issues) before submitting a pull request (PR)**. This helps us track and discuss problems before code changes are proposed.
+
+---
+
+## Contribution Guidelines
+
+We welcome contributions! Please follow these steps:
+
+1. **Fork** the repository and create your branch from `main`.
+2. **Open an issue** to discuss your proposed change before working on a PR.
+3. Make your changes with clear, concise commits.
+4. Ensure your code passes all tests and lint checks.
+5. Submit a **pull request** referencing the related issue.
+
+By contributing, you agree to follow our [Code of Conduct](CODE_OF_CONDUCT.md) and help us maintain a welcoming community.
+
+---
 
 ## License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+MIT License. See [LICENSE](LICENSE) for details.
+
+---
+
+## Notes
+
+- Ensure Cisco Secure Client is installed and in your system `PATH`.
+- Credentials are stored securely using the system keyring.
