@@ -1,7 +1,6 @@
 version: 1
 before:
   hooks:
-    - go mod vet
     - go mod tidy
 builds:
 - env:
@@ -44,6 +43,10 @@ signs:
       - --batch
       - --yes
       - --armor
+      - --pinentry-mode
+      - loopback
+      - --passphrase
+      - '{{ .Env.GPG_PASSPHRASE }}'
       - --local-user
       - '{{ .Env.GPG_KEY_ID }}'
       - --output

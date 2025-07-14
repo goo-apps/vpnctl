@@ -26,6 +26,7 @@ var (
 	KEYRING_SERVICE_NAME       string
 	KEYRING_ENCRYPTION_KEY     string
 	LOGGER_LEVEL               int
+	APPLICATION_VERSION        string
 )
 
 type ConfigReader struct {
@@ -149,6 +150,7 @@ func LoadAllConfigAtOnce(configPath string) error {
 	KEYRING_SERVICE_NAME = vr.Keyring.ServiceName
 	KEYRING_ENCRYPTION_KEY = vr.Keyring.EncryptionKey
 	LOGGER_LEVEL = vr.Logger.LoggerLevel
+	APPLICATION_VERSION = vr.Application.Version
 
 	// print all loaded configurations for debugging
 	// for key, value := range vr.data {

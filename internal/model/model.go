@@ -34,6 +34,7 @@ type Config struct {
 
 	Application struct {
 		Environment string `toml:"environment"`
+		Version     string `toml:"version"`
 	} `toml:"application"`
 
 	Keyring struct {
@@ -50,4 +51,10 @@ type Config struct {
 type Credential struct {
 	Username string
 	Password string
+}
+
+type GitHubRelease struct {
+	TagName string `json:"tag_name"`
+	Name    string `json:"name"`
+	URL     string `json:"html_url"`
 }
