@@ -8,10 +8,10 @@ import (
 	"github.com/goo-apps/vpnctl/internal/model"
 )
 
-const repoAPI = "https://api.github.com/repos/goo-apps/vpnctl/releases/latest"
+const allReleasesAPI = "https://api.github.com/repos/goo-apps/vpnctl/releases"
 
-func FetchLatestRelease() (*model.GitHubRelease, error) {
-	req, err := http.NewRequest("GET", repoAPI, nil)
+func FetchLatestPreOrStableRelease() (*model.GitHubRelease, error) {
+	req, err := http.NewRequest("GET", allReleasesAPI, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -24,14 +24,21 @@ func FetchLatestRelease() (*model.GitHubRelease, error) {
 	}
 	defer resp.Body.Close()
 
-	if resp.StatusCode != 200 {
+	if resp.StatusCode != http.StatusOK {
 		return nil, fmt.Errorf("GitHub API returned status %s", resp.Status)
 	}
 
-	var release model.GitHubRelease
-	if err := json.NewDecoder(resp.Body).Decode(&release); err != nil {
+	var releases []model.GitHubRelease
+	if err := json.NewDecoder(resp.Body).Decode(&releases); err != nil {
 		return nil, err
 	}
 
-	return &release, nil
+	// Return the first non-draft release (pre-release or stable)
+	for _, r := range releases {
+		if !r.Draft {
+			return &r, nil
+		}
+	}
+
+	return nil, fmt.Errorf("no valid release found")
 }

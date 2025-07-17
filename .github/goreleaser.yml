@@ -48,7 +48,7 @@ signs:
       - --passphrase
       - '{{ .Env.GPG_PASSPHRASE }}'
       - --local-user
-      - '{{ .Env.GPG_KEY_ID }}'
+      - '{{ .Env.GPG_PRIVATE_KEY }}'
       - --output
       - "${signature}"
       - --detach-sign

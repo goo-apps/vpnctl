@@ -30,20 +30,23 @@ func info() {
 	banner := figure.NewColorFigure("VPNCTL", "basic", "green", true)
 
 	// fetch version from remote
-	latest, verr := vpnctl.FetchLatestRelease()
+	latest, verr := vpnctl.FetchLatestPreOrStableRelease()
 	if verr != nil {
-		logger.Fatalf("error fetching latest release: %v", verr)
+		logger.Fatalf("error/timeout fetching latest release: %v", verr)
 		logger.Warningf("please re-run the application command: %v", verr)
 	}
 
-	serr := middleware.SetLatestVersionToDB(config.APPLICATION_VERSION)
-	if serr != nil {
-		logger.Warningf("error while storing version to db")
-	}
+	// set in DB
+	go func() {
+		serr := middleware.SetLatestVersionToDB(config.APPLICATION_VERSION)
+		if serr != nil {
+			logger.Warningf("vpnctl went into some error: %s", serr)
+		}
+	}()
 
 	version, err := middleware.GetLatestVerisionFromDB()
 	if err != nil {
-		logger.Errorf("error while faething version: %v", err)
+		logger.Errorf("vpnctl went into some error: %v", err)
 	}
 
 	banner.Print()
@@ -51,13 +54,14 @@ func info() {
 	fmt.Println("vpnctl - VPN Helper CLI for Cisco Secure Client")
 	fmt.Println("👤 Author: @Rohan Das")
 	fmt.Println("📧 Email: dev.work.rohan@gmail.com")
-	fmt.Println("#️⃣ Version: ", version)
+	fmt.Printf("#️⃣  Version: %s\n", config.APPLICATION_VERSION)
 	// Normalize and compare version strings
 	if strings.TrimPrefix(version, "v") == strings.TrimPrefix(latest.TagName, "v") {
 		fmt.Println("✅ Your version is up to date!")
 	} else {
-		fmt.Printf("⚠️ A newer version is available: %s\n", latest.TagName)
-		fmt.Printf("👉 Download it from: %s\n", latest.URL)
+		fmt.Printf("⚠️  A newer version is available: %s\n", latest.TagName)
+		fmt.Printf("👉 Download it from: %s\n", latest.HTMLURL)
+		fmt.Printf("📥 Installation manual: %s\n", "https://github.com/goo-apps/vpnctl?tab=readme-ov-file#installation")
 	}
 	fmt.Print("📌 Run 'vpnctl help' for available commands\n")
 	fmt.Println()
