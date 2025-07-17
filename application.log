@@ -691,3 +691,68 @@
 {"level":"error","module":"vpnctl","caller":"main.go:36","time":"2025-07-14 17:32:48.659","message":"error while faething version: scan error (maybe no profile stored yet): sql: no rows in result set"}
 {"level":"error","module":"vpnctl","caller":"main.go:34","time":"2025-07-14 17:33:59.193","message":"error while faething version: scan error (maybe no profile stored yet): sql: no rows in result set"}
 {"level":"fatal","module":"vpnctl","caller":"main.go:40","time":"2025-07-14 17:34:24.632","message":"Error fetching latest release: Get \"https://api.github.com/repos/goo-apps/vpnctl/releases/latest\": net/http: TLS handshake timeout"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:253","time":"2025-07-15 09:57:33.354","message":"Initiating VPN connection using profile: dev"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:268","time":"2025-07-15 09:57:33.355","message":"Checking current VPN connection status..."}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:280","time":"2025-07-15 09:57:35.589","message":"Last connected VPN profile: dev"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:283","time":"2025-07-15 09:57:35.589","message":"VPN already connected to profile: dev. Aborting connect operation."}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:77","time":"2025-07-15 09:57:59.583","message":"Attempting to disconnect VPN..."}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:79","time":"2025-07-15 09:58:00.503","message":"VPN disconnected"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:83","time":"2025-07-15 09:58:00.545","message":"Cisco Secure Client UI process killed"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:103","time":"2025-07-15 09:58:00.609","message":"Skipping vpnagentd process (PID 525)"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:121","time":"2025-07-15 09:58:00.609","message":"VPN disconnected and related processes (excluding vpnagentd) killed"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:253","time":"2025-07-15 09:58:02.081","message":"Initiating VPN connection using profile: dev"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:268","time":"2025-07-15 09:58:02.082","message":"Checking current VPN connection status..."}
+{"level":"warn","module":"vpnctl","caller":"vpnctl.go:209","time":"2025-07-15 09:58:04.204","message":"failed to find process: Cisco Secure Client%!(EXTRA *exec.ExitError=exit status 1)"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:294","time":"2025-07-15 09:58:06.206","message":"Reading VPN profile script from (hidden path)"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:316","time":"2025-07-15 09:58:06.209","message":"Running VPN command with provided script"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:193","time":"2025-07-15 09:59:18.367","message":"Launching Cisco Secure Client GUI..."}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:198","time":"2025-07-15 09:59:18.497","message":"Cisco GUI launched"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:253","time":"2025-07-15 12:20:37.921","message":"Initiating VPN connection using profile: dev"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:268","time":"2025-07-15 12:20:37.921","message":"Checking current VPN connection status..."}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:221","time":"2025-07-15 12:20:40.104","message":"Killed Cisco Secure Client (PID 19666)"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:294","time":"2025-07-15 12:20:42.106","message":"Reading VPN profile script from (hidden path)"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:316","time":"2025-07-15 12:20:42.110","message":"Running VPN command with provided script"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:193","time":"2025-07-15 12:21:42.667","message":"Launching Cisco Secure Client GUI..."}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:198","time":"2025-07-15 12:21:42.757","message":"Cisco GUI launched"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:253","time":"2025-07-16 11:31:08.389","message":"Initiating VPN connection using profile: dev"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:268","time":"2025-07-16 11:31:08.390","message":"Checking current VPN connection status..."}
+{"level":"warn","module":"vpnctl","caller":"vpnctl.go:209","time":"2025-07-16 11:31:10.579","message":"failed to find process: Cisco Secure Client%!(EXTRA *exec.ExitError=exit status 1)"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:294","time":"2025-07-16 11:31:12.580","message":"Reading VPN profile script from (hidden path)"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:316","time":"2025-07-16 11:31:12.585","message":"Running VPN command with provided script"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:193","time":"2025-07-16 11:32:26.769","message":"Launching Cisco Secure Client GUI..."}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:198","time":"2025-07-16 11:32:26.863","message":"Cisco GUI launched"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:253","time":"2025-07-16 14:34:21.461","message":"Initiating VPN connection using profile: dev"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:268","time":"2025-07-16 14:34:21.461","message":"Checking current VPN connection status..."}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:280","time":"2025-07-16 14:34:23.565","message":"Last connected VPN profile: dev"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:283","time":"2025-07-16 14:34:23.565","message":"VPN already connected to profile: dev. Aborting connect operation."}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:77","time":"2025-07-17 09:00:28.289","message":"Attempting to disconnect VPN..."}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:79","time":"2025-07-17 09:00:29.635","message":"VPN disconnected"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:83","time":"2025-07-17 09:00:29.710","message":"Cisco Secure Client UI process killed"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:103","time":"2025-07-17 09:00:29.759","message":"Skipping vpnagentd process (PID 525)"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:121","time":"2025-07-17 09:00:29.759","message":"VPN disconnected and related processes (excluding vpnagentd) killed"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:253","time":"2025-07-17 09:00:35.265","message":"Initiating VPN connection using profile: dev"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:268","time":"2025-07-17 09:00:35.266","message":"Checking current VPN connection status..."}
+{"level":"warn","module":"vpnctl","caller":"vpnctl.go:209","time":"2025-07-17 09:00:37.376","message":"failed to find process: Cisco Secure Client%!(EXTRA *exec.ExitError=exit status 1)"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:294","time":"2025-07-17 09:00:39.377","message":"Reading VPN profile script from (hidden path)"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:316","time":"2025-07-17 09:00:39.380","message":"Running VPN command with provided script"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:193","time":"2025-07-17 09:01:47.549","message":"Launching Cisco Secure Client GUI..."}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:198","time":"2025-07-17 09:01:47.658","message":"Cisco GUI launched"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:253","time":"2025-07-17 10:57:35.951","message":"Initiating VPN connection using profile: intra"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:268","time":"2025-07-17 10:57:35.952","message":"Checking current VPN connection status..."}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:221","time":"2025-07-17 10:57:38.169","message":"Killed Cisco Secure Client (PID 47150)"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:294","time":"2025-07-17 10:57:40.170","message":"Reading VPN profile script from (hidden path)"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:316","time":"2025-07-17 10:57:40.175","message":"Running VPN command with provided script"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:193","time":"2025-07-17 10:58:39.094","message":"Launching Cisco Secure Client GUI..."}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:198","time":"2025-07-17 10:58:39.190","message":"Cisco GUI launched"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:253","time":"2025-07-17 13:52:36.987","message":"Initiating VPN connection using profile: dev"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:268","time":"2025-07-17 13:52:36.988","message":"Checking current VPN connection status..."}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:280","time":"2025-07-17 13:52:39.161","message":"Last connected VPN profile: intra"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:286","time":"2025-07-17 13:52:39.161","message":"VPN connected to profile intra, switching to dev..."}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:125","time":"2025-07-17 13:52:39.161","message":"Attempting to disconnect VPN..."}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:127","time":"2025-07-17 13:52:40.084","message":"VPN disconnected"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:129","time":"2025-07-17 13:52:40.118","message":"Cisco Secure Client process killed"}
+{"level":"warn","module":"vpnctl","caller":"vpnctl.go:209","time":"2025-07-17 13:52:40.143","message":"failed to find process: Cisco Secure Client%!(EXTRA *exec.ExitError=exit status 1)"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:294","time":"2025-07-17 13:52:42.145","message":"Reading VPN profile script from (hidden path)"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:316","time":"2025-07-17 13:52:42.147","message":"Running VPN command with provided script"}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:193","time":"2025-07-17 13:53:48.113","message":"Launching Cisco Secure Client GUI..."}
+{"level":"info","module":"vpnctl","caller":"vpnctl.go:198","time":"2025-07-17 13:53:48.233","message":"Cisco GUI launched"}

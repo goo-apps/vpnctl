@@ -54,7 +54,7 @@ func info() {
 	fmt.Println("vpnctl - VPN Helper CLI for Cisco Secure Client")
 	fmt.Println("👤 Author: @Rohan Das")
 	fmt.Println("📧 Email: dev.work.rohan@gmail.com")
-	fmt.Println("#️⃣ Version: ", config.APPLICATION_VERSION)
+	fmt.Printf("#️⃣  Version: %s\n", config.APPLICATION_VERSION)
 	// Normalize and compare version strings
 	if strings.TrimPrefix(version, "v") == strings.TrimPrefix(latest.TagName, "v") {
 		fmt.Println("✅ Your version is up to date!")
