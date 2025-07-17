@@ -756,3 +756,4 @@
 {"level":"info","module":"vpnctl","caller":"vpnctl.go:316","time":"2025-07-17 13:52:42.147","message":"Running VPN command with provided script"}
 {"level":"info","module":"vpnctl","caller":"vpnctl.go:193","time":"2025-07-17 13:53:48.113","message":"Launching Cisco Secure Client GUI..."}
 {"level":"info","module":"vpnctl","caller":"vpnctl.go:198","time":"2025-07-17 13:53:48.233","message":"Cisco GUI launched"}
+{"level":"fatal","module":"vpnctl","caller":"main.go:35","time":"2025-07-17 16:34:28.572","message":"error/timeout fetching latest release: json: cannot unmarshal array into Go value of type model.GitHubRelease"}

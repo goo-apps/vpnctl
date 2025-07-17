@@ -55,8 +55,11 @@ signs:
       - "${artifact}"
 release:
   draft: false
-changelog:
+changelog: # git commit -m "feat/fix: add auto-reconnect support"
+  use: git
+  sort: asc
   filters:
     exclude:
       - '^docs:'
-      - typo
+      - '^test:'
+      - '^chore:'

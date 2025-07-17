@@ -30,7 +30,7 @@ func info() {
 	banner := figure.NewColorFigure("VPNCTL", "basic", "green", true)
 
 	// fetch version from remote
-	latest, verr := vpnctl.FetchLatestRelease()
+	latest, verr := vpnctl.FetchLatestPreOrStableRelease()
 	if verr != nil {
 		logger.Fatalf("error/timeout fetching latest release: %v", verr)
 		logger.Warningf("please re-run the application command: %v", verr)
@@ -59,8 +59,8 @@ func info() {
 	if strings.TrimPrefix(version, "v") == strings.TrimPrefix(latest.TagName, "v") {
 		fmt.Println("✅ Your version is up to date!")
 	} else {
-		fmt.Printf("⚠️ A newer version is available: %s\n", latest.TagName)
-		fmt.Printf("👉 Download it from: %s\n", latest.URL)
+		fmt.Printf("⚠️  A newer version is available: %s\n", latest.TagName)
+		fmt.Printf("👉 Download it from: %s\n", latest.HTMLURL)
 		fmt.Printf("📥 Installation manual: %s\n", "https://github.com/goo-apps/vpnctl?tab=readme-ov-file#installation")
 	}
 	fmt.Print("📌 Run 'vpnctl help' for available commands\n")
