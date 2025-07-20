@@ -83,7 +83,11 @@ func DisconnectWithKillPid() {
 	logger.Infof("VPN disconnected")
 
 	// Kill Cisco Secure Client UI only, not vpnagentd
-	exec.Command("pkill", "-x", "Cisco Secure Client").Run()
+	cmd = exec.Command("pkill", "-x", "Cisco Secure Client").Run()
+	if cmd == nil {
+		logger.Errorf("error while disconnecting VPN: %v", cmd)
+		return
+	}
 	logger.Infof("Cisco Secure Client UI process killed")
 
 	pids, err := getPIDs("vpn")
