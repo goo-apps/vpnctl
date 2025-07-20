@@ -54,7 +54,10 @@ type Credential struct {
 }
 
 type GitHubRelease struct {
-	TagName string `json:"tag_name"`
-	Name    string `json:"name"`
-	URL     string `json:"html_url"`
+	TagName    string `json:"tag_name"`
+	Name       string `json:"name"`
+	Body       string `json:"body"`
+	HTMLURL    string `json:"html_url"`
+	Prerelease bool   `json:"prerelease"`
+	Draft      bool   `json:"draft"`
 }

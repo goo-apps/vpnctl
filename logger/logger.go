@@ -14,6 +14,8 @@ import (
 	"runtime"
 	"time"
 
+	// "time"
+
 	"github.com/goo-apps/vpnctl/config"
 	"github.com/rs/zerolog"
 )
@@ -36,12 +38,14 @@ func InitLogger(logToFile bool, logFilePath string) {
 		NoColor:      false,
 	}
 
+	// write to console without level may be?
+
 	writers = append(writers, consoleWriter)
 
 	if logToFile {
 		if logFilePath == "" {
 			home, _ := os.UserHomeDir()
-			logFilePath = filepath.Join(home, "go_vpn", "application.log") // when production release change the go_vpn dir to .vpnctl
+			logFilePath = filepath.Join(home, ".vpnctl", "application.log") // when production release change the go_vpn dir to .vpnctl
 
 		}
 		_ = os.MkdirAll(filepath.Dir(logFilePath), 0755)
@@ -79,12 +83,14 @@ func callerInfo() string {
 		return "unknown:0"
 	}
 
-	// Try to get relative path from current working directory
 	// supported logger level, 1 and 2
+	// level 1 - absolute logger and 2
+	// level 2 - relative logger
 	switch config.LOGGER_LEVEL {
 	case 1:
 		file = filepath.Base(file) // Get only the base file name
 	case 2:
+	// Try to get relative path from current working directory
 		if wd, err := os.Getwd(); err == nil {
 			if rel, err := filepath.Rel(wd, file); err == nil {
 				file = rel
