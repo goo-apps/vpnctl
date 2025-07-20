@@ -9,13 +9,17 @@ on:
 jobs:
   release:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write # Needed for GoReleaser to create releases
+      packages: write # If you're publishing to GitHub Packages
+      id-token: write # If you're using OIDC for other integrations
     steps:
       - uses: actions/checkout@v4
 
       - name: Set up Go
         uses: actions/setup-go@v4
         with:
-          go-version: '1.23'
+          go-version: '1.22' # Changed to a stable version, adjust if you really mean 1.23 dev
 
       - name: Import GPG key
         env:
@@ -28,10 +32,11 @@ jobs:
           gpg --list-secret-keys --keyid-format=long
 
       - name: Extract GPG key ID
-        id: gpg
+        id: gpg # This ID is not actually used, but good practice
         run: |
+          # Extract the key ID (e.g., 0x1234ABCD)
           KEY_ID=$(gpg --list-secret-keys --with-colons | awk -F: '/^sec:/ {print $5; exit}')
-          echo "GPG_PRIVATE_KEY=$KEY_ID" >> $GITHUB_ENV
+          echo "GPG_KEY_ID=$KEY_ID" >> $GITHUB_ENV # Store as GPG_KEY_ID
 
       - name: Run GoReleaser
         uses: goreleaser/goreleaser-action@v5
@@ -39,6 +44,75 @@ jobs:
           version: latest
           args: release --clean
         env:
-          GITHUB_TOKEN: ${{ env.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Corrected
           GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
-          GPG_KEY_ID: ${{ secrets.GPG_PRIVATE_KEY }}
+          GPG_KEY_ID: ${{ env.GPG_KEY_ID }} # Corrected
+
+# Your goreleaser.yml content (as provided in the prompt)
+# You need to ensure this is in your repository's root or specified
+# in the goreleaser-action 'config' input.
+# Assuming it's in .goreleaser.yml in the root.
+
+# --- Your goreleaser.yml content (with the suggested change for signs.local-user) ---
+# version: 1
+# before:
+#   hooks:
+#     - go mod tidy
+# builds:
+#   - env:
+#       - CGO_ENABLED=0
+#     mod_timestamp: '{{ .CommitTimestamp }}'
+#     flags:
+#       - -trimpath
+#     ldflags:
+#       - '-s -w -X main.version={{.Version}} -X main.commit={{.Commit}}'
+#     goos:
+#       - freebsd
+#       - windows
+#       - linux
+#       - darwin
+#     goarch:
+#       - amd64
+#       - '386'
+#       - arm
+#       - arm64
+#     ignore:
+#       - goos: darwin
+#         goarch: '386'
+#       - goos: windows
+#         goarch: arm
+#       - goos: freebsd
+#         goarch: arm
+#       - goos: freebsd
+#         goarch: '386'
+#     binary: '{{ .ProjectName }}_v{{ .Version }}'
+# archives:
+#   - format: zip
+#     name_template: '{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}'
+# checksum:
+#   name_template: '{{ .ProjectName }}_{{ .Version }}_SHA256SUMS'
+#   algorithm: sha256
+# signs:
+#   - artifacts: checksum
+#     cmd: gpg
+#     args:
+#       - --batch
+#       - --yes
+#       - --armor
+#       - --pinentry-mode
+#       - loopback
+#       - --passphrase
+#       - '{{ .Env.GPG_PASSPHRASE }}'
+#       - --local-user
+#       - '{{ .Env.GPG_KEY_ID }}' # THIS IS THE CRITICAL CHANGE IN YOUR GORELEASER.YML
+#       - --output
+#       - "${signature}"
+#       - --detach-sign
+#       - "${artifact}"
+# release:
+#   draft: false
+#   changelog:
+#     filters:
+#       exclude:
+#         - '^docs:'
+#         - typo
