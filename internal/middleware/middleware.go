@@ -200,29 +200,6 @@ func SetExpiryToDB(username, expiry string) error {
     return nil
 }
 
-
-// func CleanAllProfile() error {
-// 	// Initialize the database
-// 	db, err := InitDB()
-// 	if err != nil {
-// 		logger.Errorf(err, "Error connecting to db")
-// 	}
-// 	defer db.Close()
-
-// 	// The SQL query to delete all Helm charts.
-// 	query := `DELETE FROM vpn_profile;`
-
-// 	// Execute the query to delete the Helm charts.
-// 	_, qerr := db.Exec(query)
-// 	if qerr != nil {
-// 		// Return an error if the deletion fails.
-// 		logger.Errorf(err, "Error executing query to delete all profiles")
-// 		return err
-// 	}
-// 	// Return nil if the deletion is successful.
-// 	return nil
-// }
-
 func SetLastConnectedProfile(profile string) error {
 	// Initialize the database
 	db, err := InitDB()
