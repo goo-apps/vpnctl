@@ -89,8 +89,7 @@ func callerInfo() string {
 	switch config.LOGGER_LEVEL {
 	case 1:
 		file = filepath.Base(file) // Get only the base file name
-	case 2:
-	// Try to get relative path from current working directory
+	case 2: // Try to get relative path from current working directory
 		if wd, err := os.Getwd(); err == nil {
 			if rel, err := filepath.Rel(wd, file); err == nil {
 				file = rel
