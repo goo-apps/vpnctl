@@ -75,7 +75,11 @@ func Status() {
 // After disconnecting, it attempts to kill the Cisco Secure Client GUI process using `pkill`.
 func DisconnectWithKillPid() {
 	logger.Infof("Attempting to disconnect VPN...")
-	exec.Command(config.VPN_BINARY_PATH, "disconnect").Run()
+	cmd := exec.Command(config.VPN_BINARY_PATH, "disconnect").Run()
+	if cmd != nil {
+		logger.Errorf("error while disconnecting VPN: %v", cmd)
+		return
+	}
 	logger.Infof("VPN disconnected")
 
 	// Kill Cisco Secure Client UI only, not vpnagentd
