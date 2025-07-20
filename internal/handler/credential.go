@@ -60,7 +60,7 @@ func GetCredential() (creds model.CREDENTIAL_FOR_LOGIN, err error) {
 		return model.CREDENTIAL_FOR_LOGIN{}, fmt.Errorf("invalid credential format")
 	}
 
-	// decrypt the password 
+	// decrypt the password
 	// decryptedPassword, err := Decrypt(parts[1], config.KEYRING_ENCRYPTION_KEY)
 	// if err != nil {
 	// 	return model.CREDENTIAL_FOR_LOGIN{}, fmt.Errorf("failed to decrypt password: %w", err)
@@ -75,33 +75,43 @@ func GetCredential() (creds model.CREDENTIAL_FOR_LOGIN, err error) {
 
 func GetOrPromptCredential() (*model.CREDENTIAL_FOR_LOGIN, error) {
 	var credential model.CREDENTIAL_FOR_LOGIN
-	
+
 	// Check expiry in db first
 	expiryStr, err := middleware.GetExpiryFromDB(config.KEYRING_SERVICE_NAME)
-    if err == nil && expiryStr != "" {
-        expiry, _ := time.Parse("2006-01-02", expiryStr)
-        if time.Now().Before(expiry) {
-            // Not expired, check keyring
-            entry, err := keyring.Get(config.KEYRING_SERVICE_NAME, config.KEYRING_SERVICE_NAME)
-            if err == nil {
-                parts := strings.SplitN(entry, "\n", 4)
-                if len(parts) == 4 {
-                    decryptedPassword, err := Decrypt(parts[1], config.KEYRING_ENCRYPTION_KEY)
-                    if err != nil {
-                        return &credential, fmt.Errorf("failed to decrypt password: %w", err)
-                    }
-                    credential.Username = parts[0]
-                    credential.Password = decryptedPassword
-                    credential.Push = "push"
-                    credential.YFlag = "y"
-                    return &credential, nil
-                }
-            }
-        }
-    }
+	if err == nil && expiryStr != "" {
+		expiry, _ := time.Parse("2006-01-02", expiryStr)
+		if time.Now().Before(expiry) {
+			// Not expired, check keyring
+			entry, err := keyring.Get(config.KEYRING_SERVICE_NAME, config.KEYRING_SERVICE_NAME)
+			if err == nil {
+				parts := strings.SplitN(entry, "\n", 4)
+				if len(parts) == 4 {
+					decryptedPassword, err := Decrypt(parts[1], config.KEYRING_ENCRYPTION_KEY)
+					if err != nil {
+						return &credential, fmt.Errorf("failed to decrypt password: %w", err)
+					}
+					credential.Username = parts[0]
+					credential.Password = decryptedPassword
+					credential.Push = "push"
+					credential.YFlag = "y"
+					return &credential, nil
+				}
+			}
+		}
+	}
 
 	// Prompt the user (first time)
 	reader := bufio.NewReader(os.Stdin)
+
+	fmt.Println()
+	fmt.Println("┌────────────────────────────────────────────────────┐")
+	fmt.Println("│           🔐 CREDENTIAL SETUP REQUIRED             │")
+	fmt.Println("├────────────────────────────────────────────────────┤")
+	fmt.Println("│ ❌ No credential is found in the local store.      │")
+	fmt.Println("│ 📌 This is required only during *first setup*.     │")
+	fmt.Println("│ 🔑 Please enter your credential to proceed.        │")
+	fmt.Println("└────────────────────────────────────────────────────┘")
+	fmt.Println()
 
 	fmt.Printf("Enter username for '%s': ", config.KEYRING_SERVICE_NAME)
 	username, _ := reader.ReadString('\n')

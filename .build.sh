@@ -13,3 +13,4 @@
 go mod tidy
 go build -o build/vpnctl
 sudo mv build/vpnctl /usr/local/bin/vpnctl
+vpnctl

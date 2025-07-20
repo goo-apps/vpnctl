@@ -126,8 +126,6 @@ func Disconnect() {
 	exec.Command(config.VPN_BINARY_PATH, "disconnect").Run()
 	logger.Infof("VPN disconnected")
 	exec.Command("pkill", "-x", "Cisco Secure Client").Run()
-	logger.Infof("Cisco Secure Client process killed")
-
 }
 
 // KillGUI kills the Cisco Secure Client GUI and optionally the VPN process
@@ -249,7 +247,7 @@ func Connect(credential *model.CREDENTIAL_FOR_LOGIN, profile string) {
 // This function is useful for establishing a VPN connection with error handling and retry logic.
 // It reads the credentials for the specified profile from a hidden file.
 // It also handles the case where the VPN is already connected to a different profile.
-func connectWithRetries(credential *model.CREDENTIAL_FOR_LOGIN, profile string, retryCount int) {
+func connectWithRetries(credential *model.CREDENTIAL_FOR_LOGIN, profile string, retryCount int) { // Removed 'credential *model.CREDENTIAL_FOR_LOGIN'
 	logger.Infof(fmt.Sprintf("Initiating VPN connection using profile: %v", profile))
 
 	profilePath := getProfilePath(profile)
@@ -291,26 +289,44 @@ func connectWithRetries(credential *model.CREDENTIAL_FOR_LOGIN, profile string, 
 		logger.Errorf("failed to kill Cisco processes before reconnect: %v", err)
 	}
 
-	logger.Infof("Reading VPN profile script from (hidden path)")
-	scriptContent, err := os.ReadFile(profilePath)
-	if err != nil {
-		logger.Errorf("reading VPN profile: %v", err)
-		return
-	}
+	// Deprecated: Reading profile script from file ---
+	// logger.Infof("reading VPN profile script from (hidden path)")
+	// scriptContent, err := os.ReadFile(profilePath)
+	// if err != nil {
+	// logger.Errorf("reading VPN profile: %v", err)
+	// return
+	// }
 
-	script := strings.ReplaceAll(string(scriptContent), "{{USERNAME}}", credential.Username)
-	script = strings.ReplaceAll(script, "{{PASSWORD}}", credential.Password)
-	script = strings.ReplaceAll(script, "{{Y}}", credential.YFlag)
+	// username
+	// password
+	// Y/N for second factor prompt
+	// second_password (if applicable)
+	var scriptBuilder strings.Builder
+	scriptBuilder.WriteString(credential.Username + "\n")
+	scriptBuilder.WriteString(credential.Password + "\n")
+	scriptBuilder.WriteString(credential.YFlag + "\n")
 	if profile == "dev" {
-		script = strings.ReplaceAll(script, "{{SECOND_PASSWORD}}", credential.Push)
+		scriptBuilder.WriteString(credential.Push + "\n")
 	}
+	script := scriptBuilder.String()
 
-	tempScript := filepath.Join(os.TempDir(), "vpn_input.txt")
-	err = os.WriteFile(tempScript, []byte(script), 0600)
+	// Create a temporary file for the script input
+	tempFile, err := os.CreateTemp("", "vpn_input_*.txt")
 	if err != nil {
-		logger.Errorf("writing temp VPN input file: %v", err)
+		logger.Errorf("creating temp VPN input file: %v", err)
 		return
 	}
+	tempScript := tempFile.Name()
+
+	_, err = tempFile.WriteString(script)
+	if err != nil {
+		tempFile.Close()
+		os.Remove(tempScript)
+		logger.Errorf("writing to temp VPN input file: %v", err)
+		return
+	}
+	tempFile.Close()
+
 	defer os.Remove(tempScript)
 
 	logger.Infof("Running VPN command with provided script")
@@ -335,7 +351,6 @@ func connectWithRetries(credential *model.CREDENTIAL_FOR_LOGIN, profile string, 
 
 	cmd.Stdin = stdinFile
 
-	// Capture stdout and stderr
 	stdoutPipe, err := cmd.StdoutPipe()
 	if err != nil {
 		logger.Errorf("getting stdout pipe: %s", err)
@@ -347,7 +362,6 @@ func connectWithRetries(credential *model.CREDENTIAL_FOR_LOGIN, profile string, 
 		return
 	}
 
-	// Start command before scanning
 	if err := cmd.Start(); err != nil {
 		logger.Errorf("starting VPN command: %v", err)
 		return
@@ -405,23 +419,6 @@ func connectWithRetries(credential *model.CREDENTIAL_FOR_LOGIN, profile string, 
 	LaunchGUI()
 }
 
-// ShowHelp prints the help message for the vpnctl CLI tool.
-// It lists all available commands and their descriptions.
-// This function is useful for users to understand how to use the tool and what commands are available.
-func ShowHelp() {
-	fmt.Println(`
-🛡️  vpnctl - VPN Helper CLI
------------------------------
-vpnctl status           Show VPN status
-vpnctl connect intra    Connect using intra profile
-vpnctl connect dev      Connect using dev profile
-vpnctl disconnect       Disconnect VPN and kill GUI with kill pid
-vpnctl kill             Kill Cisco Secure Client GUI only
-vpnctl gui              Launch Cisco GUI
-vpnctl help             Show this help message
-	`)
-}
-
 // getProfilePath returns the file path for the specified VPN profile.
 // It constructs the path based on the user's home directory and the profile name.
 // The function supports "intra" and "dev" profiles, returning the appropriate credential file path.
@@ -453,6 +450,7 @@ func contains(text, keyword string) bool {
 // The function reads the file, splits it into lines, and returns the credentials as strings.
 // If the file cannot be read or the format is invalid, it returns an error.
 // This function is useful for securely retrieving the VPN credentials needed for connection.
+// Deprecated: This function is depricated as migrated the credentialk management to keyring
 func readCredentials(profile string) (string, string, string, string, error) {
 	basePath := filepath.Join(os.Getenv("HOME"), ".vpnctl", ".credential")
 	var credentialsPath string

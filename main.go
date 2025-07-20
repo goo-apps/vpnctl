@@ -27,12 +27,12 @@ import (
 
 // introduction to cpnctl fro user
 func info() {
-	banner := figure.NewColorFigure("VPNCTL", "basic", "green", true)
+	banner := figure.NewColorFigure("VPNCTL", "banner3", "green", true)
 
 	// fetch version from remote
 	latest, verr := vpnctl.FetchLatestPreOrStableRelease()
 	if verr != nil {
-		logger.Fatalf("error/timeout fetching latest release: %v", verr)
+		logger.Warningf("error/timeout fetching latest release: %v", verr)
 		logger.Warningf("please re-run the application command: %v", verr)
 	}
 
@@ -56,12 +56,14 @@ func info() {
 	fmt.Println("📧 Email: dev.work.rohan@gmail.com")
 	fmt.Printf("#️⃣  Version: %s\n", config.APPLICATION_VERSION)
 	// Normalize and compare version strings
-	if strings.TrimPrefix(version, "v") == strings.TrimPrefix(latest.TagName, "v") {
-		fmt.Println("✅ Your version is up to date!")
-	} else {
-		fmt.Printf("⚠️  A newer version is available: %s\n", latest.TagName)
-		fmt.Printf("👉 Download it from: %s\n", latest.HTMLURL)
-		fmt.Printf("📥 Installation manual: %s\n", "https://github.com/goo-apps/vpnctl?tab=readme-ov-file#installation")
+	if verr == nil {
+		if strings.TrimPrefix(version, "v") == strings.TrimPrefix(latest.TagName, "v") {
+			fmt.Println("✅ Your version is up to date!")
+		} else {
+			fmt.Printf("⚠️  A newer version is available: %s\n", latest.TagName)
+			fmt.Printf("👉 Download it from: %s\n", latest.HTMLURL)
+			fmt.Printf("📥 Installation manual: %s\n", "https://github.com/goo-apps/vpnctl?tab=readme-ov-file#installation")
+		}
 	}
 	fmt.Print("📌 Run 'vpnctl help' for available commands\n")
 	fmt.Println()
@@ -96,13 +98,13 @@ func main() {
 	configPath := os.Getenv("CONFIG_PATH")
 	cerr := config.LoadAllConfigAtOnce(configPath) // loading from embedded config
 	if cerr != nil {
-		logger.Fatalf("Failed to load configuration: %s", cerr)
+		logger.Fatalf("failed to load configuration: %s", cerr)
 	}
 
 	// Initialize the database (ensure it's done before API handlers)
 	_, dberr := middleware.InitDB()
 	if dberr != nil {
-		logger.Errorf("Failed to initialize database: %s", dberr)
+		logger.Errorf("failed to initialize database: %s", dberr)
 		os.Exit(1) // Exit if database initialization fails
 	}
 

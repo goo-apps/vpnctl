@@ -45,7 +45,7 @@ func InitDB() (*sql.DB, error) {
 		return nil, err
 	}
 
-	DB, err := sql.Open("sqlite", expandedPath)
+	DB, err := sql.Open("sqlite", fmt.Sprintf("file:%s?_pragma=journal_mode(WAL)&cache=shared", expandedPath))
 	if err != nil {
 		return nil, err
 	}
