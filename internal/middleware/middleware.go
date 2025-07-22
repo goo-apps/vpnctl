@@ -60,7 +60,10 @@ func InitDB() (*sql.DB, error) {
 
 	_, err = DB.Exec(query_vpn_profile)
 	if err != nil {
-		DB.Close()
+		err := DB.Close()
+		if err != nil {
+			logger.Errorf("failed to close db: %v", err)
+		}
 		return nil, fmt.Errorf("failed to create table: %w", err)
 	}
 
@@ -105,7 +108,10 @@ func InitDB() (*sql.DB, error) {
 
 	_, err = DB.Exec(query_vpn_user_credential_expiry)
 	if err != nil {
-		DB.Close()
+		err := DB.Close()
+		if err != nil {
+			logger.Errorf("failed to close db: %v", err)
+		}
 		return nil, fmt.Errorf("failed to create table: %w", err)
 	}
 
@@ -125,27 +131,27 @@ func InitDB() (*sql.DB, error) {
 	return DB, nil
 }
 
-func SetLatestVersionToDB(version string) (error){
-    db, err := InitDB()
-    if err != nil {
-        return err
-    }
-    defer db.Close()
+func SetLatestVersionToDB(version string) error {
+	db, err := InitDB()
+	if err != nil {
+		return err
+	}
+	defer db.Close()
 
-    query := `
+	query := `
     INSERT INTO vpn_latest_version (version)
     VALUES (?)
     ON CONFLICT(version) DO UPDATE SET version=excluded.version, timestamp=CURRENT_TIMESTAMP;
     `
-    _, dberr := db.Exec(query, version)
-    if dberr != nil {
-        return dberr
-    }
-    return nil
+	_, dberr := db.Exec(query, version)
+	if dberr != nil {
+		return dberr
+	}
+	return nil
 }
 
-func GetLatestVerisionFromDB() (string, error){
-   db, err := InitDB()
+func GetLatestVerisionFromDB() (string, error) {
+	db, err := InitDB()
 	if err != nil {
 		return "", fmt.Errorf("db init error: %w", err)
 	}
@@ -165,39 +171,39 @@ func GetLatestVerisionFromDB() (string, error){
 
 // GetExpiryToDB retrieves the expiry date for a given username from the database.
 func GetExpiryFromDB(username string) (string, error) {
-    db, err := InitDB()
-    if err != nil {
-        return "", err
-    }
-    defer db.Close()
+	db, err := InitDB()
+	if err != nil {
+		return "", err
+	}
+	defer db.Close()
 
-    var expiry string
-    query := `SELECT expiry_date FROM vpn_user_credential_expiry WHERE username = ?`
-    err = db.QueryRow(query, username).Scan(&expiry)
-    if err != nil {
-        return "", err
-    }
-    return expiry, nil
+	var expiry string
+	query := `SELECT expiry_date FROM vpn_user_credential_expiry WHERE username = ?`
+	err = db.QueryRow(query, username).Scan(&expiry)
+	if err != nil {
+		return "", err
+	}
+	return expiry, nil
 }
 
 // SetExpiryToDB sets or updates the expiry date for a given username.
 func SetExpiryToDB(username, expiry string) error {
-    db, err := InitDB()
-    if err != nil {
-        return err
-    }
-    defer db.Close()
+	db, err := InitDB()
+	if err != nil {
+		return err
+	}
+	defer db.Close()
 
-    query := `
+	query := `
     INSERT INTO vpn_user_credential_expiry (username, expiry_date)
     VALUES (?, ?)
     ON CONFLICT(username) DO UPDATE SET expiry_date=excluded.expiry_date, timestamp=CURRENT_TIMESTAMP;
     `
-    _, dberr := db.Exec(query, username, expiry)
-    if dberr != nil {
-        return dberr
-    }
-    return nil
+	_, dberr := db.Exec(query, username, expiry)
+	if dberr != nil {
+		return dberr
+	}
+	return nil
 }
 
 func SetLastConnectedProfile(profile string) error {

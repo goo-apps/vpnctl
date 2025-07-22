@@ -137,7 +137,7 @@ func Disconnect() {
 		return
 	}
 	logger.Infof("VPN disconnected successfully")
-	
+
 	err = exec.Command("pkill", "-x", "Cisco Secure Client").Run()
 	if err != nil {
 		logger.Errorf("error while killing Cisco Secure Client GUI: %v", err)
@@ -152,7 +152,7 @@ func Disconnect() {
 func KillGUI() {
 	logger.Infof("Killing Cisco Secure Client GUI...")
 	err := exec.Command("pkill", "-x", "Cisco Secure Client").Run()
-	if err != nil{
+	if err != nil {
 		logger.Errorf("error while killing Cisco Secure Client GUI: %v", err)
 		return
 	}
@@ -344,12 +344,21 @@ func connectWithRetries(credential *model.CREDENTIAL_FOR_LOGIN, profile string, 
 
 	_, err = tempFile.WriteString(script)
 	if err != nil {
-		tempFile.Close()
-		os.Remove(tempScript)
+		err = tempFile.Close()
+		if err != nil {
+			logger.Errorf("failed to close file: %v", err)
+		}
+		err = os.Remove(tempScript)
+		if err != nil {
+			logger.Errorf("failed to remove file: %v", err)
+		}
 		logger.Errorf("writing to temp VPN input file: %v", err)
 		return
 	}
-	tempFile.Close()
+	err = tempFile.Close()
+	if err != nil {
+		logger.Errorf("failed to close file: %v", err)
+	}
 
 	defer os.Remove(tempScript)
 
