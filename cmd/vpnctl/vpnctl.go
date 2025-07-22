@@ -312,10 +312,11 @@ func connectWithRetries(credential *model.CREDENTIAL_FOR_LOGIN, profile string, 
 	var scriptBuilder strings.Builder
 	scriptBuilder.WriteString(credential.Username + "\n")
 	scriptBuilder.WriteString(credential.Password + "\n")
-	scriptBuilder.WriteString(credential.YFlag + "\n")
 	if profile == "dev" {
 		scriptBuilder.WriteString(credential.Push + "\n")
 	}
+	scriptBuilder.WriteString(credential.YFlag + "\n")
+	
 	script := scriptBuilder.String()
 
 	// Create a temporary file for the script input
@@ -325,6 +326,8 @@ func connectWithRetries(credential *model.CREDENTIAL_FOR_LOGIN, profile string, 
 		return
 	}
 	tempScript := tempFile.Name()
+
+	logger.Debugf("tempscript info: %s", tempScript)
 
 	_, err = tempFile.WriteString(script)
 	if err != nil {
