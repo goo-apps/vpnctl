@@ -131,9 +131,18 @@ func DisconnectWithKillPid() {
 
 func Disconnect() {
 	logger.Infof("Attempting to disconnect VPN...")
-	exec.Command(config.VPN_BINARY_PATH, "disconnect").Run()
-	logger.Infof("VPN disconnected")
-	exec.Command("pkill", "-x", "Cisco Secure Client").Run()
+	err := exec.Command(config.VPN_BINARY_PATH, "disconnect").Run()
+	if err != nil {
+		logger.Errorf("error while disconnecting VPN: %v", err)
+		return
+	}
+	logger.Infof("VPN disconnected successfully")
+	
+	err = exec.Command("pkill", "-x", "Cisco Secure Client").Run()
+	if err != nil {
+		logger.Errorf("error while killing Cisco Secure Client GUI: %v", err)
+		return
+	}
 }
 
 // KillGUI kills the Cisco Secure Client GUI and optionally the VPN process
@@ -142,7 +151,11 @@ func Disconnect() {
 // This function is useful for cleaning up the GUI and VPN processes when they are no longer needed.
 func KillGUI() {
 	logger.Infof("Killing Cisco Secure Client GUI...")
-	exec.Command("pkill", "-x", "Cisco Secure Client").Run()
+	err := exec.Command("pkill", "-x", "Cisco Secure Client").Run()
+	if err != nil{
+		logger.Errorf("error while killing Cisco Secure Client GUI: %v", err)
+		return
+	}
 	logger.Infof("Cisco GUI killed")
 	// Optionally, you can also kill the VPN process
 	pids, err := getPIDs("vpn")
@@ -316,7 +329,7 @@ func connectWithRetries(credential *model.CREDENTIAL_FOR_LOGIN, profile string, 
 		scriptBuilder.WriteString(credential.Push + "\n")
 	}
 	scriptBuilder.WriteString(credential.YFlag + "\n")
-	
+
 	script := scriptBuilder.String()
 
 	// Create a temporary file for the script input
