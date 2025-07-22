@@ -271,11 +271,12 @@ func Connect(credential *model.CREDENTIAL_FOR_LOGIN, profile string) {
 func connectWithRetries(credential *model.CREDENTIAL_FOR_LOGIN, profile string, retryCount int) { // Removed 'credential *model.CREDENTIAL_FOR_LOGIN'
 	logger.Infof(fmt.Sprintf("Initiating VPN connection using profile: %v", profile))
 
-	profilePath := getProfilePath(profile)
-	if profilePath == "" {
-		logger.Infof("Unknown VPN profile: %v", profile)
-		return
-	}
+	// Deprecatated: Reading profile script from file ---
+	// profilePath := getProfilePath(profile)
+	// if profilePath == "" {
+	// 	logger.Infof("Unknown VPN profile: %v", profile)
+	// 	return
+	// }
 
 	// implement keychain here and get rid of credential files
 	// username, password, y_flag, secondPassword, err := readCredentials(profile)
@@ -320,8 +321,8 @@ func connectWithRetries(credential *model.CREDENTIAL_FOR_LOGIN, profile string, 
 
 	// username
 	// password
-	// Y/N for second factor prompt
 	// second_password (if applicable)
+	// Y/N for second factor prompt
 	var scriptBuilder strings.Builder
 	scriptBuilder.WriteString(credential.Username + "\n")
 	scriptBuilder.WriteString(credential.Password + "\n")
