@@ -1,9 +1,8 @@
 dist/
 # go.sum
-application.log
-application.log.*
-vpnctl.log
-vpn_connect.log
+*.log.*
+*.log
 *.asc
 _obj/
 .idea/
+.DS_Store

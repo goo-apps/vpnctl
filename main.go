@@ -133,6 +133,12 @@ func main() {
 				fmt.Print("Please specify profile: intra or dev")
 				return
 			}
+
+			if (os.Args[2] != "intra" || os.Args[2] != "dev") {
+				fmt.Print("Unkonwn profile: ", os.Args[2])
+				return
+			}
+
 			credential, err = handler.GetOrPromptCredential()
 			if err != nil {
 				logger.Fatalf("Failed to get credentials: %s", err)
@@ -156,6 +162,11 @@ func main() {
 		case "credential":
 			if len(os.Args) < 3 {
 				fmt.Print("Please specify an operation: fetch or update or delete")
+				return
+			}
+
+			if os.Args[2] != "fetch" && os.Args[2] != "update" && os.Args[2] != "remove" {
+				fmt.Print("Unknown command: ", os.Args[2])
 				return
 			}
 
@@ -199,6 +210,8 @@ func main() {
 					logger.Fatalf("Failed to remove credential: %s", err)
 					return
 				}
+			default:
+				fmt.Printf("Unknown command: %s", cmd)
 
 			}
 		default:
