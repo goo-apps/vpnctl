@@ -75,11 +75,19 @@ func Status() {
 // After disconnecting, it attempts to kill the Cisco Secure Client GUI process using `pkill`.
 func DisconnectWithKillPid() {
 	logger.Infof("Attempting to disconnect VPN...")
-	exec.Command(config.VPN_BINARY_PATH, "disconnect").Run()
+	cmd := exec.Command(config.VPN_BINARY_PATH, "disconnect").Run()
+	if cmd != nil {
+		logger.Errorf("error while disconnecting VPN: %v", cmd)
+		return
+	}
 	logger.Infof("VPN disconnected")
 
 	// Kill Cisco Secure Client UI only, not vpnagentd
-	exec.Command("pkill", "-x", "Cisco Secure Client").Run()
+	cmd = exec.Command("pkill", "-x", "Cisco Secure Client").Run()
+	if cmd == nil {
+		logger.Errorf("error while disconnecting VPN: %v", cmd)
+		return
+	}
 	logger.Infof("Cisco Secure Client UI process killed")
 
 	pids, err := getPIDs("vpn")
@@ -123,9 +131,18 @@ func DisconnectWithKillPid() {
 
 func Disconnect() {
 	logger.Infof("Attempting to disconnect VPN...")
-	exec.Command(config.VPN_BINARY_PATH, "disconnect").Run()
-	logger.Infof("VPN disconnected")
-	exec.Command("pkill", "-x", "Cisco Secure Client").Run()
+	err := exec.Command(config.VPN_BINARY_PATH, "disconnect").Run()
+	if err != nil {
+		logger.Errorf("error while disconnecting VPN: %v", err)
+		return
+	}
+	logger.Infof("VPN disconnected successfully")
+
+	err = exec.Command("pkill", "-x", "Cisco Secure Client").Run()
+	if err != nil {
+		logger.Errorf("error while killing Cisco Secure Client GUI: %v", err)
+		return
+	}
 }
 
 // KillGUI kills the Cisco Secure Client GUI and optionally the VPN process
@@ -134,7 +151,11 @@ func Disconnect() {
 // This function is useful for cleaning up the GUI and VPN processes when they are no longer needed.
 func KillGUI() {
 	logger.Infof("Killing Cisco Secure Client GUI...")
-	exec.Command("pkill", "-x", "Cisco Secure Client").Run()
+	err := exec.Command("pkill", "-x", "Cisco Secure Client").Run()
+	if err != nil {
+		logger.Errorf("error while killing Cisco Secure Client GUI: %v", err)
+		return
+	}
 	logger.Infof("Cisco GUI killed")
 	// Optionally, you can also kill the VPN process
 	pids, err := getPIDs("vpn")
@@ -250,11 +271,12 @@ func Connect(credential *model.CREDENTIAL_FOR_LOGIN, profile string) {
 func connectWithRetries(credential *model.CREDENTIAL_FOR_LOGIN, profile string, retryCount int) { // Removed 'credential *model.CREDENTIAL_FOR_LOGIN'
 	logger.Infof(fmt.Sprintf("Initiating VPN connection using profile: %v", profile))
 
-	profilePath := getProfilePath(profile)
-	if profilePath == "" {
-		logger.Infof("Unknown VPN profile: %v", profile)
-		return
-	}
+	// Deprecatated: Reading profile script from file ---
+	// profilePath := getProfilePath(profile)
+	// if profilePath == "" {
+	// 	logger.Infof("Unknown VPN profile: %v", profile)
+	// 	return
+	// }
 
 	// implement keychain here and get rid of credential files
 	// username, password, y_flag, secondPassword, err := readCredentials(profile)
@@ -299,15 +321,16 @@ func connectWithRetries(credential *model.CREDENTIAL_FOR_LOGIN, profile string, 
 
 	// username
 	// password
-	// Y/N for second factor prompt
 	// second_password (if applicable)
+	// Y/N for second factor prompt
 	var scriptBuilder strings.Builder
 	scriptBuilder.WriteString(credential.Username + "\n")
 	scriptBuilder.WriteString(credential.Password + "\n")
-	scriptBuilder.WriteString(credential.YFlag + "\n")
 	if profile == "dev" {
 		scriptBuilder.WriteString(credential.Push + "\n")
 	}
+	scriptBuilder.WriteString(credential.YFlag + "\n")
+
 	script := scriptBuilder.String()
 
 	// Create a temporary file for the script input
@@ -318,14 +341,25 @@ func connectWithRetries(credential *model.CREDENTIAL_FOR_LOGIN, profile string, 
 	}
 	tempScript := tempFile.Name()
 
+	// logger.Debugf("tempscript info: %s", tempScript)
+
 	_, err = tempFile.WriteString(script)
 	if err != nil {
-		tempFile.Close()
-		os.Remove(tempScript)
+		err = tempFile.Close()
+		if err != nil {
+			logger.Errorf("failed to close file: %v", err)
+		}
+		err = os.Remove(tempScript)
+		if err != nil {
+			logger.Errorf("failed to remove file: %v", err)
+		}
 		logger.Errorf("writing to temp VPN input file: %v", err)
 		return
 	}
-	tempFile.Close()
+	err = tempFile.Close()
+	if err != nil {
+		logger.Errorf("failed to close file: %v", err)
+	}
 
 	defer os.Remove(tempScript)
 
@@ -424,6 +458,7 @@ func connectWithRetries(credential *model.CREDENTIAL_FOR_LOGIN, profile string, 
 // The function supports "intra" and "dev" profiles, returning the appropriate credential file path.
 // If the profile name is not recognized, it returns an empty string.
 // This function is useful for locating the VPN profile scripts needed for connection.
+// Deprecated: This function is deprecated as the credential management has been migrated to keyring.
 func getProfilePath(name string) string {
 	u, _ := user.Current()
 	switch name {

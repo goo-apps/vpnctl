@@ -1,31 +1,106 @@
-# This workflow will build a golang project
+# This workflow will build a golang project and perform code quality checks.
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-go
 
-name: Go
+name: Go CI
 
 on:
   push:
-    branches: [ "*" ]
+    branches:
+      - "*"
   pull_request:
-    branches: [ "main" ]
+    branches:
+      - "main"
 
 jobs:
-
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-    - name: Set up Go
-      uses: actions/setup-go@v4
-      with:
-        go-version: '1.23'
+      - name: Set up Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: '1.23' # Recommended: Use a stable Go version
+          cache: true # Enable caching for Go modules
 
-    - name: Go mod
-      run: go mod tidy
-      
-    - name: Build
-      run: go build -o vpnctl
+      - name: Go Mod Tidy
+        # Ensures go.mod and go.sum are clean and dependencies are correct.
+        # This is important to catch issues where developers might forget to run `go mod tidy`.
+        run: |
+          go mod tidy
+          git diff --exit-code go.mod go.sum || (echo "go.mod or go.sum is not tidy. Please run 'go mod tidy'." && exit 1)
 
-    # - name: Test
-    #   run: go test -v ./...
+      - name: Go Fmt Check
+        # Ensures all Go code is formatted according to gofmt.
+        run: |
+          diff -u <(echo -n) <(gofmt -d .)
+
+      - name: Go Vet
+        # Runs the standard Go static analysis tool.
+        run: go vet ./...
+
+      - name: Build
+        # Builds your main application.
+        run: go build -o vpnctl ./cmd/vpnctl # Assuming your main package is in cmd/vpnctl
+
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: '1.23' # Use consistent Go version
+          cache: true
+
+      - name: Run golangci-lint
+        uses: golangci/golangci-lint-action@v3 # Use golangci-lint action
+        with:
+          version: v1.57.1 # Specify a stable version, check latest on their GitHub
+          args: --timeout=5m --verbose # Add a timeout and verbose output
+          # config: .golangci.yml # Optional: if you have a custom config file
+
+  security_scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: '1.23'
+          cache: true
+
+      - name: Run GoSec security scanner
+        uses: securego/gosec@master # Use the official gosec action
+        with:
+          args: ./... # Scan all packages
+
+# Optional: Cross-platform build matrix
+# Uncomment if your application needs to be built for different OS/ARCH combinations
+# cross_build:
+#   runs-on: ubuntu-latest
+#   strategy:
+#     matrix:
+#       goos: [linux, windows, darwin]
+#       goarch: [amd64, arm64]
+#       exclude: # Exclude combinations that are not common or supported by Go
+#         - goos: windows
+#           goarch: arm64
+#         - goos: darwin
+#           goarch: amd64
+#   steps:
+#     - uses: actions/checkout@v4
+#     - name: Set up Go
+#       uses: actions/setup-go@v4
+#       with:
+#         go-version: '1.23'
+#     - name: Build
+#       run: |
+#         env GOOS=${{ matrix.goos }} GOARCH=${{ matrix.goarch }} go build -o vpnctl-${{ matrix.goos }}-${{ matrix.goarch }} ./cmd/vpnctl
+#     - name: Upload Artifact
+#       uses: actions/upload-artifact@v3
+#       with:
+#         name: vpnctl-${{ matrix.goos }}-${{ matrix.goarch }}
+#         path: vpnctl-${{ matrix.goos }}-${{ matrix.goarch }}

@@ -139,7 +139,7 @@ func (c *ConfigReader) GetBool(path string) bool {
 func LoadAllConfigAtOnce(configPath string) error {
 	vr, err := LoadConfig(configPath)
 	if err != nil {
-		fmt.Errorf("failed to load configuration: %w", err)
+		return err
 	}
 
 	VPN_BINARY_PATH = vr.VPN.BinaryPath
