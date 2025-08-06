@@ -341,7 +341,7 @@ func connectWithRetries(credential *model.CREDENTIAL_FOR_LOGIN, profile string, 
 	}
 	tempScript := tempFile.Name()
 
-	logger.Debugf("tempscript info: %s", tempScript)
+	// logger.Debugf("tempscript info: %s", tempScript)
 
 	_, err = tempFile.WriteString(script)
 	if err != nil {
@@ -458,6 +458,7 @@ func connectWithRetries(credential *model.CREDENTIAL_FOR_LOGIN, profile string, 
 // The function supports "intra" and "dev" profiles, returning the appropriate credential file path.
 // If the profile name is not recognized, it returns an empty string.
 // This function is useful for locating the VPN profile scripts needed for connection.
+// Deprecated: This function is deprecated as the credential management has been migrated to keyring.
 func getProfilePath(name string) string {
 	u, _ := user.Current()
 	switch name {

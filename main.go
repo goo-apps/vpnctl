@@ -10,9 +10,11 @@ import (
 	"encoding/json"
 	"fmt"
 	"os"
+	"os/exec"
 	"strings"
 	"text/tabwriter"
 
+	"github.com/common-nighthawk/go-figure"
 	goautobuild "github.com/goo-apps/go-auto-build"
 	"github.com/goo-apps/vpnctl/cmd/vpnctl"
 	"github.com/goo-apps/vpnctl/config"
@@ -21,9 +23,77 @@ import (
 	"github.com/goo-apps/vpnctl/internal/model"
 	"github.com/goo-apps/vpnctl/logger"
 	"golang.org/x/term"
-
-	"github.com/common-nighthawk/go-figure"
 )
+
+func checkAndInstall(currentVersion string, latest *model.GitHubRelease) error {
+	if strings.TrimPrefix(currentVersion, "v") == strings.TrimPrefix(latest.TagName, "v") {
+		fmt.Println("✅ Your version is up to date!")
+		return nil
+	}
+	// Print styled block
+	fmt.Println()
+	fmt.Println("╭─────────────────────────────────────────────────────────────────╮")
+	fmt.Println("│ ⚠️  New version of vpnctl is available!                          │")
+	fmt.Println("├─────────────────────────────────────────────────────────────────┤")
+	fmt.Printf("│ 📦 Version:   %-49s │\n", latest.TagName)
+	// fmt.Printf("│ 📝 Release:   %-49s │\n", latest.Name)
+	fmt.Println("│                                                                 │")
+
+	// Format release notes (first 3 lines)
+	noteLines := strings.Split(latest.Body, "\n")
+	maxNotes := 3
+	if len(noteLines) < maxNotes {
+		maxNotes = len(noteLines)
+	}
+	fmt.Println("│ 📄 Release Notes:                                               │")
+	for i := 0; i < maxNotes; i++ {
+		n := strings.TrimSpace(noteLines[i])
+		if n != "" {
+			fmt.Printf("│   • %-59s │\n", truncateString(n, 46))
+		}
+	}
+	if len(noteLines) > 3 {
+		fmt.Printf("│   • %-59s │\n", "... (see full changelog in below link)")
+	}
+	fmt.Println("│                                                                 │")
+	fmt.Printf("│ 🔗 View: %-50s │\n", latest.HTMLURL)
+	fmt.Println("╰─────────────────────────────────────────────────────────────────╯")
+	fmt.Println()
+
+	// Ask for confirmation
+	fmt.Print("💡 Do you want to install the latest version now? (y/N): ")
+	reader := bufio.NewReader(os.Stdin)
+	respText, _ := reader.ReadString('\n')
+	respText = strings.TrimSpace(strings.ToLower(respText))
+
+	if respText == "y" || respText == "yes" {
+		fmt.Println("🚀 Installing latest version...")
+
+		cmd := exec.Command("bash", "./auto-installer.sh", currentVersion)
+		cmd.Stdout = os.Stdout
+		cmd.Stderr = os.Stderr
+		cmd.Stdin = os.Stdin
+
+		if err := cmd.Run(); err != nil {
+			fmt.Println("❌ Installation failed:", err)
+			return err
+		}
+		fmt.Println("✅ vpnctl installed successfully.")
+		fmt.Println()
+	} else {
+		fmt.Println("ℹ️  Manual installation available at:")
+		fmt.Println("   ./install_vpnctl.sh")
+	}
+
+	return nil
+}
+
+func truncateString(str string, max int) string {
+	if len(str) <= max {
+		return str
+	}
+	return str[:max-3] + "..."
+}
 
 // introduction to cpnctl fro user
 func info() {
@@ -32,8 +102,7 @@ func info() {
 	// fetch version from remote
 	latest, verr := vpnctl.FetchLatestPreOrStableRelease()
 	if verr != nil {
-		logger.Warningf("error/timeout fetching latest release: %v", verr)
-		logger.Warningf("please re-run the application command: %v", verr)
+		logger.Warningf("error/timeout; please give us while, You can perform everything else: %v", verr)
 	}
 
 	// set in DB
@@ -50,20 +119,13 @@ func info() {
 	}
 
 	banner.Print()
-	// fmt.Printf("You're using vpnctl CLI[%v]", config.APPLICATION_ENVIRONMENT)
 	fmt.Println("vpnctl - VPN Helper CLI for Cisco Secure Client")
 	fmt.Println("👤 Author: @Rohan Das")
 	fmt.Println("📧 Email: dev.work.rohan@gmail.com")
 	fmt.Printf("#️⃣  Version: %s\n", config.APPLICATION_VERSION)
 	// Normalize and compare version strings
 	if verr == nil {
-		if strings.TrimPrefix(version, "v") == strings.TrimPrefix(latest.TagName, "v") {
-			fmt.Println("✅ Your version is up to date!")
-		} else {
-			fmt.Printf("⚠️  A newer version is available: %s\n", latest.TagName)
-			fmt.Printf("👉 Download it from: %s\n", latest.HTMLURL)
-			fmt.Printf("📥 Installation manual: %s\n", "https://github.com/goo-apps/vpnctl?tab=readme-ov-file#installation")
-		}
+		checkAndInstall(version, latest)
 	}
 	fmt.Print("📌 Run 'vpnctl help' for available commands\n")
 	fmt.Println()
@@ -130,18 +192,18 @@ func main() {
 		switch cmd {
 		case "connect":
 			if len(os.Args) < 3 {
-				fmt.Print("Please specify profile: intra or dev")
+				fmt.Print("please specify profile: intra or dev")
 				return
 			}
 
-			if (os.Args[2] != "intra" || os.Args[2] != "dev") {
-				fmt.Print("Unkonwn profile: ", os.Args[2])
+			if os.Args[2] != "intra" && os.Args[2] != "dev" {
+				logger.Fatalf("unknown command: %s", os.Args[2])
 				return
 			}
 
 			credential, err = handler.GetOrPromptCredential()
 			if err != nil {
-				logger.Fatalf("Failed to get credentials: %s", err)
+				logger.Fatalf("failed to get credentials: %s", err)
 				return
 			}
 			vpnctl.Connect(credential, os.Args[2])
@@ -161,7 +223,7 @@ func main() {
 		// handler.StoreCredential(profile, credential.Username, credential.Password)
 		case "credential":
 			if len(os.Args) < 3 {
-				fmt.Print("Please specify an operation: fetch or update or delete")
+				fmt.Print("please specify an operation: fetch or update or delete")
 				return
 			}
 
